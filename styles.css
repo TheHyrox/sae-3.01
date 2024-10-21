@@ -25,6 +25,7 @@ h1, h2, h3, p, a, li{
 
 /* header large pc */
 header{
+    z-index: 10;
     background-color: var(--primary);
     color: white;
     display: flex;
@@ -271,29 +272,37 @@ input[type=submit]{
 #carousel{
     display: flex;
     flex-direction: row;
-    gap: px;
     align-items: center;
 }
 #carousel button{
     border: none;
     background-color: var(--green);
+    opacity: 90%;
     width: 200px;
     height: 200px;
     border-radius: 5px;
     display: none;
+    order: 0;
 }
 #carousel .pre{
     order: 1;
     display: block;
+    color: red;
 }
 
 #carousel .active{
+    z-index: 1;
     order: 2;
     width: 250px;
     height: 250px;
     display: block;
+    background-color: var(--green);
+    opacity: 100%;
+    margin: 10px -20px ;
+    box-shadow: 0 0 30px -5px var(--primary);
 }
 #carousel .next{
     order: 3;
     display: block;
+    color: green;
 }
