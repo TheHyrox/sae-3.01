@@ -268,3 +268,10 @@ input[type=submit]{
     background-clip: text;
     color: transparent;
 }
+
+.carousel button{
+    border: none;
+    background-color: var(--green);
+    width: 200px;
+    height: 200px;
+}
