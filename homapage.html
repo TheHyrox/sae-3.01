@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
+    <title>ADIIL - Homepage</title>
+</head>
+<body>
+    <header>
+        <div><h1>ADIIL</h1>
+            <ul>
+                <li><a href="">accueil</a></li>
+                <li><a href="">évènements</a></li>
+                <li><a href="">boutique</a></li>
+                <li><a href="">agenda</a></li>
+                <li><a href="">newsletter</a></li>
+                <li><a href="">panier</a></li>
+            </ul>
+        </div>
+        <div>
+            <!-- Hide if the user isn't connected with an admin account -->
+            <label class="switch">
+                <input type="checkbox" />
+                <span></span>
+            </label>
+
+            <a href="">Mon compte</a>
+            <!-- Put user picture -->
+            <img src="Pictures/defaultProfilePicture.png" alt="">
+
+        </div>
+    </header>
+    <main>
+        <!-- show only if there is a special event and take the next one -->
+        <div id="specialEvent">
+            <div>
+                <h2>Alerte évènement spécial</h2>
+                <!-- get event info -->
+                <p>description de l'évènement <a href="">en savoir plus</a></p>
+            </div>
+            <!-- change action to event page -->
+            <form action="" method="post">
+                <input type="submit" value="Participer">
+            </form>
+        </div>
+
+        <div class="row">
+            <!-- get bde group and change data -->
+            <article>
+                <h2>
+                    Titre
+                </h2>
+                <img src="Pictures/defaultProfilePicture.png" alt="">
+                <p>
+                    Voici la nouvelle équipe de l’ADILL !!! Promis ils ne mordent pas ^^
+                </p>
+                <!-- add page in action -->
+                <form action="" method="post">
+                    <input type="submit" value="Boutton">
+                </form>
+            </article>
+
+            <!-- classement xp users -->
+             <div class="classement">
+                <h2>
+                    Classement des meilleurs étudiants
+                </h2>
+                <div>
+                    <img src="" alt="">
+                    <div>
+                        <h3>
+                            Nom
+                        </h3>
+                        <progress id="file" max="100" value="70"></progress>
+                        <p>Niveau --</p>
+                    </div>
+                </div>
+             </div>
+        </div>
+
+    </main>
+</body>
+</html>
