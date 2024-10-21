@@ -31,6 +31,9 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px 5px 20px;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
 }
 header div{
     display: flex;
@@ -164,9 +167,10 @@ main{
 .row{
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 50px;
 }
 
+/* article */
 article{
     display: flex;
     flex-direction: column;
@@ -187,8 +191,9 @@ article h2{
     text-transform: uppercase;
 }
 article p{
+    min-width: 150px;
     max-width: 300px;
-    align-self: self-start;
+    align-self: start;
     color: var(--white);
 }
 input[type=submit]{
@@ -203,3 +208,31 @@ input[type=submit]{
     font-size: larger;
 }
 
+/* classement */
+.ranked {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: var(--white);
+}
+.ranked div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    
+}
+.ranked div div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
+}
+.ranked img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.ranked h3{
+    text-transform: uppercase;
+}
