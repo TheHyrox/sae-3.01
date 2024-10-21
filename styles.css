@@ -268,10 +268,25 @@ input[type=submit]{
     background-clip: text;
     color: transparent;
 }
-
-.carousel button{
+#carousel{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+#carousel button{
     border: none;
     background-color: var(--green);
     width: 200px;
     height: 200px;
+    border-radius: 5px;
+}
+#carousel .pre{
+    order: 1;
+}
+
+#carousel .active{
+    order: 2;
+}
+#carousel .next{
+    order: 3;
 }
