@@ -168,6 +168,7 @@ main{
     display: flex;
     flex-direction: row;
     gap: 50px;
+    align-items: center;
 }
 
 /* article */
@@ -185,14 +186,14 @@ article img{
     border-radius: 5px;
 }
 article h2{
-    max-width: 300px;
+    max-width: 500px;
     color: var(--white);
     font-family: Anton;
     text-transform: uppercase;
 }
 article p{
-    min-width: 150px;
-    max-width: 300px;
+    min-width: 200px;
+    max-width: 500px;
     align-self: start;
     color: var(--white);
 }
@@ -214,6 +215,7 @@ input[type=submit]{
     flex-direction: column;
     gap: 15px;
     color: var(--white);
+    width: 100%;
 }
 .ranked div{
     display: flex;
@@ -227,12 +229,41 @@ input[type=submit]{
     flex-direction: column;
     gap: 5px;
     align-items: start;
+    width: 100%;
 }
 .ranked img{
     width: 70px;
     height: 70px;
     border-radius: 50%;
 }
+.ranked progress{
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    
+}
+.ranked progress::-webkit-progress-bar {
+    background-color: var(--primary); /* background */
+    border-radius: 10px;
+}
+.ranked progress::-webkit-progress-value {
+    background: var(--linearClassic); /* color */
+    border-radius: 10px;
+}
+.ranked h2{
+    font-family: Anton;
+    text-transform: uppercase;
+}
 .ranked h3{
     text-transform: uppercase;
+    font-weight: lighter;
+
+}
+.ranked p{
+    font-family: Anton;
+    font-weight: bold;
+    font-size: large;
+    background: var(--linearClassic);
+    background-clip: text;
+    color: transparent;
 }
