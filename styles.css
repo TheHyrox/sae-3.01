@@ -271,7 +271,8 @@ input[type=submit]{
 #carousel{
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: px;
+    align-items: center;
 }
 #carousel button{
     border: none;
@@ -279,14 +280,20 @@ input[type=submit]{
     width: 200px;
     height: 200px;
     border-radius: 5px;
+    display: none;
 }
 #carousel .pre{
     order: 1;
+    display: block;
 }
 
 #carousel .active{
     order: 2;
+    width: 250px;
+    height: 250px;
+    display: block;
 }
 #carousel .next{
     order: 3;
+    display: block;
 }
