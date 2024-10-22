@@ -28,7 +28,7 @@ input{
 /*scroll bar*/
 /* width */
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 15px;
   }
   
   /* Track */
@@ -213,6 +213,15 @@ article h2{
     color: var(--white);
     font-family: Anton;
     text-transform: uppercase;
+}
+article h3{
+    background: var(--linearClassic);
+    background-clip: text;
+    color: transparent;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 200;
 }
 article p{
     min-width: 200px;
