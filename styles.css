@@ -25,6 +25,7 @@ h1, h2, h3, p, a, li{
 
 /* header large pc */
 header{
+    z-index: 10;
     background-color: var(--primary);
     color: white;
     display: flex;
@@ -270,30 +271,101 @@ input[type=submit]{
 }
 #carousel{
     display: flex;
-    flex-direction: row;
-    gap: px;
     align-items: center;
+    height: 320px;
 }
 #carousel button{
     border: none;
-    background-color: var(--green);
-    width: 200px;
-    height: 200px;
+    background-color: transparent;
+    opacity: 70%;
+    width: 300px;
+    height: 220px;
     border-radius: 5px;
     display: none;
+    order: 0;
+    transition: transform 0.5s ease, background-color 0.9s ease, opacity 0.3s ease, width 0.9s ease, height 0.9s ease;
+    position: relative;
+    padding-block: 0;
+    padding-inline: 0;
 }
 #carousel .pre{
     order: 1;
     display: block;
+    transform: translateX(-100%);
 }
 
 #carousel .active{
     order: 2;
-    width: 250px;
-    height: 250px;
+    z-index: 1;
+    width: 370px;
+    height: 300px;
     display: block;
+    opacity: 100%;
+    margin: 10px -350px ;
+    box-shadow: 0 0 30px -5px var(--primary);
 }
 #carousel .next{
     order: 3;
     display: block;
+    transform: translateX(100%);
+}
+#carousel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* footer */
+footer{
+    background-color: var(--primary);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 100px;
+    padding: 20px 40px;
+}
+footer h2{
+    font-weight: 50;
+}
+footer div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+footer div div{
+    gap: 0;
+    align-items: start;
+}
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+#contact div{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+footer h3{
+    background: var(--linearClassic);
+    background-clip: text;
+    color: transparent;
+}
+footer img{
+    width: 20px;
+    height: 20px;
+}
+.icon{
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    background: var(--linearClassic);
+}
+.icon img{
+    width: 35px;
+    height: auto;
 }
