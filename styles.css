@@ -369,3 +369,9 @@ footer img{
     width: 35px;
     height: auto;
 }
+
+/*events*/
+#event{
+    display: grid;
+    
+}
