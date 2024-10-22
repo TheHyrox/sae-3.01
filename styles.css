@@ -25,6 +25,24 @@ input{
     cursor: pointer;
 }
 
+/*scroll bar*/
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: var(--primary);
+    border-radius: 2px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--linearClassic);
+    border-radius: 2px;
+  }
+
 
 /* header large pc */
 header{
