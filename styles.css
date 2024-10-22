@@ -373,5 +373,12 @@ footer img{
 /*events*/
 #event{
     display: grid;
-    
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
+}
+#eventList{
+    background-color: #D97D12;
+    font-size: 50px;
+    overflow-y: scroll;
+    height: 500px;
 }
