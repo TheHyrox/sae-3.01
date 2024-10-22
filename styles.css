@@ -272,7 +272,7 @@ input[type=submit]{
 #carousel{
     display: flex;
     align-items: center;
-    height: 320px;
+    height: 310px;
 }
 #carousel button{
     border: none;
@@ -313,59 +313,4 @@ input[type=submit]{
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* footer */
-footer{
-    background-color: var(--primary);
-    color: var(--white);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 100px;
-    padding: 20px 40px;
-}
-footer h2{
-    font-weight: 50;
-}
-footer div{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-footer div div{
-    gap: 0;
-    align-items: start;
-}
-#contact{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-#contact div{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-footer h3{
-    background: var(--linearClassic);
-    background-clip: text;
-    color: transparent;
-}
-footer img{
-    width: 20px;
-    height: 20px;
-}
-.icon{
-    width: 60px;
-    height: 60px;
-    align-items: center;
-    border: none;
-    border-radius: 5px;
-    background: var(--linearClassic);
-}
-.icon img{
-    width: 35px;
-    height: auto;
 }
