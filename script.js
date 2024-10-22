@@ -1,4 +1,6 @@
 const slides = document.querySelectorAll('.slide');
+const monthBtns = document.querySelectorAll('.monthBtn');
+const months = document.querySelectorAll('.month');
 let currentSlide = 0;
 
 function updateSlides() {
@@ -13,10 +15,18 @@ function updateSlides() {
 }
 
 slides.forEach((button, index) => {
-    button.addEventListener('click', () => handleClick(index));
+    button.addEventListener('click', () => slideClick(index));
 });
 
-function handleClick(index) {
+function slideClick(index) {
     currentSlide = index;
     updateSlides();
+}
+
+monthBtns.forEach((button, index) => {
+    button.addEventListener('click', () => slideClick(index));
+});
+
+function slideClick(index) {
+    months[index].classList.toggle('active');
 }

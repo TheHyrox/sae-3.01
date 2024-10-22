@@ -411,9 +411,22 @@ footer img{
     border-radius: 5px;
     background: var(--linearClassic);
 }
+#eventList li.active button{
+    border-radius: 5px 5px 0 0;
+}
 #eventList button img{
     width: 25px;
     height: auto;
+}
+#eventList li.active button img{
+    rotate: 180deg;
+}
+#eventList ul li ul{
+    display: none;
+}
+#eventList ul li.active ul{
+    display: flex;
+    flex-direction: column;
 }
 #eventList ul li ul li{
     display: flex;
