@@ -155,6 +155,12 @@ main{
     gap: 25px;
 }
 
+h2{
+    font-family: Anton;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
 /* special event bar */
 #specialEvent{
     background: var(--linearClassic);
@@ -169,6 +175,7 @@ main{
 #specialEvent h2{
     font-family: Anton;
     text-transform: uppercase;
+    color: var(--secondary);
 }
 #specialEvent a{
     color: var(--secondary);
@@ -281,10 +288,6 @@ input[type=submit]{
 .ranked progress::-webkit-progress-value {
     background: var(--linearClassic); /* color */
     border-radius: 10px;
-}
-.ranked h2{
-    font-family: Anton;
-    text-transform: uppercase;
 }
 .ranked h3{
     text-transform: uppercase;
@@ -487,4 +490,40 @@ footer img{
     font-size: 20px;
     font-weight: lighter;
     text-transform: none;
+}
+
+
+.imgBackground{
+    background: var(--linearClassic);
+    border-radius: 8px;
+    font-size: 0;
+    padding: 3px;
+}
+.grades{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+.grades article img{
+    padding: 50px;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    background-color: var(--primary);
+}
+.produits{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    padding: 10px 0;
+    overflow-x: auto;
+}
+.produits article img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--primary);
 }
