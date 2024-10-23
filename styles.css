@@ -162,7 +162,7 @@ h2{
 }
 
 /* special event bar */
-#specialEvent{
+#annonce{
     background: var(--linearClassic);
     padding: 10px;
     border-radius: 10px;
@@ -172,15 +172,15 @@ h2{
     align-items: center;
     justify-content: space-between;
 }
-#specialEvent h2{
+#annonce h2{
     font-family: Anton;
     text-transform: uppercase;
     color: var(--secondary);
 }
-#specialEvent a{
+#annonce a{
     color: var(--secondary);
 }
-#specialEvent input[type=submit]{
+#annonce input[type=submit]{
     background: none;
     border: var(--secondary) 3.5px solid;
     border-radius: 5px;
@@ -522,8 +522,11 @@ footer img{
     overflow-x: auto;
 }
 .produits article img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     background-color: var(--primary);
+}
+.produits article .row{
+    gap: 15px;
 }
