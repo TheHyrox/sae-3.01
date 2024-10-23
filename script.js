@@ -24,9 +24,9 @@ function slideClick(index) {
 }
 
 monthBtns.forEach((button, index) => {
-    button.addEventListener('click', () => slideClick(index));
+    button.addEventListener('click', () => monthClick(index));
 });
 
-function slideClick(index) {
+function monthClick(index) {
     months[index].classList.toggle('active');
 }
