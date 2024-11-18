@@ -600,22 +600,22 @@ footer img{
     border-radius: 10px;
   }
   
-  #eventList {
+  #agendaeventList {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  #eventList li {
+  #agendaeventList li {
     padding: 10px;
     border-bottom: 1px solid var(--secondary);
   }
   
-  #eventList li:last-child {
+  #agendaeventList li:last-child {
     border-bottom: none;
   }
   
-  #eventList li button {
+  #agendaeventList li button {
     background-color: var(--linearClassic);
     border: none;
     padding: 10px 20px;
@@ -625,24 +625,24 @@ footer img{
     cursor: pointer;
   }
   
-  #eventList li button:hover {
+  #agendaeventList li button:hover {
     background-color: var(--linearAdmin);
   }
   
-  #eventList li ul {
+  #agendaeventList li ul {
     display: none;
   }
   
-  #eventList li.active ul {
+  #agendaeventList li.active ul {
     display: block;
   }
   
-  #eventList li ul li {
+  #agendaeventList li ul li {
     padding: 10px;
     border-bottom: 1px solid var(--secondary);
   }
   
-  #eventList li ul li:last-child {
+  #agendaeventList li ul li:last-child {
     border-bottom: none;
   }
 
