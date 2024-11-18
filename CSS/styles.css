@@ -155,7 +155,7 @@ header .switch{
 
 /* textfield */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-input[type="text"],input[type="email"] {
+input[type="text"],input[type="email"],input[type="password"] {
     width: 100%;               
     padding: 10px; 
     margin: 0;     
@@ -753,3 +753,7 @@ footer img{
     text-transform: uppercase;
     text-align: start;
   }
+  #paiement input[type="submit"]{
+    
+  }
+  
