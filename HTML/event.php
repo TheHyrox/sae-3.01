@@ -8,31 +8,7 @@
     <title>ADIIL - Évènements</title>
 </head>
 <body>
-    <header>
-        <div><h1>ADIIL</h1>
-            <ul>
-                <li><a href="./index.html">accueil</a></li>
-                <li><a href="./event.html">évènements</a></li>
-                <li><a href="./shop.html">boutique</a></li>
-                <li><a href="./agenda.html">agenda</a></li>
-                <li><a href="./newsletter.html">newsletter</a></li>
-                <li><a href="">panier</a></li>
-            </ul>
-        </div>
-        <div>
-            <!-- Hide if the user isn't connected with an admin account -->
-            <label class="switch">
-                <input type="checkbox"/>
-                <span></span>
-            </label>
-
-            <a href="">Mon compte</a>
-            <!-- Put user picture -->
-            <img src="../Pictures/defaultProfilePicture.png" alt="">
-
-        </div>
-    </header>
-
+<?php include '../Views/header.html'; ?>
     <main>
         <div id="event">
             <div id="eventList">
