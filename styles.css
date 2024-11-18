@@ -514,6 +514,10 @@ footer img{
     object-fit: cover;
     background-color: var(--primary);
 }
+.grades article .row{
+    margin-top: auto;
+}
+
 .produits{
     display: flex;
     flex-direction: row;
@@ -536,6 +540,7 @@ footer img{
     align-items: start;
     flex-direction: row;
     padding: 10px;
+    height: 100%;
 }
 
 .letter div{
