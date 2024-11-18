@@ -40,7 +40,7 @@ $controller->registerRequest();
                 </select>
                 <input type="submit" name="registerUser" value="S'inscrire">
             </form>
-            <form action="./login.html" class="form-other">
+            <form action="login.php" class="form-other">
                 <input type="submit" value="Se connecter">
             </form>
         </div>
