@@ -42,6 +42,9 @@ $controller->registerRequest();
         <div>
             <form class="form-login" action="./register.php" method="POST" name="registerUser">
                 <h2>Connexion</h2>
+                <?php if ($controller->errorMessage): ?>
+                    <p class="error-message"><?php echo $controller->errorMessage; ?></p>
+                <?php endif; ?>
                 <label for="email">Adresse mail</label>
                 <input type="email" id="email" name="email" required>
                 <label for="password">Mot de passe</label>
@@ -56,9 +59,6 @@ $controller->registerRequest();
                     <option value="tp4">TP4</option>
                 </select>
                 <input type="submit" name="registerUser" value="S'inscrire">
-                <?php if ($controller->errorMessage): ?>
-                    <p class="error-message"><?php echo $controller->errorMessage; ?></p>
-                <?php endif; ?>
             </form>
             <form action="./login.html" class="form-other">
                 <input type="submit" value="Se connecter">
