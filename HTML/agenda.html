@@ -1,3 +1,4 @@
+// agenda.html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ADILL - Agenda</title>
   <link rel="stylesheet" href="../CSS/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/ical.js@1.4.0/dist/ical.min.js"></script>
 </head>
 <body>
   <h1>Agenda</h1>
@@ -22,13 +24,43 @@
     <option value="TP32C">TP32C</option>
     <option value="TP32D">TP32D</option>
   </select>
-  <a href="#" id="load-ics">Charger les événements</a>
+  <a href="/Script/agenda.php" id="load-ics">Charger les événements</a>
   <div id="agenda">
     <h2>Agenda</h2>
     <ul id="eventList">
       
     </ul>
   </div>
-  <script src="../Script/agenda.js"></script>
+
+  <script>
+    const groupSelect = document.getElementById('group-select');
+    const loadIcsButton = document.getElementById('load-ics');
+    const eventList = document.getElementById('eventList');
+
+    loadIcsButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const group = groupSelect.value;
+      const icsFile = `../Calendar/${group}.ics`;
+      fetch(icsFile)
+        .then((response) => response.text())
+        .then((icsData) => {
+          console.log('ical.js chargé');
+          const ical = ical.parse(icsData);
+          console.log('ical défini');
+          const events = ical[1];
+          const eventListHtml = events.map((event) => {
+            return `
+              <li>
+                <h3>${event.summary}</h3>
+                <p>${event.description}</p>
+                <p>${event.start.toISOString()}</p>
+              </li>
+            `;
+          }).join('');
+          eventList.innerHTML = eventListHtml;
+        })
+        .catch((error) => console.error(error));
+    });
+  </script>
 </body>
 </html>
