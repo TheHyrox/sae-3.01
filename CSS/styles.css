@@ -772,11 +772,15 @@ footer img{
 .login-register{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 .login-register div{
     background-color: var(--primary);
     border-radius: 15px 0 0 15px;
-    padding: 15px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .login-register div:last-child{
@@ -789,4 +793,29 @@ footer img{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.login-register form label{
+    font-family: Josefin Sans;
+    font-size: large;
+    color: var(--white);
+}
+.login-register div:last-child h2{
+    font-size: 4em;
+    width: 300px;
+    align-items: center;
+}
+
+.form-other input[type=submit]{
+    background: transparent;
+    border: 3px solid transparent; /* Transparent pour laisser place au dégradé */
+    border-image: var(--linearClassic) 1; 
+    border-radius: 5px;
+    padding: 5px 25px;
+    background: var(--linearClassic);
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: larger;
 }
