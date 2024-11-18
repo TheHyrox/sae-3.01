@@ -20,9 +20,7 @@ h1, h2, h3, p, a, li{
 input{
     cursor: pointer;
 }
-.error-message{
-    color: var(--red);
-}
+
 /* nav */
 nav{
     background-color: var(--primary);

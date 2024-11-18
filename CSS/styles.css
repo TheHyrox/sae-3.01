@@ -7,6 +7,7 @@
     --linearClassic: linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%);
     --linearAdmin: linear-gradient(90deg, rgba(217, 125, 18, 1) 0%, rgba(233, 83, 19, 1) 27%, rgba(237, 40, 217, 1) 100%);
     --white: #faf0e6;
+    --red: #E95313;
 }
 html, body{
     padding: 0;
@@ -20,6 +21,10 @@ h1, h2, h3, p, a, li{
 
 input{
     cursor: pointer;
+}
+
+.error-message{
+    color: var(--red);
 }
 
 /*scroll bar*/
