@@ -652,9 +652,24 @@ footer img{
 
   /* Panier */
   /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  #panier table{
+    border-collapse: collapse;  
+    overflow: hidden;
+  }
+
   #panier th{
     width: 250px;
   }
-  #panier tr{
-    background-color: #faf0e655;
+  #panier tr:not(:first-child){
+    background: #faf0e622;
+    color: var(--white);
+    
+  }
+  #panier tr:not(:first-child) td:first-child  {
+    padding: 5px 0 5px 20px;
+    border-radius: 5px 0 0 5px;
+  }
+  #panier tr:not(:first-child) td:last-child  {
+    padding: 5px 20px 5px 0;
+    border-radius: 0 5px 5px 0;
   }
