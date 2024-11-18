@@ -42,10 +42,10 @@ $controller->registerRequest();
         <div>
             <form class="form-login" action="./register.php" method="POST" name="registerUser">
                 <h2>Connexion</h2>
-                <?php if ($controller->errorMessage): ?>
+                <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->errorMessage): ?>
                     <p class="error-message"><?php echo $controller->errorMessage; ?></p>
                 <?php endif; ?>
-                <?php if ($controller->validationMessage): ?>
+                <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->validationMessage): ?>
                     <p class="error-message"><?php echo $controller->validationMessage; ?></p>
                 <?php endif; ?>
                 <label for="email">Adresse mail</label>
