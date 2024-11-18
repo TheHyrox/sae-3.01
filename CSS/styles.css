@@ -25,6 +25,9 @@ input{
 
 .error-message{
     color: var(--red);
+    background-color: #E9531333;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /*scroll bar*/

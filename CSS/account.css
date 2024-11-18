@@ -50,7 +50,7 @@ a{
     color: transparent;
 }
 .red{
-    color: red;
+    color: var(--red);
 }
 
 main{
