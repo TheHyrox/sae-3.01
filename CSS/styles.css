@@ -30,6 +30,13 @@ input{
     border-radius: 5px;
 }
 
+.validation-message{
+    color: var(--green);
+    background-color: #4EB67433;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 /*scroll bar*/
 /* width */
 ::-webkit-scrollbar {

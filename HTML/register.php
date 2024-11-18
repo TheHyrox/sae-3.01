@@ -42,6 +42,12 @@ $controller->registerRequest();
         <div>
             <form class="form-login" action="./register.php" method="POST" name="registerUser">
                 <h2>Connexion</h2>
+                <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->errorMessage): ?>
+                    <p class="error-message"><?php echo $controller->errorMessage; ?></p>
+                <?php endif; ?>
+                <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->validationMessage): ?>
+                    <p class="validation-message"><?php echo $controller->validationMessage; ?></p>
+                <?php endif; ?>
                 <label for="email">Adresse mail</label>
                 <input type="email" id="email" name="email" required>
                 <label for="password">Mot de passe</label>
@@ -56,9 +62,6 @@ $controller->registerRequest();
                     <option value="tp4">TP4</option>
                 </select>
                 <input type="submit" name="registerUser" value="S'inscrire">
-                <?php if ($controller->errorMessage): ?>
-                    <p class="error-message"><?php echo $controller->errorMessage; ?></p>
-                <?php endif; ?>
             </form>
             <form action="./login.html" class="form-other">
                 <input type="submit" value="Se connecter">
