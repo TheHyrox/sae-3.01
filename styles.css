@@ -645,3 +645,12 @@ footer img{
   #eventList li ul li:last-child {
     border-bottom: none;
   }
+
+  /* Panier */
+  /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  #panier th{
+    width: 250px;
+  }
+  #panier tr{
+    background-color: #faf0e655;
+  }
