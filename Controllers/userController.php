@@ -1,11 +1,11 @@
 <?php
-require_once './models/UserModel.php';
+require_once '../Models/userModel.php';
 
 class UserController {
     private $model;
 
     public function __construct() {
-        $this->model = new UserModel('', '', '', '');
+        $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
     }
 }
 ?>
