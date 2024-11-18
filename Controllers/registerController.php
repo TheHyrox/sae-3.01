@@ -3,9 +3,9 @@ require '../Models/userModel.php';
 
 class registerController
 {
-    private $model;
-    public $errorMessage = '';
-    public $validationMessage = '';
+    private UserModel $model;
+    public string $errorMessage = '';
+    public string $validationMessage = '';
 
     public function __construct() {
         $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
@@ -23,7 +23,7 @@ class registerController
                 if ($this->verifyDoublePasswordUser($password, $password_verify) === false) {
                     $this->errorMessage = 'Les mots de passe ne correspondent pas';
                 } else {
-                    if ($this->verifyEMailRegisterUser($email)) {
+                    if ($this->model->emailExists($email)) {
                         $this->errorMessage = 'Cet email est déjà utilisé';
                     } else {
                         $this->model->addUser($email, $password, $tp);
@@ -34,11 +34,8 @@ class registerController
         }
     }
 
-    public function verifyEMailRegisterUser($email) {
-        return $this->model->emailExists($email);
-    }
-
-    public function verifyDoublePasswordUser($password, $password2) {
+    public function verifyDoublePasswordUser($password, $password2): bool
+    {
         return $password === $password2;
     }
 }
