@@ -1,3 +1,9 @@
+<?php
+require '../Controllers/loginController.php';
+$controller = new loginController();
+$controller->loginRequest();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +19,14 @@
         <div>
             <form class="form-login" action="">
                 <h2>Connexion</h2>
-                <label for="username">Identifiant</label>
+                <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->errorMessage): ?>
+                    <p class="error-message"><?php echo $controller->errorMessage; ?></p>
+                <?php endif; ?>
+                <label for="email">E-Mail</label>
                 <input type="email" id="email" required>
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" required>
-                <input type="submit" value="Se connecter">
+                <input type="submit" value="Se connecter" name="loginUser">
             </form>
             <form action="./register.php" class="form-other">
                 <input type="submit" value="S'inscrire">
