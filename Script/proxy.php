@@ -1,15 +1,16 @@
 <?php
 if (isset($_GET['url'])) {
-    $url = filter_var($_GET['url'], FILTER_VALIDATE_URL);
-    if ($url) {
-        header('Content-Type: text/calendar');
-        echo file_get_contents($url);
+    $url = $_GET['url'];
+    $content = file_get_contents($url);
+    if ($content === FALSE) {
+        http_response_code(500);
+        echo "Erreur lors de la récupération du fichier ICS.";
     } else {
-        http_response_code(400);
-        echo 'URL invalide.';
+        header('Content-Type: text/calendar');
+        echo $content;
     }
 } else {
     http_response_code(400);
-    echo 'Paramètre URL manquant.';
+    echo "URL non spécifiée.";
 }
 ?>

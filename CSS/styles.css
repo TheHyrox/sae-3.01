@@ -152,6 +152,30 @@ header .switch{
     background: var(--linearAdmin);
 	left: 50px;
 }
+
+/* textfield */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+input[type="text"],input[type="email"],input[type="password"] {
+    width: 100%;               
+    padding: 10px; 
+    margin: 0;     
+    font-size: 16px;           
+    border-width: 2px;
+    border-style: solid;
+    border-image: var(--linearClassic) 1;
+    background-color: var(--secondary);
+    color: var(--primary);      
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    color: var(--green);
+}
+input[type="text"]:focus ,input[type="email"]:focus ,input[type="password"]:focus {
+    border: 2px solid var(--white);
+    outline: none;
+    color: var(--white);
+
+}
+
 /* main */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -723,7 +747,7 @@ footer img{
 
   #paiement table{
     border-collapse: separate;
-    border-spacing: 0 5px; 
+    border-spacing: 60px 20px; 
     overflow: hidden;
     border-top: solid 2px #faf0e622;
     width: 100%;
@@ -737,3 +761,9 @@ footer img{
     text-transform: uppercase;
     text-align: start;
   }
+
+  #paiement input[type="submit"]{
+    width: 100%;
+    margin: 0;
+  }
+  
