@@ -73,32 +73,57 @@
             background-color: var(--orange);
         }
 
-        table {
+        .schedule-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .time-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
 
-        th, td {
+        .time-table th, .time-table td {
             border: 1px solid var(--primary);
-            padding: 10px;
+            padding: 5px;
             text-align: center;
+            vertical-align: top;
         }
 
-        th {
+        .time-table th {
             background-color: var(--primary);
             color: var(--white);
         }
 
-        td {
+        .time-table td {
             background-color: var(--secondary);
+            height: 100px; /* Augmentez cette valeur pour plus d'espace */
+            position: relative;
+            overflow: hidden;
+        }
+
+        #events-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(12 * 100px); /* Ajustez cette valeur en fonction de la hauteur des cellules */
+            pointer-events: none;
         }
 
         .event {
             background-color: var(--primary);
-            margin: 10px 0;
-            padding: 10px;
+            margin: 2px 0;
+            padding: 5px;
             border-radius: 5px;
+            position: absolute;
+            box-sizing: border-box;
+            pointer-events: auto;
+            overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas */
+            white-space: nowrap; /* Empêche le texte de dépasser */
+            text-overflow: ellipsis; /* Ajoute des points de suspension si le texte dépasse */
+            max-height: 100%; /* Assurez-vous que l'événement ne dépasse pas la hauteur de la cellule */
         }
 
         .event button {
@@ -114,11 +139,11 @@
         .event ul {
             list-style: none;
             padding: 0;
-            margin: 10px 0 0 0;
+            margin: 5px 0 0 0;
         }
 
         .event ul li {
-            margin: 5px 0;
+            margin: 2px 0;
         }
 
         /* Scroll bar */
@@ -136,6 +161,7 @@
             border-radius: 2px;
         }
     </style>
+    
 </head>
 <body>
     <h1>Agenda</h1>
@@ -162,25 +188,118 @@
     </div>
 
     <h2>Liste des événements</h2>
-    <table id="events-table">
-        <thead>
-            <tr>
-                <th>Lundi <span id="monday-date"></span></th>
-                <th>Mardi <span id="tuesday-date"></span></th>
-                <th>Mercredi <span id="wednesday-date"></span></th>
-                <th>Jeudi <span id="thursday-date"></span></th>
-                <th>Vendredi <span id="friday-date"></span></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td id="monday"></td>
-                <td id="tuesday"></td>
-                <td id="wednesday"></td>
-                <td id="thursday"></td>
-                <td id="friday"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="schedule-container">
+        <table class="time-table">
+            <thead>
+                <tr>
+                    <th>Heure</th>
+                    <th>Lundi <span id="monday-date"></span></th>
+                    <th>Mardi <span id="tuesday-date"></span></th>
+                    <th>Mercredi <span id="wednesday-date"></span></th>
+                    <th>Jeudi <span id="thursday-date"></span></th>
+                    <th>Vendredi <span id="friday-date"></span></th>
+                </tr>
+            </thead>
+            <tbody id="time-table-body">
+                <tr>
+                    <td>8:00</td>
+                    <td id="monday-8"></td>
+                    <td id="tuesday-8"></td>
+                    <td id="wednesday-8"></td>
+                    <td id="thursday-8"></td>
+                    <td id="friday-8"></td>
+                </tr>
+                <tr>
+                    <td>9:00</td>
+                    <td id="monday-9"></td>
+                    <td id="tuesday-9"></td>
+                    <td id="wednesday-9"></td>
+                    <td id="thursday-9"></td>
+                    <td id="friday-9"></td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td id="monday-10"></td>
+                    <td id="tuesday-10"></td>
+                    <td id="wednesday-10"></td>
+                    <td id="thursday-10"></td>
+                    <td id="friday-10"></td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td id="monday-11"></td>
+                    <td id="tuesday-11"></td>
+                    <td id="wednesday-11"></td>
+                    <td id="thursday-11"></td>
+                    <td id="friday-11"></td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td id="monday-12"></td>
+                    <td id="tuesday-12"></td>
+                    <td id="wednesday-12"></td>
+                    <td id="thursday-12"></td>
+                    <td id="friday-12"></td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td id="monday-13"></td>
+                    <td id="tuesday-13"></td>
+                    <td id="wednesday-13"></td>
+                    <td id="thursday-13"></td>
+                    <td id="friday-13"></td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td id="monday-14"></td>
+                    <td id="tuesday-14"></td>
+                    <td id="wednesday-14"></td>
+                    <td id="thursday-14"></td>
+                    <td id="friday-14"></td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td id="monday-15"></td>
+                    <td id="tuesday-15"></td>
+                    <td id="wednesday-15"></td>
+                    <td id="thursday-15"></td>
+                    <td id="friday-15"></td>
+                </tr>
+                <tr>
+                    <td>16:00</td>
+                    <td id="monday-16"></td>
+                    <td id="tuesday-16"></td>
+                    <td id="wednesday-16"></td>
+                    <td id="thursday-16"></td>
+                    <td id="friday-16"></td>
+                </tr>
+                <tr>
+                    <td>17:00</td>
+                    <td id="monday-17"></td>
+                    <td id="tuesday-17"></td>
+                    <td id="wednesday-17"></td>
+                    <td id="thursday-17"></td>
+                    <td id="friday-17"></td>
+                </tr>
+                <tr>
+                    <td>18:00</td>
+                    <td id="monday-18"></td>
+                    <td id="tuesday-18"></td>
+                    <td id="wednesday-18"></td>
+                    <td id="thursday-18"></td>
+                    <td id="friday-18"></td>
+                </tr>
+                <tr>
+                    <td>19:00</td>
+                    <td id="monday-19"></td>
+                    <td id="tuesday-19"></td>
+                    <td id="wednesday-19"></td>
+                    <td id="thursday-19"></td>
+                    <td id="friday-19"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="events-container"></div>
+    </div>
 </body>
 </html>

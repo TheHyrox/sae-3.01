@@ -53,23 +53,31 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Clear previous events
-    Object.values(days).forEach(day => {
-        document.getElementById(day).innerHTML = '';
-    });
+    const eventsContainer = document.getElementById('events-container');
+    eventsContainer.innerHTML = ''; // Clear previous events
 
     events.forEach(event => {
         const summary = event.getFirstPropertyValue('summary');
         const description = event.getFirstPropertyValue('description');
         const location = event.getFirstPropertyValue('location');
         const startDate = new Date(event.getFirstPropertyValue('dtstart').toString());
+        const endDate = new Date(event.getFirstPropertyValue('dtend').toString());
         const day = startDate.getDay();
+        const startHour = startDate.getHours();
+        const endHour = endDate.getHours();
+        const startMinutes = startDate.getMinutes();
+        const endMinutes = endDate.getMinutes();
 
         // Extract the professor's name from the description
         const professorMatch = description.match(/\n\n(?:Grp \d+\w+|BUT INFO1|TD\d+)\n(.+?)\n/);
         const professor = professorMatch ? professorMatch[1] : 'N/A';
 
+        const durationInMinutes = (endHour * 60 + endMinutes) - (startHour * 60 + startMinutes);
+        const topPosition = ((startHour - 8) * 60 + startMinutes) * (100 / (11 * 60)); // Adjusted for 8:00 to 19:00
+        const height = (durationInMinutes / 60) * 100;
+
         const html = `
-            <div class="event">
+            <div class="event" style="top: ${topPosition}%; height: ${height}%; left: ${((day - 1) * 20)}%; width: 20%;">
                 <button>${summary}</button>
                 <ul>
                     <li>Professeur : ${professor}</li>
@@ -84,13 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
         weekEnd.setDate(weekEnd.getDate() + 4); // End of the week (Friday)
 
         if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
-            document.getElementById(days[day]).innerHTML += html;
+            eventsContainer.insertAdjacentHTML('beforeend', html);
         }
     });
 
     // Set the dates in the table headers
     setWeekDates(getWeekStart(new Date(currentWeekStart)));
-}
+  }
 
   // Function to load events for the selected group
   function loadEvents(group) {
