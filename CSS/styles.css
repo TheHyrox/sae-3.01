@@ -166,7 +166,15 @@ input[type="text"],input[type="email"],input[type="password"] {
     background-color: var(--secondary);
     color: var(--primary);      
     transition: border-color 0.3s, box-shadow 0.3s;
-  }
+    box-sizing: border-box;
+    color: var(--green);
+}
+input[type="text"]:focus ,input[type="email"]:focus ,input[type="password"]:focus {
+    border: 2px solid var(--white);
+    outline: none;
+    color: var(--white);
+
+}
 
 /* main */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -753,7 +761,9 @@ footer img{
     text-transform: uppercase;
     text-align: start;
   }
+
   #paiement input[type="submit"]{
-    
+    width: 100%;
+    margin: 0;
   }
   
