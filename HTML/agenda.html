@@ -1,66 +1,32 @@
-// agenda.html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADILL - Agenda</title>
-  <link rel="stylesheet" href="../CSS/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/ical.js@1.4.0/dist/ical.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <script src="https://cdn.jsdelivr.net/npm/ical.js@1.4.0/dist/ical.min.js"></script>
+    <script src="/Script/agenda.js" defer></script>
 </head>
 <body>
-  <h1>Agenda</h1>
-  <select id="group-select">
-    <option value="TP11A">TP11A</option>
-    <option value="TP11B">TP11B</option>
-    <option value="TP12C">TP12C</option>
-    <option value="TP12D">TP12D</option>
-    <option value="TP21A">TP21A</option>
-    <option value="TP21B">TP21B</option>
-    <option value="TP22C">TP22C</option>
-    <option value="TP22D">TP22D</option>
-    <option value="TP31A">TP31A</option>
-    <option value="TP31B">TP31B</option>
-    <option value="TP32C">TP32C</option>
-    <option value="TP32D">TP32D</option>
-  </select>
-  <a href="/Script/agenda.php" id="load-ics">Charger les événements</a>
-  <div id="agenda">
-    <h2>Agenda</h2>
-    <ul id="eventList">
-      
-    </ul>
-  </div>
+    <h1>Agenda</h1>
+    <label for="group-select">Choisissez un groupe :</label>
+    <select id="group-select">
+        <option value="TP11A">TP11A</option>
+        <option value="TP11B">TP11B</option>
+        <option value="TP12C">TP12C</option>
+        <option value="TP12D">TP12D</option>
+        <option value="TP21A">TP21A</option>
+        <option value="TP21B">TP21B</option>
+        <option value="TP22C">TP22C</option>
+        <option value="TP22D">TP22D</option>
+        <option value="TP31A">TP31A</option>
+        <option value="TP31B">TP31B</option>
+        <option value="TP32C">TP32C</option>
+        <option value="TP32D">TP32D</option>
+    </select>
+    <button id="load-ics">Charger les événements</button>
 
-  <script>
-    const groupSelect = document.getElementById('group-select');
-    const loadIcsButton = document.getElementById('load-ics');
-    const eventList = document.getElementById('eventList');
-
-    loadIcsButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      const group = groupSelect.value;
-      const icsFile = `../Calendar/${group}.ics`;
-      fetch(icsFile)
-        .then((response) => response.text())
-        .then((icsData) => {
-          console.log('ical.js chargé');
-          const ical = ical.parse(icsData);
-          console.log('ical défini');
-          const events = ical[1];
-          const eventListHtml = events.map((event) => {
-            return `
-              <li>
-                <h3>${event.summary}</h3>
-                <p>${event.description}</p>
-                <p>${event.start.toISOString()}</p>
-              </li>
-            `;
-          }).join('');
-          eventList.innerHTML = eventListHtml;
-        })
-        .catch((error) => console.error(error));
-    });
-  </script>
+    <h2>Liste des événements</h2>
+    <ul id="eventList"></ul>
 </body>
 </html>
