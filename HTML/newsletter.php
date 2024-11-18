@@ -8,7 +8,7 @@
     <title>ADIIL - Newsletter</title>
 </head>
 <body>
-<?php include '../Views/header.html'; ?>
+<?php include '../Views/header.php'; ?>
     <main>
         <article class="letter">
             <img src="../Pictures/IMG_1097.jpg" alt="">

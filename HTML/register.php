@@ -13,7 +13,7 @@ $controller->registerRequest();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton" />
 </head>
 <body>
-<?php include '../Views/header.html'; ?>
+<?php include '../Views/header.php'; ?>
 <main>
     <div class="login-register">
         <div>

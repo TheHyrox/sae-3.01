@@ -8,7 +8,7 @@
     <title>ADIIL - Évènements</title>
 </head>
 <body>
-<?php include '../Views/header.html'; ?>
+<?php include '../Views/header.php'; ?>
     <main>
         <div id="event">
             <div id="eventList">

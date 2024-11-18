@@ -8,7 +8,7 @@
     <title>ADIIL - Panier</title>
 </head>
 <body>
-<?php include '../Views/header.html'; ?>
+<?php include '../Views/header.php'; ?>
     <main>
         <article id="panier">
             <h2>Panier</h2>
