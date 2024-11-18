@@ -11,5 +11,11 @@ class UserModel {
             die("Erreur de connexion : " . $e->getMessage());
         }
     }
+
+    public function getUser($id) {
+        $req = $this->bdd->prepare('SELECT * FROM user WHERE Id_User = :id');
+        $req->execute(array('id' => $id));
+        return $req->fetch();
+    }
 }
 ?>
