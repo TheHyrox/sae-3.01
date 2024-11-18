@@ -832,3 +832,16 @@ footer img{
     max-height: 350px;
     object-fit: cover;
 }
+.membreBDE a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+.membreBDE a img {
+    min-width: 25px;
+    max-width: 25px;
+    max-height: 35px;
+}
+  
