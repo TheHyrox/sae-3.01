@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - ADIIL</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton" />
+</head>
+<body>
+    <header>
+        <div>
+            <h1>ADIIL</h1>
+            <ul>
+                <li><a href="./index.html">accueil</a></li>
+                <li><a href="./event.html">évènements</a></li>
+                <li><a href="./shop.html">boutique</a></li>
+                <li><a href="./agenda.html">agenda</a></li>
+                <li><a href="./newsletter.html">newsletter</a></li>
+                <li><a href="./checkout.html">panier</a></li>
+            </ul>
+        </div>
+        <div>
+            <!-- Hide if the user isn't connected with an admin account -->
+            <label class="switch">
+                <input type="checkbox" />
+                <span></span>
+            </label>
+
+            <a href="">Mon compte</a>
+            <!-- Put user picture -->
+            <img src="../Pictures/defaultProfilePicture.png" alt="" />
+        </div>
+    </header>
+    <main>
+    <div class="container-login">
+        <form class="form-login" action="">
+            <h2>Connexion</h2>
+            <label for="username">IDENTIFIANT</label>
+            <input type="text" id="username" placeholder="E-mail">
+            <label for="password">MOT DE PASSE</label>
+            <input type="password" id="password" placeholder="Mot de passe">
+            <input type="submit" value="Se connecter">
+        </form>
+        <form action="./register.html" class="form-register">
+            <input type="submit" value="S'inscrire"></form>
+        <div class="text-section">
+            CONNEXION AU SITE DE L'ADIIL
+        </div>
+    </div>
+    </main>
+</body>
+</html>
