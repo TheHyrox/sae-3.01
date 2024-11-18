@@ -31,7 +31,7 @@ session_start();
         </label>
 
         <?php if (isset($_SESSION['email'])): ?>
-            <a href="../HTML/account.html">Mon compte</a>
+            <a href="../HTML/account.php">Mon compte</a>
         <?php else: ?>
             <a href="../HTML/login.php">Se connecter</a>
         <?php endif; ?>
