@@ -38,7 +38,7 @@
             <table>
                 <tr>
                     <th>Nom</th>
-                    <th>Prix</th>
+                    <th>Prix unitaire</th>
                     <th>Quantité</th>
                 </tr>
                 <tr>
@@ -46,10 +46,44 @@
                     <td>13€</td>
                     <td><!-- truc quantité --></td>
                 </tr>
+                <tr>
+                    <td>Grade diamant</td>
+                    <td>13€</td>
+                    <td><!-- truc quantité --></td>
+                </tr>
             </table>
+            <div id="total">
+                <p>Total</p>
+                <h3>150€</h3>
+            </div>
         </article>
-        <article>
+        <article id="paiement">
             <h2>Paiement</h2>
+            <form action="" method="post">
+                <table>
+                    <tr>
+                        <th>Informations personnelles</th>
+                        <th>Adresse</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fname" id="fname" placeholder="Nom" required></td>
+                        <td><input type="text" name="adress" id="adress" placeholder="Adresse (N° de rue et nom)" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="lname" id="lname" placeholder="Prénom" required></td>
+                        <td><input type="text" name="city" id="city" placeholder="Ville" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" name="email" id="email" placeholder="Adresse Mail (univ-lemans)" required></td>
+                        <td><input type="text" name="city-code" id="city-code" pattern="[0-9]{5}" placeholder="Code postal" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="birthday" name="birthday" pattern="\d{2}-\d{2}-\d{4}" placeholder="Date de naissance (JJ-MM-AAAA)" required></td>
+                        <td><input type="submit" value="Acheter"></td>
+                    </tr>
+                </table>
+            </form>
+            
         </article>
     </main>
     <footer>
@@ -82,17 +116,17 @@
             </h2>
             <div id="contact">
                 <div>
-                    <button class="icon"><img src="/Icons/discord.png" alt=""></button>
-                    <button class="icon"><img src="/Icons/facebook.png" alt=""></button>
-                    <button class="icon"><img src="/Icons/instagram.png" alt=""></button>
-                    <button class="icon"><img src="/Icons/faq.png" alt=""></button>
+                    <button class="icon"><img src="../Icons/discord.png" alt=""></button>
+                    <button class="icon"><img src="../Icons/facebook.png" alt=""></button>
+                    <button class="icon"><img src="../Icons/instagram.png" alt=""></button>
+                    <button class="icon"><img src="../Icons/faq.png" alt=""></button>
                 </div>
                 <div>
-                    <img src="/Icons/tel.png" alt="">
+                    <img src="../Icons/tel.png" alt="">
                     <p>07 67 10 39 95</p>
                 </div>
                 <div>
-                    <img src="/Icons/mail.png" alt="">
+                    <img src="../Icons/mail.png" alt="">
                     <p>adill@univ-lemans.fr</p>
                 </div>
                 <form action="" method="post">
