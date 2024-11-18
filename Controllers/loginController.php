@@ -22,6 +22,7 @@ class loginController
                 if ($this->model->emailExists($email) && $this->model->passwordIsValid($email, $password)) {
                     $_SESSION['email'] = $email;
                     $this->errorMessage = 'Connection réussie';
+                    header('Location: ../HTML/index.php');
                 } else {
                     $this->errorMessage = 'E-mail ou mot de passe incorrect';
                 }
