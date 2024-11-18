@@ -7,10 +7,8 @@
     --linearClassic: linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%);
     --linearAdmin: linear-gradient(90deg, rgba(217, 125, 18, 1) 0%, rgba(233, 83, 19, 1) 27%, rgba(237, 40, 217, 1) 100%);
     --white: #faf0e6;
+    --red: #E95313;
 }
-
-
-
 html, body{
     padding: 0;
     margin: 0;
@@ -23,6 +21,10 @@ h1, h2, h3, p, a, li{
 
 input{
     cursor: pointer;
+}
+
+.error-message{
+    color: var(--red);
 }
 
 /*scroll bar*/
@@ -767,52 +769,129 @@ footer img{
     margin: 0;
   }
     
-/* Page de login */
+/* Page de login - register */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-  main div form{
+.login-register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.login-register div{
+    background-color: var(--primary);
+    border-radius: 15px 0 0 15px;
+    padding: 100px 50px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--primary);
-    border-radius: 10px;
-  }
+}
 
-  main div .form-login label{
-    font-family: "Josefin Sans";
-    font-size: 20px;
-      padding-top: 20px;
+.login-register div:last-child{
+    background: var(--linearClassic);
+    border-radius: 0 15px 15px 0;
+}
+
+.login-register form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login-register form label{
+    font-family: Josefin Sans;
+    font-size: large;
     color: var(--white);
-  }
+}
+.login-register div:last-child h2{
+    font-size: 4em;
+    width: 300px;
+    ali-self: center;
+}
 
-  /*S'inscrire inverse se conencter*/
+.form-other input[type=submit]{
+    background: transparent;
+    border: 3px solid transparent; /* Transparent pour laisser place au dégradé */
+    border-image: var(--linearClassic) 1; 
+    border-radius: 5px;
+    padding: 5px 25px;
+    background: var(--linearClassic);
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: larger;
+}
 
-  main div .form-login input{
-    width: 20%;
-    padding: 10px;
-
-    font-size: 20px;
-    letter-spacing: 2px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: var(--linearClassic) 1;
+select {
     background-color: var(--secondary);
-    color: var(--primary);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    color: var(--white);
+
+    border: 3px solid transparent; /* Transparent pour laisser place au dégradé */
+    border-image: var(--linearClassic) 1; 
+    border-radius: 5px;
+    padding: 5px 25px;
+    outline: none; /* Supprime l'outline par défaut au focus */
   }
 
-  main div .form-register input {
-    width: 20%;
+
+  option {
     padding: 10px;
-    font-size: 20px;
-    letter-spacing: 2px;
-    border-width: 2px;
-    border-style: solid;
-  font-style: var(--linearClassic) 1;
-    border-image: var(--linearClassic) 1;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--secondary);
   }
 
+/* membreBDE */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
->>>>>>> Stashed changes
+.membreBDE{
+    align-items: start;
+    flex-direction: row;
+    padding: 10px;
+    height: 100%;
+}
+
+.membreBDE div{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+    justify-content: space-between;
+}
+.membreBDE div div{
+    gap: 0px;
+}
+.membreBDE h2{
+    max-width: 100%;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-inline: 0;
+    margin-block-end: -10px;
+}
+.membreBDE h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.membreBDE p{
+    max-width: 100%;
+}
+.membreBDE img{
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 350px;
+    object-fit: cover;
+}
+.membreBDE a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+.membreBDE a img {
+    min-width: 25px;
+    max-width: 25px;
+    max-height: 35px;
+}
+  
