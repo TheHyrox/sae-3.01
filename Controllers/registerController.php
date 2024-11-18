@@ -1,18 +1,31 @@
 <?php
+require '../Models/userModel.php';
 
 class registerController
 {
+    private $model;
+    public $errorMessage = '';
+
+    public function __construct() {
+        $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
+    }
+
     public function registerRequest()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['registerUser'])) {
-                if($this->verifyDoublePasswordUser($_POST['password'], $_POST['password_verify']) === false) {
-                    echo 'Les mots de passe ne correspondent pas';
-                } else{
-                    if ($this->verifyEMailRegisterUser($_POST['email'])) {
-                        echo 'Cet email est déjà utilisé';
+                $email = $_POST['email'] ?? null;
+                $password = $_POST['password'] ?? null;
+                $password_verify = $_POST['password_verify'] ?? null;
+                $tp = $_POST['tp'] ?? null;
+
+                if ($this->verifyDoublePasswordUser($password, $password_verify) === false) {
+                    $this->errorMessage = 'Les mots de passe ne correspondent pas';
+                } else {
+                    if ($this->verifyEMailRegisterUser($email)) {
+                        $this->errorMessage = 'Cet email est déjà utilisé';
                     } else {
-                        $this->model->addUser($_POST['email'], $_POST['password'], $_POST['tp']);
+                        $this->model->addUser($email, $password, $tp);
                     }
                 }
             }
@@ -20,10 +33,10 @@ class registerController
     }
 
     public function verifyEMailRegisterUser($email) {
-        return $this->model->getUserByEmail($email);
+        return $this->model->emailExists($email);
     }
 
-    public function verifyDoublePasswordUser ($password, $password2) {
+    public function verifyDoublePasswordUser($password, $password2) {
         return $password === $password2;
     }
 }
