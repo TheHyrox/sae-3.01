@@ -435,6 +435,10 @@ footer img{
     /*display: none;*/
 }
 
+#event article .row{
+    margin-top: auto;
+}
+
 #eventList ul{
     display: flex;
     flex-direction: column;
