@@ -13,20 +13,20 @@ $controller->loginRequest();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton" />
 </head>
 <body>
-<?php include '../Views/header.html'; ?>
+<?php include '../Views/header.php'; ?>
     <main>
     <div class="login-register">
         <div>
-            <form class="form-login" action="">
+            <form class="form-login" action="login.php" method="POST" name="loginUser">
                 <h2>Connexion</h2>
                 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->errorMessage): ?>
                     <p class="error-message"><?php echo $controller->errorMessage; ?></p>
                 <?php endif; ?>
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" required>
+                <label for="email">Adresse mail</label>
+                <input type="email" id="email" name="email" required>
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" required>
-                <input type="submit" value="Se connecter" name="loginUser">
+                <input type="password" id="password" name="password" required>
+                <input type="submit" name="loginUser" value="Se connecter">
             </form>
             <form action="./register.php" class="form-other">
                 <input type="submit" value="S'inscrire">

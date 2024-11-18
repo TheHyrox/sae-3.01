@@ -32,16 +32,19 @@ class UserModel {
 
     public function emailExists($email): bool
     {
-        $req = $this->bdd->prepare('SELECT Mail_User FROM utilisateur WHERE Mail_User = :email');
-        $req->execute(array('email' => $email));
-        return $req->rowCount() > 0;
+        $stmt = $this->bdd->prepare("SELECT COUNT(*) FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
     }
 
-    public function passwordIsValid($password): bool
+    public function passwordIsValid($email, $password): bool
     {
-        $req = $this->bdd->prepare('SELECT Mdp_User FROM utilisateur WHERE Mdp_User = :password');
-        $req->execute(array('password' => $password));
-        return password_verify($password, $req->fetch()['Mdp_User']);
+        $stmt = $this->bdd->prepare("SELECT Mdp_User FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $hashedPassword = $stmt->fetchColumn();
+        return password_verify($password, $hashedPassword);
     }
 }
 ?>

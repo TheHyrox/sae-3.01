@@ -1,5 +1,6 @@
 <?php
 require '../Models/userModel.php';
+session_start();
 
 class loginController
 {
@@ -18,11 +19,10 @@ class loginController
                 $email = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
 
-                if ($this->model->emailExists($email) && $this->model->passwordIsValid($password)) {
+                if ($this->model->emailExists($email) && $this->model->passwordIsValid($email, $password)) {
                     $_SESSION['email'] = $email;
-                    header('Location: ./HTML/index.php');
-                }
-                else {
+                    $this->errorMessage = 'Connection réussie';
+                } else {
                     $this->errorMessage = 'E-mail ou mot de passe incorrect';
                 }
             }
