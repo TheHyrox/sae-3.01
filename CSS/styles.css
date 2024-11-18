@@ -767,52 +767,26 @@ footer img{
     margin: 0;
   }
     
-/* Page de login */
+/* Page de login - register */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-  main div form{
+.login-register{
+    display: flex;
+    flex-direction: row;
+}
+.login-register div{
+    background-color: var(--primary);
+    border-radius: 15px 0 0 15px;
+    padding: 15px;
+}
+
+.login-register div:last-child{
+    background: var(--linearClassic);
+    border-radius: 0 15px 15px 0;
+}
+
+.login-register form{
+    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--primary);
-    border-radius: 10px;
-  }
-
-  main div .form-login label{
-    font-family: "Josefin Sans";
-    font-size: 20px;
-      padding-top: 20px;
-    color: var(--white);
-  }
-
-  /*S'inscrire inverse se conencter*/
-
-  main div .form-login input{
-    width: 20%;
-    padding: 10px;
-
-    font-size: 20px;
-    letter-spacing: 2px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: var(--linearClassic) 1;
-    background-color: var(--secondary);
-    color: var(--primary);
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  main div .form-register input {
-    width: 20%;
-    padding: 10px;
-    font-size: 20px;
-    letter-spacing: 2px;
-    border-width: 2px;
-    border-style: solid;
-  font-style: var(--linearClassic) 1;
-    border-image: var(--linearClassic) 1;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-
->>>>>>> Stashed changes
+}
