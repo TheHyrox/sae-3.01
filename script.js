@@ -1,6 +1,8 @@
 const slides = document.querySelectorAll('.slide');
 const monthBtns = document.querySelectorAll('.monthBtn');
 const months = document.querySelectorAll('.month');
+const agenda = document.getElementById('agenda');
+
 let currentSlide = 0;
 
 function updateSlides() {
@@ -29,4 +31,49 @@ monthBtns.forEach((button, index) => {
 
 function monthClick(index) {
     months[index].classList.toggle('active');
+}
+
+// Charger les événements depuis le fichier .ics
+fetch('events.ics')
+  .then(response => response.text())
+  .then(data => {
+    const events = parseIcs(data);
+    renderEvents(events);
+  })
+  .catch(error => console.error('Erreur lors du chargement des événements :', error));
+
+// Fonction pour parser le fichier .ics
+function parseIcs(data) {
+  const events = [];
+  const lines = data.split('\n');
+  let currentEvent = null;
+
+  lines.forEach(line => {
+    if (line.startsWith('BEGIN:VEVENT')) {
+      currentEvent = {};
+    } else if (line.startsWith('END:VEVENT')) {
+      events.push(currentEvent);
+      currentEvent = null;
+    } else if (currentEvent) {
+      const [key, value] = line.split(':');
+      currentEvent[key] = value;
+    }
+  });
+
+  return events;
+}
+
+// Fonction pour afficher les événements
+function renderEvents(events) {
+  const html = events.map(event => {
+    return `
+      <li>
+        <span class="date">${event.DTSTART}</span>
+        <span class="event">${event.SUMMARY}</span>
+        <p>${event.DESCRIPTION}</p>
+      </li>
+    `;
+  }).join('');
+
+  agenda.innerHTML = `<ul>${html}</ul>`;
 }
