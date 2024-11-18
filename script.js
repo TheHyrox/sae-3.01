@@ -2,6 +2,8 @@ const slides = document.querySelectorAll('.slide');
 const monthBtns = document.querySelectorAll('.monthBtn');
 const months = document.querySelectorAll('.month');
 const agenda = document.getElementById('agenda');
+const eventList = document.getElementById('eventList');
+
 
 let currentSlide = 0;
 
@@ -68,12 +70,23 @@ function renderEvents(events) {
   const html = events.map(event => {
     return `
       <li>
-        <span class="date">${event.DTSTART}</span>
-        <span class="event">${event.SUMMARY}</span>
-        <p>${event.DESCRIPTION}</p>
+        <button>${event.SUMMARY}</button>
+        <ul>
+          <li>${event.DESCRIPTION}</li>
+        </ul>
       </li>
     `;
   }).join('');
 
-  agenda.innerHTML = `<ul>${html}</ul>`;
+  eventList.innerHTML = html;
 }
+
+document.getElementById('load-ics').addEventListener('click', () => {
+    fetch('events.ics')
+      .then(response => response.text())
+      .then(data => {
+        const events = parseIcs(data);
+        renderEvents(events);
+      })
+      .catch(error => console.error('Erreur lors du chargement des événements :', error));
+  });
