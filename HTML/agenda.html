@@ -4,8 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
-    <script src="https://cdn.jsdelivr.net/npm/ical.js@1.4.0/dist/ical.min.js"></script>
+    <!-- Inclusion d'ICAL.js depuis un CDN compatible -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.3.0/ical.min.js"></script>
+    <!-- Inclusion de votre script agenda.js -->
     <script src="/Script/agenda.js" defer></script>
+    <!-- Styles intégrés -->
+    <style>
+        :root {
+            --primary: #192025;
+            --secondary: #040D12;
+            --green: #4EB674;
+            --orange: #D97D12;
+            --linearClassic: linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%);
+            --linearAdmin: linear-gradient(90deg, rgba(217, 125, 18, 1) 0%, rgba(233, 83, 19, 1) 27%, rgba(237, 40, 217, 1) 100%);
+            --white: #faf0e6;
+        }
+
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: var(--secondary);
+            color: var(--white);
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: var(--green);
+        }
+
+        label, select, button {
+            display: block;
+            margin: 10px auto;
+            font-size: 1.2em;
+        }
+
+        select, button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--green);
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--orange);
+        }
+
+        .week-navigation {
+            display: flex;
+            justify-content: flex-end;
+            margin: 10px;
+        }
+
+        .week-navigation button {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .week-navigation button:hover {
+            background-color: var(--orange);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--primary);
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        td {
+            background-color: var(--secondary);
+        }
+
+        .event {
+            background-color: var(--primary);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .event button {
+            background-color: transparent;
+            border: none;
+            color: var(--white);
+            font-size: 1em;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+        }
+
+        .event ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        .event ul li {
+            margin: 5px 0;
+        }
+
+        /* Scroll bar */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--green);
+            border-radius: 2px;
+        }
+    </style>
 </head>
 <body>
     <h1>Agenda</h1>
@@ -26,7 +156,31 @@
     </select>
     <button id="load-ics">Charger les événements</button>
 
+    <div class="week-navigation">
+        <button id="prev-week">&larr; Semaine précédente</button>
+        <button id="next-week">Semaine suivante &rarr;</button>
+    </div>
+
     <h2>Liste des événements</h2>
-    <ul id="eventList"></ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+            </tr>
+        </thead>
+        <tbody id="eventList">
+            <tr>
+                <td id="monday"></td>
+                <td id="tuesday"></td>
+                <td id="wednesday"></td>
+                <td id="thursday"></td>
+                <td id="friday"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

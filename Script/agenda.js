@@ -1,72 +1,87 @@
-// Objet qui mappe les IDs de ressource aux noms de groupe
-const resourceIds = {
-  'TP11A': 282,
-  'TP11B': 567,
-  'TP12C': 861,
-  'TP12D': 869,
-  'TP21A': 2667,
-  'TP21B': 2668,
-  'TP22C': 3113,
-  'TP22D': 3115,
-  'TP31A': 5269,
-  'TP31B': 5419,
-  'TP32C': 6239,
-  'TP32D': 6241
-};
+let currentWeekStart = new Date(); // Start of the current week
 
-// Fonction qui génère le lien de téléchargement pour un groupe donné
-function getDownloadLink(group) {
-  const resourceId = resourceIds[group];
-  const baseUrl = 'http://planning.univ-lemans.fr/jsp/custom/modules/plannings/anonymous_cal.jsp';
-  const params = `resources=${resourceId}&projectId=7&calType=ical&nbWeeks=4`;
-  return `${baseUrl}?${params}`;
+// Function to get the start of the week for a given date
+function getWeekStart(date) {
+    const day = date.getDay();
+    const diff = date.getDate() - day + (day === 0 ? -6 : 1); // Adjust when day is sunday
+    return new Date(date.setDate(diff));
 }
 
-// Fonction qui charge les événements depuis un fichier .ics via proxy
-function loadEvents(group) {
-  const url = `../Script/proxy.php?url=${encodeURIComponent(getDownloadLink(group))}`;
-  fetch(url)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error(`Erreur HTTP : ${response.status}`);
-          }
-          return response.text();
-      })
-      .then(data => {
-          // Analyse le fichier ICS avec ICAL.js
-          const parsed = ICAL.parse(data);
-          const component = new ICAL.Component(parsed);
-          const events = component.getAllSubcomponents('vevent');
-          renderEvents(events);
-      })
-      .catch(error => console.error('Erreur lors du chargement des événements :', error));
-}
-
-// Fonction qui affiche les événements dans la liste
+// Function to render events for the current week
 function renderEvents(events) {
-  const eventList = document.getElementById('eventList');
-  eventList.innerHTML = '';
+    const days = {
+        1: 'monday',
+        2: 'tuesday',
+        3: 'wednesday',
+        4: 'thursday',
+        5: 'friday'
+    };
 
-  events.forEach(event => {
-      const summary = event.getFirstPropertyValue('summary');
-      const description = event.getFirstPropertyValue('description');
-      const startDate = event.getFirstPropertyValue('dtstart').toString();
+    // Clear previous events
+    Object.values(days).forEach(day => {
+        document.getElementById(day).innerHTML = '';
+    });
 
-      const html = `
-          <li>
-              <button>${summary}</button>
-              <ul>
-                  <li>Description : ${description}</li>
-                  <li>Date de début : ${startDate}</li>
-              </ul>
-          </li>
-      `;
-      eventList.innerHTML += html;
-  });
+    events.forEach(event => {
+        const summary = event.getFirstPropertyValue('summary');
+        const description = event.getFirstPropertyValue('description');
+        const startDate = new Date(event.getFirstPropertyValue('dtstart').toString());
+        const day = startDate.getDay();
+
+        const html = `
+            <div class="event">
+                <button>${summary}</button>
+                <ul>
+                    <li>Description : ${description}</li>
+                    <li>Date de début : ${startDate}</li>
+                </ul>
+            </div>
+        `;
+
+        // Check if the event is in the current week
+        const weekStart = getWeekStart(new Date(currentWeekStart));
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekEnd.getDate() + 4); // End of the week (Friday)
+
+        if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
+            document.getElementById(days[day]).innerHTML += html;
+        }
+    });
 }
 
-// Écouteur d'événements pour le bouton "Charger les événements"
+// Function to load events for the selected group
+function loadEvents(group) {
+    const url = `../Script/proxy.php?url=${encodeURIComponent(getDownloadLink(group))}`;
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP : ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Analyse le fichier ICS avec ICAL.js
+            const parsed = ICAL.parse(data);
+            const component = new ICAL.Component(parsed);
+            const events = component.getAllSubcomponents('vevent');
+            renderEvents(events);
+        })
+        .catch(error => console.error('Erreur lors du chargement des événements :', error));
+}
+
+// Event listeners for week navigation buttons
+document.getElementById('prev-week').addEventListener('click', () => {
+    currentWeekStart.setDate(currentWeekStart.getDate() - 7);
+    loadEvents(document.getElementById('group-select').value);
+});
+
+document.getElementById('next-week').addEventListener('click', () => {
+    currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+    loadEvents(document.getElementById('group-select').value);
+});
+
+// Initial load
 document.getElementById('load-ics').addEventListener('click', () => {
-  const group = document.getElementById('group-select').value;
-  loadEvents(group);
+    currentWeekStart = getWeekStart(new Date()); // Reset to current week
+    loadEvents(document.getElementById('group-select').value);
 });
