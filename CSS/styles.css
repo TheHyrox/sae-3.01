@@ -820,6 +820,25 @@ footer img{
     font-size: larger;
 }
 
+select {
+    background-color: var(--secondary);
+    color: var(--white);
+
+    border: 3px solid transparent; /* Transparent pour laisser place au dégradé */
+    border-image: var(--linearClassic) 1; 
+    border-radius: 5px;
+    padding: 5px 25px;
+    outline: none; /* Supprime l'outline par défaut au focus */
+  }
+
+
+  option {
+    padding: 10px;
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--secondary);
+  }
+
 /* membreBDE */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
