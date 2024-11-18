@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $resourceIds = array(
   'TP11A' => 282,
   'TP11B' => 567,
@@ -15,9 +19,6 @@ $resourceIds = array(
 );
 
 function getDownloadLink($group, $resourceIds) {
-  if (!isset($resourceIds[$group])) {
-    throw new Exception("Groupe invalide : $group");
-  }
   $resourceId = $resourceIds[$group];
   $baseUrl = 'http://planning.univ-lemans.fr/jsp/custom/modules/plannings/anonymous_cal.jsp';
   $params = 'resources=' . $resourceId . '&projectId=7&calType=ical&nbWeeks=4';
@@ -25,28 +26,26 @@ function getDownloadLink($group, $resourceIds) {
 }
 
 function downloadIcsFiles($resourceIds) {
+  $logFile = '/tmp/agenda_errors.log';
   foreach ($resourceIds as $group => $resourceId) {
-    try {
-      $link = getDownloadLink($group, $resourceIds);
-      echo "Téléchargement de $link...\n";
-      $data = file_get_contents($link);
-      if ($data === false) {
-        echo "Erreur lors du téléchargement de $link\n";
-        continue;
-      }
-      $filename = '../Calendar/' . $group . '.ics';
-      echo "Enregistrement de $filename...\n";
-      if (file_put_contents($filename, $data) === false) {
-        echo "Erreur lors de l'enregistrement de $filename\n";
-      } else {
-        echo "Fichier $filename téléchargé avec succès\n";
-      }
-    } catch (Exception $e) {
-      echo "Erreur : " . $e->getMessage() . "\n";
+    $link = getDownloadLink($group, $resourceIds);
+    echo "Téléchargement de $link...\n";
+    $data = file_get_contents($link);
+    if ($data === false || stripos($data, 'BEGIN:VCALENDAR') === false) {
+      echo "Erreur : Les données pour $group ne sont pas valides.\n";
+      file_put_contents($logFile, "Erreur : $group - $link\n", FILE_APPEND);
+      continue;
+    }
+    $filename = __DIR__ . '/../Calendar/' . $group . '.ics';
+    echo "Enregistrement de $filename...\n";
+    if (file_put_contents($filename, $data) === false) {
+      echo "Erreur : Impossible d'enregistrer $filename\n";
+      file_put_contents($logFile, "Erreur d'enregistrement : $group - $filename\n", FILE_APPEND);
+    } else {
+      echo "Fichier $filename téléchargé avec succès.\n";
     }
   }
 }
 
-// Exécution
 downloadIcsFiles($resourceIds);
 ?>
