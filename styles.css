@@ -45,6 +45,8 @@ input{
 
 
 /* header large pc */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 header{
     z-index: 10;
     background-color: var(--primary);
@@ -107,6 +109,8 @@ header .switch{
 
 
 /* Toggle button */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 .switch {
 	display: inline-block;
 	position: relative;
@@ -149,6 +153,8 @@ header .switch{
 	left: 50px;
 }
 /* main */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 main{
     margin: 25px 100px;
     display: flex;
@@ -163,6 +169,8 @@ h2{
 }
 
 /* special event bar */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 #annonce{
     background: var(--linearClassic);
     padding: 10px;
@@ -202,6 +210,8 @@ h2{
 }
 
 /* article */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 article{
     display: flex;
     flex-direction: column;
@@ -250,6 +260,8 @@ input[type=submit]{
 }
 
 /* classement */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 .ranked {
     display: flex;
     flex-direction: column;
@@ -350,6 +362,8 @@ input[type=submit]{
 }
 
 /* footer */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 footer{
     background-color: var(--primary);
     color: var(--white);
@@ -405,6 +419,8 @@ footer img{
 }
 
 /*events*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 #event{
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -574,3 +590,58 @@ footer img{
     max-height: 350px;
     object-fit: cover;
 }
+
+/*AGENDA*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#agenda {
+    background-color: var(--primary);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #eventList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #eventList li {
+    padding: 10px;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  #eventList li:last-child {
+    border-bottom: none;
+  }
+  
+  #eventList li button {
+    background-color: var(--linearClassic);
+    border: none;
+    padding: 10px 20px;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  #eventList li button:hover {
+    background-color: var(--linearAdmin);
+  }
+  
+  #eventList li ul {
+    display: none;
+  }
+  
+  #eventList li.active ul {
+    display: block;
+  }
+  
+  #eventList li ul li {
+    padding: 10px;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  #eventList li ul li:last-child {
+    border-bottom: none;
+  }
