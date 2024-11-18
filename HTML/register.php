@@ -45,6 +45,9 @@ $controller->registerRequest();
                 <?php if ($controller->errorMessage): ?>
                     <p class="error-message"><?php echo $controller->errorMessage; ?></p>
                 <?php endif; ?>
+                <?php if ($controller->validationMessage): ?>
+                    <p class="error-message"><?php echo $controller->validationMessage; ?></p>
+                <?php endif; ?>
                 <label for="email">Adresse mail</label>
                 <input type="email" id="email" name="email" required>
                 <label for="password">Mot de passe</label>
