@@ -5,6 +5,7 @@ class registerController
 {
     private $model;
     public $errorMessage = '';
+    public $validationMessage = '';
 
     public function __construct() {
         $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
@@ -26,6 +27,7 @@ class registerController
                         $this->errorMessage = 'Cet email est déjà utilisé';
                     } else {
                         $this->model->addUser($email, $password, $tp);
+                        $this->validationMessage = 'Votre compte a bien été créé';
                     }
                 }
             }
