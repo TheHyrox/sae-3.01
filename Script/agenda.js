@@ -22,16 +22,38 @@ const resourceIds = {
     return `${baseUrl}?${params}`;
   }
   
-  // Fonction qui charge les événements depuis le fichier .ics
+// Fonction qui télécharge les fichiers .ics sur le serveur
+  function downloadIcsFiles() {
+    const groups = Object.keys(resourceIds);
+    groups.forEach(group => {
+      const link = getDownloadLink(group);
+      fetch(link, {
+        mode: 'no-cors'
+      })
+        .then(response => response.text())
+        .then(data => {
+          const filename = `../Calendar/${group}.ics`;
+          const blob = new Blob([data], {type: 'text/calendar'});
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          a.click();
+        })
+        .catch(error => console.error('Erreur lors du téléchargement du fichier :', error));
+    });
+  }
+  
+// Fonction qui charge les événements depuis les fichiers .ics
   function loadEvents(group) {
-    const link = getDownloadLink(group);
-    fetch(link)
+    const filename = `../Calendar/${group}.ics`;
+    fetch(filename)
       .then(response => response.text())
       .then(data => {
         const events = parseIcs(data);
         renderEvents(events);
       })
-      .catch(error => console.error('Erreur lors du chargement des événements :', error));
+      .catch(error => console.error('Erreur lors du chargement du fichier :', error));
   }
   
   // Fonction qui parse le fichier .ics
@@ -73,23 +95,11 @@ const resourceIds = {
     });
   }
   
-  // Fonction qui télécharge les événements sous forme de fichier .ics
-  function downloadEvents(group) {
-    const link = getDownloadLink(group);
-    const a = document.createElement('a');
-    a.href = link;
-    a.download = `${group}.ics`;
-    a.click();
-  }
+  // Appel de la fonction pour télécharger les fichiers .ics
+  downloadIcsFiles();
   
-  // Écouteur d'événements pour le bouton de téléchargement
+  // Écouteur d'événements pour le bouton de chargement des événements
   document.getElementById('load-ics').addEventListener('click', () => {
-    const group = 'TP11A'; // Remplacez par le groupe souhaité
+    const group = document.getElementById('group-select').value;
     loadEvents(group);
-  });
-  
-  // Écouteur d'événements pour le bouton de téléchargement
-  document.getElementById('download-ics').addEventListener('click', () => {
-    const group = 'TP11A'; // Remplacez par le groupe souhaité
-    downloadEvents(group);
   });
