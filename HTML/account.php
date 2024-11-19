@@ -12,14 +12,14 @@
     <h2>Mon compte</h2>
     <ul>
         <li><a href="" class="red">Retour</a></li> <!--Faut garger la page précédante pour la rouvrir là -->
-        <li><a href="">Mes informations personnelles</a></li>
-        <li><a href="">Mes inscriptions</a></li>
+        <li><a href="#info-perso">Mes informations personnelles</a></li>
+        <li><a href="#inscr">Mes inscriptions</a></li>
         <li><a href="../Utils/logout.php" class="red">Déconnexion</a></li> <!-- Updated link to logout.php -->
     </ul>
 </nav>
 <main>
     <div>
-        <h2>Mes informations personnelles</h2>
+        <h2 id="info-perso">Mes informations personnelles</h2>
         <div>
             <div class="row">
                 <p>Nom : </p>
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div>
-            <h2>Mes inscriptions</h2>
+            <h2 id="inscr">Mes inscriptions</h2>
             <div class="row">
                 <ul>
                     <li>
@@ -72,10 +72,10 @@
                 </ul>
                 <article>
                     <h2>event</h2>
-                    <img src="" alt="">
+                    <img src="../Pictures/soiree-jeux.webp" alt="">
                     <p>descr</p>
                     <form action="" method="post">
-                        <input type="submit" value="Se déinscrire">
+                        <input type="submit" name="unsubscribe" value="Se déinscrire">
                     </form>
                 </article>
             </div>
