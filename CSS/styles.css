@@ -975,3 +975,13 @@ select {
     margin-bottom: 10px; /* Espacement sous le titre */
 }
 
+.photo {
+    padding: 0;
+    height: 50%;
+    width: 50%;
+}
+.photo img {
+    min-width: 250px;
+    max-width: 300px;
+    max-height: 5400px;
+}

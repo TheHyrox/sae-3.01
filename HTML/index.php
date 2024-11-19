@@ -46,25 +46,25 @@
           <div>
             <img src="../Pictures/defaultProfilePicture.png" alt="" />
             <div>
-              <h3>Nom</h3>
+              <h3>Hyrox</h3>
               <progress id="file" max="100" value="70"></progress>
-              <p>Niveau --</p>
+              <p>Niveau 10</p>
             </div>
           </div>
           <div>
             <img src="../Pictures/defaultProfilePicture.png" alt="" />
             <div>
-              <h3>Nom</h3>
+              <h3>Koaden</h3>
               <progress id="file" max="100" value="50"></progress>
-              <p>Niveau --</p>
+              <p>Niveau 8</p>
             </div>
           </div>
           <div>
             <img src="../Pictures/defaultProfilePicture.png" alt="" />
             <div>
-              <h3>Nom</h3>
+              <h3>Brokuto</h3>
               <progress id="file" max="100" value="30"></progress>
-              <p>Niveau --</p>
+              <p>Niveau 2</p>
             </div>
           </div>
         </div>
@@ -76,19 +76,19 @@
             <img src="../Pictures/bde.jpg" alt="" />
           </button>
           <button class="slide next">
-            <img src="../Pictures/IMG_1093.jpg" alt="" />
+            <img src="../Pictures/enzo.jpg" alt="" />
           </button>
           <button class="slide">
-            <img src="../Pictures/IMG_1097.jpg" alt="" />
+            <img src="../Pictures/tom.jpg" alt="" />
           </button>
           <button class="slide">
-            <img src="../Pictures/IMG_1099.jpg" alt="" />
+            <img src="../Pictures/mathis.jpg" alt="" />
           </button>
           <button class="slide pre">
-            <img src="../Pictures/IMG_1107.jpg" alt="" />
+            <img src="../Pictures/gemino.jpg" alt="" />
           </button>
         </div>
-        <form action="" method="post">
+        <form action="galerie.php" method="post">
           <input type="submit" value="Voir la galerie" />
         </form>
       </article>
