@@ -14,7 +14,7 @@ html, body{
     margin: 0;
     background-color: var(--secondary);
 }
-h1, h2, h3, p, a, li{
+h1, h2, h3, p, a, li, span{
     margin: 0;
     font-family: Josefin Sans;
 }
@@ -1149,9 +1149,7 @@ select {
     font-family: Anton;
     text-transform: uppercase;
     font-size: 20px;    
-}
-
-#add-news {
+}#add-news {
     padding: 10px 20px;
     background: linear-gradient(90deg, #dd7212, #ee2bc3); /* Dégradé de couleurs */
     color: black ;
@@ -1163,4 +1161,25 @@ select {
 }
 #add-folder:hover {
     background-color: #CC7A00;
+}
+/* management */
+
+
+article.add{
+    background: var(--linearClassic);
+    background-color: transparent;
+}
+article.add input{
+    background: var(--primary);
+    color: var(--white);
+}
+article.add img{
+    background-color: transparent;
+    border: solid 2px var(--primary);
+}
+form#event-add{
+    width: 100%;
+}
+form#event-add input{
+    width: 100%;
 }
