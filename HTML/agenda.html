@@ -15,11 +15,9 @@
             --secondary: #040D12;
             --green: #4EB674;
             --orange: #D97D12;
-            --linearClassic: linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%);
-            --linearAdmin: linear-gradient(90deg, rgba(217, 125, 18, 1) 0%, rgba(233, 83, 19, 1) 27%, rgba(237, 40, 217, 1) 100%);
             --white: #faf0e6;
         }
-
+    
         html, body {
             padding: 0;
             margin: 0;
@@ -27,19 +25,19 @@
             color: var(--white);
             font-family: 'Josefin Sans', sans-serif;
         }
-
+    
         h1 {
             text-align: center;
             margin: 20px 0;
             color: var(--green);
         }
-
+    
         label, select, button {
             display: block;
             margin: 10px auto;
             font-size: 1.2em;
         }
-
+    
         select, button {
             padding: 10px;
             border: none;
@@ -48,17 +46,17 @@
             color: var(--white);
             cursor: pointer;
         }
-
+    
         button:hover {
             background-color: var(--orange);
         }
-
+    
         .week-navigation {
             display: flex;
             justify-content: flex-end;
             margin: 10px;
         }
-
+    
         .week-navigation button {
             background-color: var(--green);
             color: var(--white);
@@ -68,20 +66,22 @@
             cursor: pointer;
             border-radius: 5px;
         }
-
+    
         .week-navigation button:hover {
             background-color: var(--orange);
         }
-
+    
         .schedule-container {
             position: relative;
-            width: 100%;
+            width: 90%;
+            margin: 0 auto;
         }
 
         .time-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            position: relative;
         }
 
         .time-table th, .time-table td {
@@ -98,68 +98,86 @@
 
         .time-table td {
             background-color: var(--secondary);
-            height: 100px; /* Augmentez cette valeur pour plus d'espace */
+            height: 100px;
             position: relative;
             overflow: hidden;
         }
+
+        .time-table td div {
+            background-color: #9a4bff; /* Couleur de fond */
+            color: #fff; /* Texte blanc */
+            border-radius: 5px; /* Coins arrondis */
+            padding: 5px;
+            margin: 5px 0;
+            font-size: 0.9em;
+            text-align: center;
+            overflow: hidden; /* Empêche le débordement */
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Ajoute "..." si le texte est trop long */
+        }
+
 
         #events-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: calc(12 * 100px); /* Ajustez cette valeur en fonction de la hauteur des cellules */
+            height: 100%;
             pointer-events: none;
         }
 
-        .event {
-            background-color: var(--primary);
-            margin: 2px 0;
-            padding: 5px;
-            border-radius: 5px;
-            position: absolute;
-            box-sizing: border-box;
-            pointer-events: auto;
-            overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas */
-            white-space: nowrap; /* Empêche le texte de dépasser */
-            text-overflow: ellipsis; /* Ajoute des points de suspension si le texte dépasse */
-            max-height: 100%; /* Assurez-vous que l'événement ne dépasse pas la hauteur de la cellule */
-        }
-
-        .event button {
-            background-color: transparent;
-            border: none;
-            color: var(--white);
-            font-size: 1em;
-            cursor: pointer;
-            text-align: left;
-            width: 100%;
-        }
-
-        .event ul {
-            list-style: none;
-            padding: 0;
-            margin: 5px 0 0 0;
-        }
-
-        .event ul li {
-            margin: 2px 0;
-        }
-
+    
         /* Scroll bar */
         ::-webkit-scrollbar {
             width: 15px;
         }
-
+    
         ::-webkit-scrollbar-track {
             background-color: var(--primary);
             border-radius: 2px;
         }
-
+    
         ::-webkit-scrollbar-thumb {
             background-color: var(--green);
             border-radius: 2px;
         }
+    
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+    
+        th, td {
+            border: 1px solid var(--white);
+            padding: 10px;
+            text-align: center;
+        }
+    
+        .hour-column {
+            width: 6%;
+        }
+    
+        .day-column {
+            width: 18%;
+        }
+
+        .event {
+            background-color: var(--primary);
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 0.85em;
+        }
+
+        .event strong {
+            color: #333;
+        }
+        .event em {
+            color: #555;
+        }
+
+
     </style>
     
 </head>
@@ -192,13 +210,14 @@
         <table class="time-table">
             <thead>
                 <tr>
-                    <th>Heure</th>
-                    <th>Lundi <span id="monday-date"></span></th>
-                    <th>Mardi <span id="tuesday-date"></span></th>
-                    <th>Mercredi <span id="wednesday-date"></span></th>
-                    <th>Jeudi <span id="thursday-date"></span></th>
-                    <th>Vendredi <span id="friday-date"></span></th>
-                </tr>
+                    <tr>
+                        <th class="hour-column">Heure</th>
+                        <th class="day-column">Lundi <span id="monday-date"></span></th>
+                        <th class="day-column">Mardi <span id="tuesday-date"></span></th>
+                        <th class="day-column">Mercredi <span id="wednesday-date"></span></th>
+                        <th class="day-column">Jeudi <span id="thursday-date"></span></th>
+                        <th class="day-column">Vendredi <span id="friday-date"></span></th>
+                    </tr>
             </thead>
             <tbody id="time-table-body">
                 <tr>
@@ -299,7 +318,13 @@
                 </tr>
             </tbody>
         </table>
-        <div id="events-container"></div>
+        <div id="events-container">
+            <div id="monday-events" class="day-column"></div>
+            <div id="tuesday-events" class="day-column"></div>
+            <div id="wednesday-events" class="day-column"></div>
+            <div id="thursday-events" class="day-column"></div>
+            <div id="friday-events" class="day-column"></div>
+        </div>
     </div>
 </body>
 </html>
