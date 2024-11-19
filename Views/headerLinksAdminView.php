@@ -11,7 +11,7 @@
     <ul>
         <li><a href="../HTML/activitesGlobale.html">activités</a></li>
         <li><a href="../HTML/membersList.html">membres et rôles</a></li>
-        <li><a href="../HTML/file.html">fichiers</a></li>
+        <li><a href="../HTML/file.php">fichiers</a></li>
         <li><a href="../HTML/management.html">gestion</a></li>
         <li><a href="../HTML/newsletterAdmin.html">newsletter</a></li>
         <li><a href="../HTML/partenaire.html">partenaires</a></li>
