@@ -162,6 +162,15 @@ article input[type=submit]{
     font-weight: bold;
     font-family: Anton;
     text-transform: uppercase;
-    font-size: larger;
-    color: red;
+}
+article img{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+article p {
+    min-width: 500px;
+    max-width: 500px;
+    align-self: center;
+    color: var(--white);
 }

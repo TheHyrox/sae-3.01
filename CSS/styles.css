@@ -280,7 +280,7 @@ article h3{
 article p{
     min-width: 200px;
     max-width: 500px;
-    align-self: start;
+    align-self: center;
     color: var(--white);
 }
 input[type=submit]{
