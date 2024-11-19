@@ -15,16 +15,7 @@ if (!isset($_SESSION)) {
 </head>
 <body>
 <header>
-    <div><h1>ADIIL</h1>
-        <ul>
-            <li><a href="./index.php">accueil</a></li>
-            <li><a href="./event.php">évènements</a></li>
-            <li><a href="./shop.php">boutique</a></li>
-            <li><a href="./agenda.html">agenda</a></li>
-            <li><a href="./newsletter.php">newsletter</a></li>
-            <li><a href="./checkout.php">panier</a></li>
-        </ul>
-    </div>
+    <?php include '../Views/headerLinksView.php'; ?>
     <div>
         <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
             <label class="switch">
