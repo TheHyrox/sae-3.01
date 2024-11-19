@@ -119,10 +119,11 @@
 
         #events-container {
             position: absolute;
-            top: 0;
+            top: 2%;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 98%;
+            display: flex;
             pointer-events: none;
         }
 
@@ -155,28 +156,32 @@
         }
     
         .hour-column {
-            width: 6%;
+            width: 5%;
         }
     
         .day-column {
             width: 18%;
+            height: 100%;
+            position: relative;
+        }
+
+        #event-heure {
+            width: 5.25%;
+        }
+
+        #event-lundi, #event-mardi, #event-mercredi, #event-jeudi, #event-vendredi {
+            width: 19%;
         }
 
         .event {
+            position: absolute;
+            width: 98%;
+            left: 1%;
             background-color: var(--primary);
-            padding: 5px;
-            margin: 5px 0;
+            border: #4EB674 1px solid;
             border-radius: 5px;
-            font-size: 0.85em;
-        }
 
-        .event strong {
-            color: #333;
         }
-        .event em {
-            color: #555;
-        }
-
 
     </style>
     
@@ -319,11 +324,12 @@
             </tbody>
         </table>
         <div id="events-container">
-            <div id="monday-events" class="day-column"></div>
-            <div id="tuesday-events" class="day-column"></div>
-            <div id="wednesday-events" class="day-column"></div>
-            <div id="thursday-events" class="day-column"></div>
-            <div id="friday-events" class="day-column"></div>
+            <div id="event-heure" class="day-column"></div>
+            <div id="event-lundi" class="day-column"></div>
+            <div id="event-mardi" class="day-column"></div>
+            <div id="event-mercredi" class="day-column"></div>
+            <div id="event-jeudi" class="day-column"></div>
+            <div id="event-vendredi" class="day-column"></div>
         </div>
     </div>
 </body>
