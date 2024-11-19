@@ -984,3 +984,34 @@ select {
     max-width: 300px;
     max-height: 5400px;
 }
+
+.filefond {
+    display: flex; /* Aligne les éléments enfants côte à côte */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 10px; /* Ajoute un espace entre les éléments */
+    justify-content: flex-start; /* Aligne les éléments à gauche */
+    background-color: #222;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.file {
+    display: flex; /* Active le mode flex pour organiser les enfants */
+    flex-direction: column; /* Place les enfants en colonne */
+    align-items: center; /* Centre horizontalement le contenu */
+    margin-left: 10px;
+}
+
+.image-button img {
+    width: 125px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.file span {
+    margin-top: 10px;
+    color: #FFF;
+    font-size: 14px;
+    text-align: center; /* Centre le texte sous l'image */
+}
+
