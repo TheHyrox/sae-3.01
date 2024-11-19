@@ -16,4 +16,14 @@ class productController
     {
         return $this->model->getProductsByCategory($category);
     }
+
+    public function getCategories(): false|array
+    {
+        return $this->model->getCategories();
+    }
+
+    public function getGrades(): false|array
+    {
+        return $this->model->getGrades();
+    }
 }

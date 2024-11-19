@@ -16,8 +16,26 @@ $controller = new productController();
 <?php include '../Views/header.php'; ?>
 <main>
     <?php
+    $grades = $controller->getGrades();
+    if($grades){
+        echo "<div><h2>Les grades</h2><div class='grades'>";
+        foreach ($grades as $row) {
+            echo "<article>
+                    <h2>" . htmlspecialchars($row['Nom_Grade']) . "</h2>
+                    <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Grade']) . "' alt=''></div>
+                    <p>" . htmlspecialchars($row['Desc_Grade']) . "</p>
+                    <div class='row'>
+                        <form action='' method='post'>
+                            <input type='submit' value='Acheter'>
+                        </form>
+                        <h3>" . htmlspecialchars($row['Prix_Grade']) . "€</h3>
+                    </div>
+                  </article>";
+        }
+    }
+    echo "</div></div>";
 
-    $categories = ['Boissons', 'Confiserie', 'Snacks'];
+    $categories = $controller->getCategories();
     foreach ($categories as $categorie) {
         echo "<div><h2>" . ucfirst($categorie) . "</h2><div class='produits'>";
         $products = $controller->getProductsByCategory($categorie);
