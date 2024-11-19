@@ -13,6 +13,9 @@
 
     <main>
         <h2>Évènements</h2>
+        <form id="event-add" action='' method='post'>
+            <input type='submit' value='Ajouter un évènement'>
+        </form>
         <div id="event">
             <div id="eventList">
                 <ul>
@@ -64,6 +67,30 @@
                 </div>
             </article>
         </div>
+
+        <h2>Grades</h2>
+        <div class='grades'>
+            <article class="add">
+                <h2>Nouveau grade</h2>
+                <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Grade']) . "' alt=''></div>
+                <form action='' method='post'>
+                    <input type='submit' value='Ajouter'>
+                </form>
+            </article>
+        </div>
+
+
+        <h2>Articles</h2>
+        <div class='produits'>
+            <article class="add">
+                <h2>Nouveau produits</h2>
+                <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Produit']) . "' alt=''></div>
+                <form action='' method='post'>
+                    <input type='submit' value='Ajouter'>
+                </form>
+            </article>
+        </div>
+
     </main>
 
     <script src="../Script/script.js"></script>
