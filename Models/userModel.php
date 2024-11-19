@@ -46,5 +46,13 @@ class UserModel {
         $hashedPassword = $stmt->fetchColumn();
         return password_verify($password, $hashedPassword);
     }
+
+    public function isAdmin($email): bool
+    {
+        $stmt = $this->bdd->prepare("SELECT Niv_Acces_User FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn() < 4;
+    }
 }
 ?>

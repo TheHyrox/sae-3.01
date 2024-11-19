@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 ?>
@@ -26,11 +26,12 @@ if(!isset($_SESSION)){
         </ul>
     </div>
     <div>
-        <!-- Hide if the user isn't connected with an admin account -->
-        <label class="switch">
-            <input type="checkbox"/>
-            <span></span>
-        </label>
+        <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
+            <label class="switch">
+                <input type="checkbox"/>
+                <span></span>
+            </label>
+        <?php endif; ?>
 
         <?php if (isset($_SESSION['email'])): ?>
             <a href="../HTML/account.php">Mon compte</a>
