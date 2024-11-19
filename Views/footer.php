@@ -71,7 +71,7 @@
             </div>
             <div>
                 <img src="../Icons/mail.png" alt="" />
-                <p>adill@univ-lemans.fr</p>
+                <p>adiil@univ-lemans.fr</p>
             </div>
             <form action="" method="post">
                 <input type="submit" value="Faire un feelback" />
