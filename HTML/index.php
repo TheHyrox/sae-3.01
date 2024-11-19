@@ -35,7 +35,7 @@
             Voici la nouvelle équipe de l’ADILL !!! Promis ils ne mordent pas ^^
           </p>
           <!-- add page in action -->
-          <form action="" method="post">
+          <form action="membreBDE.html" method="post">
             <input type="submit" value="Découvrir" />
           </form>
         </article>
