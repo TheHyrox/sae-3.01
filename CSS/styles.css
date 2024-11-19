@@ -1022,7 +1022,7 @@ select {
     max-height: 5400px;
 }
 
-..folderfond {
+.folderfond {
     display: flex; /* Aligne les éléments enfants côte à côte */
     flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
     gap: 10px; /* Ajoute un espace entre les éléments */
