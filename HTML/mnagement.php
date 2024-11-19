@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/styles.css">
+    <!-- Changer le CSS car en version utilisateur -->
+    <link rel="stylesheet" href="../CSS/styles.css"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
-    <title>ADIIL - Évènements</title>
+    <title>ADIIL - Gestion</title>
 </head>
 <body>
 <?php include '../Views/header.php'; ?>
+
     <main>
-    <h2>Évènements</h2>
+        <h2>Évènements</h2>
         <div id="event">
             <div id="eventList">
                 <ul>
@@ -54,7 +56,7 @@
                 
                 <div class="row">
                     <form action="" method="post">
-                        <input type="submit" value="Participer">
+                        <input type="submit" value="Éditer">
                     </form>
                     <h3>
                         3€
@@ -63,7 +65,7 @@
             </article>
         </div>
     </main>
-    <?php include '../Views/footer.php'; ?>
+
     <script src="../Script/script.js"></script>
 </body>
 </html>
