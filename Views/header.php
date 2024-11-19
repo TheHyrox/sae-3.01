@@ -3,9 +3,9 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-$isAdminView = isset($_SESSION['isAdminView']) ? $_SESSION['isAdminView'] : false;
-$linearClassic = isset($_SESSION['linearClassic']) ? $_SESSION['linearClassic'] : 'linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%)';
-$linearAdmin = isset($_SESSION['linearAdmin']) ? $_SESSION['linearAdmin'] : 'linear-gradient(90deg, rgba(217, 125, 18, 1) 0%, rgba(233, 83, 19, 1) 27%, rgba(237, 40, 217, 1) 100%)';
+$isAdminView = $_SESSION['isAdminView'] ?? false;
+$linearClassic = $_SESSION['linearClassic'] ?? 'linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%)';
+$linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125, 18, 1) 0%, rgba(233, 83, 19, 1) 27%, rgba(237, 40, 217, 1) 100%)';
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +48,6 @@ $linearAdmin = isset($_SESSION['linearAdmin']) ? $_SESSION['linearAdmin'] : 'lin
         <?php else: ?>
             <a href="../HTML/login.php" data-default-link="../HTML/login.php" data-admin-link="../HTML/adminLogin.php">Se connecter</a>
         <?php endif; ?>
-        <!-- Put user picture -->
         <img src="../Pictures/defaultProfilePicture.png" alt="">
     </div>
 </header>

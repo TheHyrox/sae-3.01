@@ -1,3 +1,8 @@
+<?php
+require '../Controllers/productController.php';
+$controller = new productController();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,101 +14,33 @@
 </head>
 <body>
 <?php include '../Views/header.php'; ?>
-    <main>
-        <div>
-            <h2>
-                Grades
-            </h2>
-            <div class="grades">
-                <article>
-                    <h2>Nom</h2>
-                    <div class="imgBackground"><img src="../Pictures/iron.png" alt=""></div>
-                    <p>description du grade</p>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
+<main>
+    <?php
+
+    $categories = ['Boissons', 'Confiserie', 'Snacks'];
+    foreach ($categories as $categorie) {
+        echo "<div><h2>" . ucfirst($categorie) . "</h2><div class='produits'>";
+        $products = $controller->getProductsByCategory($categorie);
+        if ($products) {
+            foreach ($products as $row) {
+                echo "<article>
+                    <h2>" . htmlspecialchars($row['Nom_Produit']) . "</h2>
+                    <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Produit']) . "' alt=''></div>
+                    <p>" . htmlspecialchars($row['Desc_Produit']) . "</p>
+                    <div class='row'>
+                        <form action='' method='post'>
+                            <input type='submit' value='Acheter'>
                         </form>
-                        <h3>€€</h3>
+                        <h3>" . htmlspecialchars($row['Prix_Produit']) . "€</h3>
                     </div>
-                </article>
-                <article>
-                    <h2>Nom</h2>
-                    <div class="imgBackground"><img src="../Pictures/gold.png" alt=""></div>
-                    <p></p>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
-                        </form>
-                        <h3>€€</h3>
-                    </div>
-                </article>
-            </div>
-        </div>
-        <div>
-            <h2>
-                Nourriture et boissons
-            </h2>
-            <div class="produits">
-                <article>
-                    <h2>Produit</h2>
-                    <div class="imgBackground"><img src="../Pictures/image 1.png" alt=""></div>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
-                        </form>
-                        <h3>€€</h3>
-                    </div>
-                </article>
-                <article>
-                    <h2>Produit</h2>
-                    <div class="imgBackground"><img src="../Pictures/monster.png" alt=""></div>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
-                        </form>
-                        <h3>€€</h3>
-                    </div>
-                </article>
-                <article>
-                    <h2>Produit</h2>
-                    <div class="imgBackground"><img src="../Pictures/monster.png" alt=""></div>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
-                        </form>
-                        <h3>€€</h3>
-                    </div>
-                </article>
-                <article>
-                    <h2>Produit</h2>
-                    <div class="imgBackground"><img src="../Pictures/monster.png" alt=""></div>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
-                        </form>
-                        <h3>€€</h3>
-                    </div>
-                </article>
-                <article>
-                    <h2>Produit</h2>
-                    <div class="imgBackground"><img src="../Pictures/monster.png" alt=""></div>
-                    <div class="row">
-                        <form action="" method="post">
-                            <input type="submit" value="Acheter">
-                        </form>
-                        <h3>€€</h3>
-                    </div>
-                </article>
-            </div>
-        </div>
-        <div>
-            <h2>
-                Goodies
-            </h2>
-            <div class="produits"></div>
-        </div>
-    </main>
-    <?php include '../Views/footer.php'; ?>
-    <script src="../Script/script.js"></script>
+                  </article>";
+            }
+        }
+        echo "</div></div>";
+    }
+    ?>
+</main>
+<?php include '../Views/footer.php'; ?>
+<script src="../Script/script.js"></script>
 </body>
 </html>
