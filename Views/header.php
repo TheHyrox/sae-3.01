@@ -17,11 +17,7 @@ if (!isset($_SESSION)) {
 <header>
     <div id="linksContainer">
         <?php
-        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
-            include '../Views/headerLinksAdminView.php';
-        } else {
             include '../Views/headerLinksView.php';
-        }
         ?>
     </div>
 
