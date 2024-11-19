@@ -11,14 +11,22 @@
 <?php include '../Views/header.php'; ?>
     <main>
         <article class="letter">
-            <img src="../Pictures/IMG_1097.jpg" alt="">
+            <img src="../Pictures/mael.jpg" alt="">
             <div>
                 <div>
-                    <h2>nom</h2>
-                <h3>auteur</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed temporibus pariatur tempore quibusdam incidunt quaerat quos ipsum, laboriosam sit veritatis officiis dolore sequi, accusantium nihil illum molestiae, natus iusto. Maiores.</p>
+                    <h2>Maël Moccand élu vice-président étudiant</h2>
+                <h3>GRANSART Lou-Ann</h3>
+                <p>Jeudi 14 novembre 2024, les membres élus du conseil académique de Le Mans Université ont élu Maël Moccand en qualité de vice-président étudiant. Il succède à Lucas Chesnot qui occupait cette fonction depuis avril 2021 et qui a quitté Le Mans Université pour poursuivre ses études dans une autre université.</p>
+                <p>Maël Moccand est actuellement étudiant en licence professionnelle Assurance, banque, finance, parcours Assurance après avoir suivi deux années de licence de droit général.
+
+Très investi dans la vie de l’Université, Maël a été étudiant relais santé pendant deux ans et est élu à la commission formation et vie universitaire depuis avril 2023.
+
+Il était également membre de l’Association des étudiants en droit, économie et gestion (AEDEG), de l’Association Oral Le Mans et responsable d’antenne et chroniqueur de l’Association Le Studio Le Mans.
+
+</p>
+
                 </div>
-                <p>date</p>
+                <p>Jeudi 14 novembre 2024</p>
             </div>
         </article>
     </main>
