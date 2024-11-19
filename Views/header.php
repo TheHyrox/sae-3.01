@@ -37,7 +37,7 @@ $linearAdmin = isset($_SESSION['linearAdmin']) ? $_SESSION['linearAdmin'] : 'lin
 
     <div>
         <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
-            <label class="switch">
+            <label class="switch switch-admin">
                 <input type="checkbox" id="adminSwitch" name="demoCheckBox">
                 <span></span>
             </label>

@@ -162,6 +162,23 @@ header .switch{
 }
 .switch input:checked + span:before {
 	left: 50px;
+    background: var(--linearAdmin);
+}
+.switch-admin input:checked + span:before {
+	background: var(--linearClassic);
+
+}
+
+.switch-text{
+    width: 300px;
+	height: 70px;
+}
+.switch-text input + span:before {
+	width: 140px;
+    height: 60px;
+}
+.switch-text input:checked + span:before {
+	left: 155px;
 }
 
 /* textfield */
@@ -983,4 +1000,93 @@ select {
     min-width: 250px;
     max-width: 300px;
     max-height: 5400px;
+}
+
+/* memberlist */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.panel{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 15px;
+}
+#settings, #list-management{
+    min-width: 300px;
+    align-items: start;
+    gap: 30px;
+}
+#settings ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#settings li{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+#research{
+    width: 100%;
+}
+#research form{
+    background: var(--linearClassic);
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+    border-radius: 5px;
+    width: 100%;
+}
+#research input[type="text"]{
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+}
+#research button{
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+}
+#list-result{
+    width: 100%;
+    height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.profil-bar{
+    background-color: var(--secondary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+}
+.profil-bar div{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.profil-bar img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.profil-bar form{
+    height: 100%;
+}
+.profil-bar button{
+    background: var(--linearClassic);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 50px;
+    height: 100%;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 20px;    
 }

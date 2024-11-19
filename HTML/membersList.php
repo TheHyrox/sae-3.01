@@ -12,41 +12,47 @@
 <?php include '../Views/header.php'; ?>
 
     <main>
-        <div class="row">
-            <article id="option">
+        <div class="panel">
+            <article id="settings">
                 <h2>Options</h2>
+                <label class="switch switch-text">
+                    <input type="checkbox" id="memberRoleSwitch" name="demoCheckBox">
+                    <span>test</span>
+                    <span></span>
+                    
+                </label>
                 <ul>
                     <li>
                         <label class="switch">
-                            <input type="checkbox" id="ShowMembersSwitch" name="demoCheckBox">
+                            <input type="checkbox" id="showMembersSwitch" name="demoCheckBox">
                             <span></span>
                         </label>
                         <p>Voir les membres</p>
                     </li>
                     <li>
                         <label class="switch">
-                            <input type="checkbox" id="ShowAdminsSwitch" name="demoCheckBox">
+                            <input type="checkbox" id="showAdminsSwitch" name="demoCheckBox">
                             <span></span>
                         </label>
                         <p>Voir les administrateurs</p>
                     </li>
                     <li>
                         <label class="switch">
-                            <input type="checkbox" id="ShowBut1Switch" name="demoCheckBox">
+                            <input type="checkbox" id="showBut1Switch" name="demoCheckBox">
                             <span></span>
                         </label>
                         <p>BUT1</p>
                     </li>
                     <li>
                         <label class="switch">
-                            <input type="checkbox" id="ShowBut2Switch" name="demoCheckBox">
+                            <input type="checkbox" id="showBut2Switch" name="demoCheckBox">
                             <span></span>
                         </label>
                         <p>BUT2</p>
                     </li>
                     <li>
                         <label class="switch">
-                            <input type="checkbox" id="ShowBut3Switch" name="demoCheckBox">
+                            <input type="checkbox" id="showBut3Switch" name="demoCheckBox">
                             <span></span>
                         </label>
                         <p>BUT3</p>
@@ -60,6 +66,27 @@
                         <input type="text" name="research" id="research" placeholder="Rechercher..." required>
                         <button type="submit" value="search"><img src="../Icons/search.png" alt=""></button>
                     </form>
+                </div>
+                <div id="list-result">
+                    <div class="profil-bar">
+                        <div>
+                            <img src="../Pictures/DefaultProfilePicture.png" alt="">
+                            <p>Nom Prénom - TP22C</p>
+                        </div>
+                        <form action="" method="post">
+                            <button type="submit" value="id de la personne/grade">Voir</button>
+                        </form>
+                    </div>
+                    <div class="profil-bar">
+                        <div>
+                            <img src="../Pictures/DefaultProfilePicture.png" alt="">
+                            <p>Nom Prénom - TP22C</p>
+                        </div>
+                        <form action="" method="post">
+                            <button type="submit" value="id de la personne/grade">Voir</button>
+                        </form>
+                    </div>
+                    
                 </div>
             </article>
         </div>
