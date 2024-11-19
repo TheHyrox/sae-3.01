@@ -15,7 +15,7 @@ class eventModel
 
     public function getEvents(): false|array
     {
-        $req = $this->db->prepare('SELECT Nom_Event, URL_Img_Evenement, Desc_Event, Prix_Event FROM event');
+        $req = $this->db->prepare('SELECT * FROM event');
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
