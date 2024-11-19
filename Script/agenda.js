@@ -50,19 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
             4: 'jeudi',
             5: 'vendredi'
         };
-    
+
         // Clear previous events
         Object.values(days).forEach(day => {
             document.getElementById(`event-${day}`).innerHTML = ''; // Clear previous events
         });
-    
+
         // Sort events by start time
         events.sort((a, b) => {
             const startA = new Date(a.getFirstPropertyValue('dtstart').toString());
             const startB = new Date(b.getFirstPropertyValue('dtstart').toString());
             return startA - startB;
         });
-    
+
         events.forEach(event => {
             const summary = event.getFirstPropertyValue('summary');
             const description = event.getFirstPropertyValue('description');
@@ -74,32 +74,59 @@ document.addEventListener('DOMContentLoaded', () => {
             const endHour = endDate.getHours();
             const startMinutes = startDate.getMinutes();
             const endMinutes = endDate.getMinutes();
-    
+
             // Extract the professor's name from the description
             const professorMatch = description.match(/\n\n(?:Grp \d+\w+|BUT INFO1|TD\d+)\n(.+?)\n/);
             const professor = professorMatch ? professorMatch[1] : 'N/A';
-    
+
             const durationInMinutes = (endHour * 60 + endMinutes) - (startHour * 60 + startMinutes);
-            const topPosition = ((startHour - 8) * 60 + startMinutes) * (100 / (11 * 60)); // Adjusted for 8:00 to 19:00
-            const height = (durationInMinutes / 60) * (100 / 11); // Adjusted for 11 hours
-    
+            let topPosition = ((startHour - 8) * 60 + startMinutes) * (100 / (11 * 60)); // Adjusted for 8:00 to 19:00
+            
+            /*if (startHour != 8) {
+                topPosition -= 1;
+            }*/
+
+            let height = 0;
+
+            switch (durationInMinutes) {
+                case 180:
+                    height = 24.43;
+                    break;
+                case 150:
+                    height = 20,3583333332;
+                    break;
+                case 120:
+                    height = 16,2866666666;
+                    break;
+                case 90:
+                    height = 12,215;
+                    break;
+                case 60:
+                    height = 8,1433333333;
+                    break;
+                default:
+                    height = (durationInMinutes / 60) * (100 / 11);
+                    break;
+            }
+
+
             const html = `
                 <div class="event" style="top: ${topPosition}%; height: ${height}%">
                     <button style="width: 95%">${summary}</button>
-                    <p style="padding-left: 2;">Professeur : ${professor} <br/>Localisation : ${location} <br/>Heure de début : ${startHour}h${startMinutes.toString().padStart(2, '0')}<br/>Heure de fin : ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>
+                    <p style="margin-left: 2.5%; style="margin-right: 2%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>
                 </div>
             `;
-    
+
             // Check if the event is in the current week
             const weekStart = getWeekStart(new Date(currentWeekStart));
             const weekEnd = new Date(weekStart);
             weekEnd.setDate(weekEnd.getDate() + 4); // End of the week (Friday)
-    
+
             if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
                 document.getElementById(`event-${days[day]}`).insertAdjacentHTML('beforeend', html);
             }
         });
-    
+
         // Set the dates in the table headers
         setWeekDates(getWeekStart(new Date(currentWeekStart)));
     }
