@@ -1022,7 +1022,7 @@ select {
     max-height: 5400px;
 }
 
-.filefond {
+.folderfond {
     display: flex; /* Aligne les éléments enfants côte à côte */
     flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
     gap: 10px; /* Ajoute un espace entre les éléments */
@@ -1032,20 +1032,27 @@ select {
     padding: 10px 20px;
 }
 
-.file {
+.folder, .file {
     display: flex; /* Active le mode flex pour organiser les enfants */
     flex-direction: column; /* Place les enfants en colonne */
     align-items: center; /* Centre horizontalement le contenu */
     margin-left: 10px;
 }
 
-.image-button img {
+.image-folder img {
     width: 125px;
     height: 100px;
     border-radius: 10px;
 }
 
-.file span {
+.image-file img {
+    width: 90px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+
+.folder span, .file span {
     margin-top: 10px;
     color: #FFF;
     font-size: 14px;
