@@ -29,6 +29,21 @@ Il était également membre de l’Association des étudiants en droit, économi
                 <p>Jeudi 14 novembre 2024</p>
             </div>
         </article>
+        <article class="letter">
+            <img src="../Pictures/forum.jpg" alt="">
+            <div>
+                <div>
+                    <h2>Forum RéseauStage | Édition 2024</h2>
+                <h3>GRANSART Lou-Ann</h3>
+                <p>Le Mans Université s'associe au MEDEF pour vous offrir une opportunité unique : le Forum RéseauStage. Un rendez-vous incontournable pour les étudiants en bac+2 à bac+5, à la recherche d’un stage.
+
+Ce jour-là, vous pourrez rencontrer directement des entreprises et leur remettre votre CV. Pour maximiser votre succès, participez aux ateliers de préparation avant l'événement, conçus pour renforcer votre confiance et vos compétences.  
+
+ </p>
+                </div>
+                <p>28 novembre 2024</p>
+            </div>
+        </article>
     </main>
     <?php include '../Views/footer.php'; ?>
     <script src="../Script/script.js"></script>
