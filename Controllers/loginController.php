@@ -21,6 +21,9 @@ class loginController
 
                 if ($this->model->emailExists($email) && $this->model->passwordIsValid($email, $password)) {
                     $_SESSION['email'] = $email;
+                    if($this->model->isAdmin($email)) {
+                        $_SESSION['isAdmin'] = true;
+                    }
                     $this->errorMessage = 'Connection réussie';
                     header('Location: ../HTML/index.php');
                 } else {
