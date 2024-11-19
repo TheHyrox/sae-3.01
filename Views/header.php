@@ -15,24 +15,34 @@ if (!isset($_SESSION)) {
 </head>
 <body>
 <header>
-    <?php include '../Views/headerLinksView.php'; ?>
+    <div id="linksContainer">
+        <?php
+        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
+            include '../Views/headerLinksAdminView.php';
+        } else {
+            include '../Views/headerLinksView.php';
+        }
+        ?>
+    </div>
+
     <div>
         <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
             <label class="switch">
-                <input type="checkbox"/>
+                <input type="checkbox" id="adminSwitch" name="demoCheckBox">
                 <span></span>
             </label>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['email'])): ?>
-            <a href="../HTML/account.php">Mon compte</a>
+            <a href="../HTML/account.php" data-default-link="../HTML/account.php" data-admin-link="../HTML/adminAccount.php">Mon compte</a>
         <?php else: ?>
-            <a href="../HTML/login.php">Se connecter</a>
+            <a href="../HTML/login.php" data-default-link="../HTML/login.php" data-admin-link="../HTML/adminLogin.php">Se connecter</a>
         <?php endif; ?>
         <!-- Put user picture -->
         <img src="../Pictures/defaultProfilePicture.png" alt="">
-
     </div>
 </header>
+
+<script src="../Utils/header.js"></script>
 </body>
 </html>
