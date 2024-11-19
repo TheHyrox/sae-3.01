@@ -38,7 +38,7 @@ $linearAdmin = isset($_SESSION['linearAdmin']) ? $_SESSION['linearAdmin'] : 'lin
     <div>
         <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
             <label class="switch">
-                <input type="checkbox" id="adminSwitch" name="demoCheckBox">
+                <input type="checkbox" id="adminSwitch" name="demoCheckBox" <?php echo $isAdminView ? 'checked' : ''; ?>>
                 <span></span>
             </label>
         <?php endif; ?>
@@ -48,7 +48,6 @@ $linearAdmin = isset($_SESSION['linearAdmin']) ? $_SESSION['linearAdmin'] : 'lin
         <?php else: ?>
             <a href="../HTML/login.php" data-default-link="../HTML/login.php" data-admin-link="../HTML/adminLogin.php">Se connecter</a>
         <?php endif; ?>
-        <!-- Put user picture -->
         <img src="../Pictures/defaultProfilePicture.png" alt="">
     </div>
 </header>
