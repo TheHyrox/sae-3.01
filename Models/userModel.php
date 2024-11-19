@@ -1,7 +1,7 @@
 <?php
 
 class UserModel {
-    private $bdd;
+    private PDO $bdd;
 
     public function __construct($host, $dbname, $user, $password) {
         try {
@@ -13,19 +13,46 @@ class UserModel {
     }
 
     public function getUser($id) {
-        $req = $this->bdd->prepare('SELECT * FROM user WHERE Id_User = :id');
+        $req = $this->bdd->prepare('SELECT * FROM utilisateur WHERE Id_User = :id');
         $req->execute(array('id' => $id));
         return $req->fetch();
     }
 
     public function getUserByEmail($email) {
-        $req = $this->bdd->prepare('SELECT * FROM user WHERE Email = :email');
+        $req = $this->bdd->prepare('SELECT * FROM utilisateur WHERE Email = :email');
         $req->execute(array('email' => $email));
         return $req->fetch();
     }
 
-    public function addUser($email, $motdepasse, $grp_tp_user) {
-        $req = $this->bdd->prepare('INSERT INTO user (Email, Password, Grp_TP_User) VALUES (:email, :motdepasse, :grp_tp_user)');
-        $req->execute(array('email' => $email, 'motdepasse' => password_hash($motdepasse, PASSWORD_DEFAULT), 'grp_tp_user' => 1));}
+    public function addUser($email, $motdepasse, $grp_tp_user): void
+    {
+        $req = $this->bdd->prepare('INSERT INTO utilisateur (Mail_User, Mdp_User, Grp_TP_User) VALUES (:email, :motdepasse, :grp_tp_user)');
+        $req->execute(array('email' => $email, 'motdepasse' => password_hash($motdepasse, PASSWORD_DEFAULT), 'grp_tp_user' => $grp_tp_user));
+    }
+
+    public function emailExists($email): bool
+    {
+        $stmt = $this->bdd->prepare("SELECT COUNT(*) FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
+    public function passwordIsValid($email, $password): bool
+    {
+        $stmt = $this->bdd->prepare("SELECT Mdp_User FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $hashedPassword = $stmt->fetchColumn();
+        return password_verify($password, $hashedPassword);
+    }
+
+    public function isAdmin($email): bool
+    {
+        $stmt = $this->bdd->prepare("SELECT Niv_Acces_User FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn() < 4;
+    }
 }
 ?>
