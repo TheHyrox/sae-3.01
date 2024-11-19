@@ -166,20 +166,40 @@ header .switch{
 }
 .switch-admin input:checked + span:before {
 	background: var(--linearClassic);
-
 }
 
 .switch-text{
     width: 300px;
-	height: 70px;
+	height: 60px;
 }
 .switch-text input + span:before {
 	width: 140px;
-    height: 60px;
+    height: 50px;
 }
 .switch-text input:checked + span:before {
 	left: 155px;
 }
+/* Texte pour le bouton toggle */
+.s-text {
+    font-size: 35px;
+    text-align: center;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    pointer-events: none; /* Empêche les clics sur le texte */
+
+}
+
+.switch-text input + span.s-text::before {
+    content: "Membres"; 
+    position: absolute;
+}
+
+.switch-text input:checked + span.s-text::before {
+    content: "Rôles"; 
+}
+
 
 /* textfield */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1082,7 +1102,7 @@ select {
     background: var(--linearClassic);
     border: none;
     border-radius: 5px;
-    padding: 5px 50px;
+    padding: 5px 30px;
     height: 100%;
     color: var(--secondary);
     font-weight: bold;

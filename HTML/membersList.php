@@ -17,9 +17,8 @@
                 <h2>Options</h2>
                 <label class="switch switch-text">
                     <input type="checkbox" id="memberRoleSwitch" name="demoCheckBox">
-                    <span>test</span>
+                    <span class="s-text"></span>
                     <span></span>
-                    
                 </label>
                 <ul>
                     <li>
