@@ -161,7 +161,6 @@ header .switch{
 	transition: all .2s;
 }
 .switch input:checked + span:before {
-    background: var(--linearAdmin);
 	left: 50px;
 }
 
