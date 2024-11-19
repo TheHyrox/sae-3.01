@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to set the dates in the table headers
     function setWeekDates(startDate) {
-        const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+        const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
         days.forEach((day, index) => {
             const date = new Date(startDate);
             date.setDate(startDate.getDate() + index);
@@ -44,16 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderEvents(events) {
         const days = {
-            1: 'monday',
-            2: 'tuesday',
-            3: 'wednesday',
-            4: 'thursday',
-            5: 'friday'
+            1: 'lundi',
+            2: 'mardi',
+            3: 'mercredi',
+            4: 'jeudi',
+            5: 'vendredi'
         };
     
         // Clear previous events
-        const eventsContainer = document.getElementById('events-container');
-        eventsContainer.innerHTML = ''; // Clear previous events
+        Object.values(days).forEach(day => {
+            document.getElementById(`event-${day}`).innerHTML = ''; // Clear previous events
+        });
+    
+        // Sort events by start time
+        events.sort((a, b) => {
+            const startA = new Date(a.getFirstPropertyValue('dtstart').toString());
+            const startB = new Date(b.getFirstPropertyValue('dtstart').toString());
+            return startA - startB;
+        });
     
         events.forEach(event => {
             const summary = event.getFirstPropertyValue('summary');
@@ -76,14 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const height = (durationInMinutes / 60) * (100 / 11); // Adjusted for 11 hours
     
             const html = `
-                <div class="event" style="top: ${topPosition}%; height: ${height}%; left: ${((day - 1) * 20)}%; width: 20%;">
-                    <button>${summary}</button>
-                    <ul>
-                        <li>Professeur : ${professor}</li>
-                        <li>Localisation : ${location}</li>
-                        <li>Heure de début : ${startHour}h${startMinutes.toString().padStart(2, '0')}</li>
-                        <li>Heure de fin : ${endHour}h${endMinutes.toString().padStart(2, '0')}</li>
-                    </ul>
+                <div class="event" style="top: ${topPosition}%; height: ${height}%">
+                    <button style="width: 95%">${summary}</button>
+                    <p style="padding-left: 2;">Professeur : ${professor} <br/>Localisation : ${location} <br/>Heure de début : ${startHour}h${startMinutes.toString().padStart(2, '0')}<br/>Heure de fin : ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>
                 </div>
             `;
     
@@ -93,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             weekEnd.setDate(weekEnd.getDate() + 4); // End of the week (Friday)
     
             if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
-                eventsContainer.insertAdjacentHTML('beforeend', html);
+                document.getElementById(`event-${days[day]}`).insertAdjacentHTML('beforeend', html);
             }
         });
     
