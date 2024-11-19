@@ -14,7 +14,7 @@ html, body{
     margin: 0;
     background-color: var(--secondary);
 }
-h1, h2, h3, p, a, li{
+h1, h2, h3, p, a, li, span{
     margin: 0;
     font-family: Josefin Sans;
 }
@@ -166,20 +166,40 @@ header .switch{
 }
 .switch-admin input:checked + span:before {
 	background: var(--linearClassic);
-
 }
 
 .switch-text{
     width: 300px;
-	height: 70px;
+	height: 60px;
 }
 .switch-text input + span:before {
 	width: 140px;
-    height: 60px;
+    height: 50px;
 }
 .switch-text input:checked + span:before {
 	left: 155px;
 }
+/* Texte pour le bouton toggle */
+.s-text {
+    font-size: 35px;
+    text-align: center;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    pointer-events: none; /* Empêche les clics sur le texte */
+
+}
+
+.switch-text input + span.s-text::before {
+    content: "Membres"; 
+    position: absolute;
+}
+
+.switch-text input:checked + span.s-text::before {
+    content: "Rôles"; 
+}
+
 
 /* textfield */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1002,6 +1022,46 @@ select {
     max-height: 5400px;
 }
 
+.folderfond {
+    display: flex; /* Aligne les éléments enfants côte à côte */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 10px; /* Ajoute un espace entre les éléments */
+    justify-content: flex-start; /* Aligne les éléments à gauche */
+    background-color: var(--primary);
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.folder, .file {
+    display: flex; /* Active le mode flex pour organiser les enfants */
+    flex-direction: column; /* Place les enfants en colonne */
+    align-items: center; /* Centre horizontalement le contenu */
+    margin-left: 10px;
+}
+
+.image-folder img {
+    width: 125px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.image-file img {
+    width: 90px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+
+.folder span, .file span {
+    margin-top: 10px;
+    color: var(--white);
+    font-size: 14px;
+    text-align: center; /* Centre le texte sous l'image */
+}
+
 /* memberlist */
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .panel{
@@ -1082,11 +1142,44 @@ select {
     background: var(--linearClassic);
     border: none;
     border-radius: 5px;
-    padding: 5px 50px;
+    padding: 5px 30px;
     height: 100%;
     color: var(--secondary);
     font-weight: bold;
     font-family: Anton;
     text-transform: uppercase;
     font-size: 20px;    
+}#add-news {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #dd7212, #ee2bc3); /* Dégradé de couleurs */
+    color: black ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Anton;
+    font-size: 16px;
+}
+#add-folder:hover {
+    background-color: #CC7A00;
+}
+/* management */
+
+
+article.add{
+    background: var(--linearClassic);
+    background-color: transparent;
+}
+article.add input{
+    background: var(--primary);
+    color: var(--white);
+}
+article.add img{
+    background-color: transparent;
+    border: solid 2px var(--primary);
+}
+form#event-add{
+    width: 100%;
+}
+form#event-add input{
+    width: 100%;
 }

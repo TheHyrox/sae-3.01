@@ -19,4 +19,18 @@ class productModel
         $req->execute(array('category' => $category));
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getCategories(): false|array
+    {
+        $req = $this->db->prepare('SELECT DISTINCT Cat_Produit FROM produit');
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public function getGrades(): false|array
+    {
+        $req = $this->db->prepare('SELECT Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM grade');
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
