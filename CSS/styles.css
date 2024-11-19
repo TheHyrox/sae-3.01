@@ -14,7 +14,7 @@ html, body{
     margin: 0;
     background-color: var(--secondary);
 }
-h1, h2, h3, p, a, li{
+h1, h2, h3, p, a, li, span{
     margin: 0;
     font-family: Josefin Sans;
 }
