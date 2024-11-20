@@ -12,8 +12,10 @@
 <?php include '../Views/header.php'; ?>
 
     <main>
-    <button id="add-news">Ajouter un article</button>   
-    <article class="letter">
+        <form id="news-add" action='' method='post'>
+            <input type='submit' value='Ajouter un article'>
+        </form>   
+        <article class="letter">
             <img src="../Pictures/IMG_1097.jpg" alt="">
             <div>
                 <div>
@@ -23,6 +25,9 @@
                 </div>
                 <p>date</p>
             </div>
+            <form action="" method="post">
+                <button type="submit"><img src="../Icons/edit.png" alt=""></button>
+            </form>
         </article>
     </main>
 
