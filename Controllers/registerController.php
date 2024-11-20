@@ -1,5 +1,7 @@
 <?php
 require '../Models/userModel.php';
+require '../Utils/DBConfig/Databases.php';
+require '../Utils/DBConfig/Config.php';
 
 class registerController
 {
@@ -8,7 +10,7 @@ class registerController
     public string $validationMessage = '';
 
     public function __construct() {
-        $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
+        $this->model = new UserModel();
     }
 
     public function registerRequest()

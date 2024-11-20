@@ -1,8 +1,7 @@
 <?php
 require '../Models/eventModel.php';
-if(!isset($_SESSION)){
-    session_start();
-}
+require '../Utils/DBConfig/Databases.php';
+require '../Utils/DBConfig/Config.php';
 
 class eventController
 {
@@ -10,7 +9,7 @@ class eventController
 
     public function __construct()
     {
-        $this->model = new eventModel('localhost', 'inf2pj_06', 'root', '');
+        $this->model = new eventModel();
     }
 
     public function getEvents(): array

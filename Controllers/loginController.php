@@ -1,6 +1,11 @@
 <?php
 require '../Models/userModel.php';
-session_start();
+require '../Utils/DBConfig/Databases.php';
+require '../Utils/DBConfig/Config.php';
+if(!isset($_SESSION)){
+    session_start();
+    header('Location: ../HTML/index.php');
+}
 
 class loginController
 {
@@ -9,7 +14,7 @@ class loginController
 
     public function __construct()
     {
-        $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
+        $this->model = new UserModel();
     }
 
     public function loginRequest(): void
