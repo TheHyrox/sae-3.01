@@ -12,7 +12,7 @@
         <li><a href="../HTML/index.php">accueil</a></li>
         <li><a href="../HTML/event.php">évènements</a></li>
         <li><a href="../HTML/shop.php">boutique</a></li>
-        <li><a href="../HTML/agenda.html">agenda</a></li>
+        <li><a href="../HTML/agenda.php">agenda</a></li>
         <li><a href="../HTML/newsletter.php">newsletter</a></li>
         <li><a href="../HTML/checkout.php">panier</a></li>
     </ul>

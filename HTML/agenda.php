@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
-    <!-- Inclusion d'ICAL.js depuis un CDN compatible -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.3.0/ical.min.js"></script>
-    <!-- Inclusion de votre script agenda.js -->
     <script src="/Script/agenda.js" defer></script>
-    <!-- Styles intégrés -->
     <style>
         :root {
             --primary: #192025;
@@ -39,7 +37,7 @@
         }
     
         select, button {
-            padding: 10px;
+            padding: 8px;
             border: none;
             border-radius: 5px;
             background-color: var(--green);
@@ -196,6 +194,9 @@
     
 </head>
 <body>
+
+    <?php include '../Views/header.php'; ?>
+
     <h1>Agenda</h1>
     <label for="group-select">Choisissez un groupe :</label>
     <select id="group-select">
@@ -341,5 +342,7 @@
             <div id="event-vendredi" class="day-column"></div>
         </div>
     </div>
+
+    <?php include '../Views/footer.php'; ?>
 </body>
 </html>
