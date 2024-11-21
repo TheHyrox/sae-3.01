@@ -35,7 +35,7 @@ foreach ($events as $event) {
             echo "<div><h2>Les grades</h2><div class='grades'>";?>
             <article class="add">
                 <h2>Nouveau grade</h2>
-                <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Grade']) . "' alt=''></div>
+                <div class='imgBackground'><img src='../Icons/plus.png' alt=''></div>
                 <form action='' method='post'>
                     <input type='submit' value='Ajouter'>
                 </form>
@@ -44,8 +44,7 @@ foreach ($events as $event) {
             echo "</div></div>";
         }
         ?>
-
-        <h2>Articles</h2>
+        
         <div class='produits'></div>
         <?php
         $categories = $gestionController->getCategories();
@@ -53,7 +52,7 @@ foreach ($events as $event) {
             echo "<div><h2>" . ucfirst($categorie) . "</h2><div class='produits'>";?>
         <article class="add">
             <h2>Nouveau produits</h2>
-            <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Produit']) . "' alt=''></div>
+            <div class='imgBackground'><img src='../Icons/plus.png' alt='' style="margin: 5px"></div>
             <form action='' method='post'>
                 <input type='submit' value='Ajouter'>
             </form>
