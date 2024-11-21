@@ -1,16 +1,13 @@
 <?php
 
+use DBConfig\Database;
+
 class productModel
 {
     private PDO $db;
 
-    public function __construct($host, $dbname, $user, $password) {
-        try {
-            $this->db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Erreur de connexion : " . $e->getMessage());
-        }
+    public function __construct() {
+        $this->db = Database::getConnection();
     }
 
     public function getProductsByCategory($category): false|array

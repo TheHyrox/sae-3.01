@@ -1,11 +1,13 @@
 <?php
 require_once '../Models/userModel.php';
+require '../Utils/DBConfig/Databases.php';
+require '../Utils/DBConfig/Config.php';
 
 class UserController {
-    private $model;
+    private UserModel $model;
 
     public function __construct() {
-        $this->model = new UserModel('localhost', 'inf2pj_06', 'root', '');
+        $this->model = new UserModel();
     }
 
     public function getUser($id){

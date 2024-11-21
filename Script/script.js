@@ -30,3 +30,32 @@ monthBtns.forEach((button, index) => {
 function monthClick(index) {
     months[index].classList.toggle('active');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const monthButtons = document.querySelectorAll('.monthBtn');
+    const eventItems = document.querySelectorAll('.eventItem');
+    const eventDetails = document.getElementById('eventDetails');
+
+    monthButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const eventList = button.nextElementSibling;
+            if (eventList) {
+                eventList.classList.toggle('visible');
+            }
+        });
+    });
+
+    eventItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent form submission
+            const name = item.getAttribute('data-name');
+            const date = item.getAttribute('data-date');
+            const description = item.getAttribute('data-description');
+
+            eventDetails.querySelector('h2').textContent = name;
+            eventDetails.querySelector('p').textContent = description;
+            eventDetails.querySelector('img').src = item.getAttribute('data-image') ? item.getAttribute('data-image') : '../Pictures/defaultProfilePicture.png';
+            eventDetails.querySelector('.row h3').textContent = date;
+        });
+    });
+});
