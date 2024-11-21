@@ -1,10 +1,8 @@
 <?php
 require '../Models/productModel.php';
-require '../Utils/DBConfig/Databases.php';
-require '../Utils/DBConfig/Config.php';
-if(!isset($_SESSION)){
-    session_start();
-}
+require_once '../Utils/DBConfig/Database.php';
+require_once '../Utils/DBConfig/Config.php';
+
 class productController
 {
     private ProductModel $model;

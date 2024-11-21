@@ -1,6 +1,6 @@
 <?php
 require '../Models/userModel.php';
-require '../Utils/DBConfig/Databases.php';
+require '../Utils/DBConfig/Database.php';
 require '../Utils/DBConfig/Config.php';
 
 class registerController

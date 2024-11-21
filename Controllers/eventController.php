@@ -1,7 +1,7 @@
 <?php
 require '../Models/eventModel.php';
-require '../Utils/DBConfig/Databases.php';
-require '../Utils/DBConfig/Config.php';
+require_once '../Utils/DBConfig/Database.php';
+require_once '../Utils/DBConfig/Config.php';
 
 class eventController
 {
