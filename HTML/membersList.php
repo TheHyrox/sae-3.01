@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Changer le CSS car en version utilisateur -->
-    <link rel="stylesheet" href="../CSS/adminStyles.css"> 
+    <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
     <title>ADIIL - Membres</title>
 </head>
