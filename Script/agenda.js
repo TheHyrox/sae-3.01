@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let currentWeekStart = new Date(); // Start of the current week
+    let currentWeekStart = new Date(); 
 
-    // Define resourceIds mapping
     const resourceIds = {
         'TP11A': 282,
         'TP11B': 567,
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'TP32D': 6241
     };
 
-    // Fonction qui génère le lien de téléchargement pour un groupe donné
     function getDownloadLink(group) {
         const resourceId = resourceIds[group];
         const baseUrl = 'http://planning.univ-lemans.fr/jsp/custom/modules/plannings/anonymous_cal.jsp';
@@ -25,14 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${baseUrl}?${params}`;
     }
 
-    // Function to get the start of the week for a given date
     function getWeekStart(date) {
         const day = date.getDay();
-        const diff = date.getDate() - day + (day === 0 ? -6 : 1); // Adjust when day is sunday
+        const diff = date.getDate() - day + (day === 0 ? -6 : 1);
         return new Date(date.setDate(diff));
     }
 
-    // Function to set the dates in the table headers
     function setWeekDates(startDate) {
         const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
         days.forEach((day, index) => {
@@ -51,12 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
             5: 'vendredi'
         };
 
-        // Clear previous events
         Object.values(days).forEach(day => {
-            document.getElementById(`event-${day}`).innerHTML = ''; // Clear previous events
+            document.getElementById(`event-${day}`).innerHTML = ''; 
         });
 
-        // Sort events by start time
         events.sort((a, b) => {
             const startA = new Date(a.getFirstPropertyValue('dtstart').toString());
             const startB = new Date(b.getFirstPropertyValue('dtstart').toString());
@@ -74,18 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const endHour = endDate.getHours();
             const startMinutes = startDate.getMinutes();
             const endMinutes = endDate.getMinutes();
-
-            // Extract the professor's name from the description
+            const startDecimalHour = startHour + (startMinutes / 60);
             const professorMatch = description.match(/\n\n(?:Grp \d+\w+|BUT INFO1|TD\d+)\n(.+?)\n/);
             const professor = professorMatch ? professorMatch[1] : 'N/A';
 
             const durationInMinutes = (endHour * 60 + endMinutes) - (startHour * 60 + startMinutes);
-            let topPosition = ((startHour - 8) * 60 + startMinutes) * (100 / (11 * 60)); // Adjusted for 8:00 to 19:00
             
-            /*if (startHour != 8) {
-                topPosition -= 1;
-            }*/
-
             let height = 0;
 
             switch (durationInMinutes) {
@@ -109,6 +97,59 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
             }
 
+            const topPositionMap = {
+                8: 0,
+                8.25: 2.045,
+                8.5: 4.09,
+                8.75: 6.135,
+                9: 8.18,
+                9.25: 10.225,
+                9.5: 12.27,
+                9.75: 14.315,
+                10: 16.36,
+                10.25: 18.405,
+                10.5: 20.45,
+                10.75: 22.495,
+                11: 24.54,
+                11.25: 26.585,
+                11.5: 28.63,
+                11.75: 30.675,
+                12: 32.72,
+                12.25: 34.765,
+                12.5: 36.81,
+                12.75: 38.855,
+                13: 40.9,
+                13.25: 42.945,
+                13.5: 44.99,
+                13.75: 47.035,
+                14: 49.08,
+                14.25: 51.125,
+                14.5: 53.17,
+                14.75: 55.215,
+                15: 57.26,
+                15.25: 59.305,
+                15.5: 61.35,
+                15.75: 63.395,
+                16: 65.44,
+                16.25: 67.485,
+                16.5: 69.53,
+                16.75: 71.575,
+                17: 73.62,
+                17.25: 75.665,
+                17.5: 77.71,
+                17.75: 79.755,
+                18: 81.8,
+                18.25: 83.845,
+                18.5: 85.89,
+                18.75: 87.935,
+                19: 89.98,
+                19.25: 92.025,
+                19.5: 94.07,
+                19.75: 96.115,
+            };
+            
+            const topPosition = topPositionMap[startDecimalHour] || 0;
+
 
             const html = `
                 <div class="event" style="top: ${topPosition}%; height: ${height}%">
@@ -127,11 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Set the dates in the table headers
         setWeekDates(getWeekStart(new Date(currentWeekStart)));
     }
 
-    // Function to load events for the selected group
     function loadEvents(group) {
         const url = `../Script/proxy.php?url=${encodeURIComponent(getDownloadLink(group))}`;
         fetch(url)
@@ -145,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Erreur lors du chargement des événements :', error));
     }
 
-    // Event listeners for week navigation buttons
     document.getElementById('prev-week').addEventListener('click', () => {
         currentWeekStart.setDate(currentWeekStart.getDate() - 7);
         loadEvents(document.getElementById('group-select').value);
@@ -156,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadEvents(document.getElementById('group-select').value);
     });
 
-    // Initial load
     document.getElementById('load-ics').addEventListener('click', () => {
         currentWeekStart = getWeekStart(new Date()); // Reset to current week
         loadEvents(document.getElementById('group-select').value);
