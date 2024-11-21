@@ -12,4 +12,9 @@ class newsletterController
     {
         $this->model = new newsletterModel();
     }
+
+    public function getNewsletters(): array
+    {
+        return $this->model->getNewsletters();
+    }
 }
