@@ -70,29 +70,46 @@ document.addEventListener('DOMContentLoaded', () => {
             const endMinutes = endDate.getMinutes();
             const startDecimalHour = startHour + (startMinutes / 60);
             const professorMatch = description.match(/\n\n(?:Grp \d+\w+|BUT INFO1|TD\d+)\n(.+?)\n/);
-            const professor = professorMatch ? professorMatch[1] : 'N/A';
+            let professor = professorMatch ? professorMatch[1] : 'N/A';
+            if (professor.includes('Exported')) {
+                professor = 'N/A';
+            }
 
             const durationInMinutes = (endHour * 60 + endMinutes) - (startHour * 60 + startMinutes);
             
             let height = 0;
             let fontsize = 0;
+            let marginTop = 3.556;
+
 
             switch (durationInMinutes) {
+                case 240:
+                    height = 24.7;
+                    break;
+                case 210:
+                    height = 21.8;
+                    break;
                 case 180:
-                    height = 24.43;
+                    height = 18.5;
                     break;
                 case 150:
-                    height = 20,3583333332;
+                    height = 15.621;
                     break;
                 case 120:
-                    height = 16,2866666666;
+                    height = 12.257;
                     break;
                 case 90:
-                    height = 12,215;
+                    height = 9.207; // 9.507 de hauteur réelle si boite complète et 9.207 si boite pas collé avec 2px mac 
+                    fontsize = 95;
                     break;
                 case 60:
-                    height = 8,1433333333;
+                    height = 6; 
                     fontsize = 75;
+                    break;
+                case 30:
+                    height = 3;
+                    fontsize = 0.1;
+                    marginTop = 2.4;
                     break;
                 default:
                     height = (durationInMinutes / 60) * (100 / 11);
@@ -100,63 +117,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const topPositionMap = {
-                8: 0,
-                8.25: 2.045,
-                8.5: 4.09,
-                8.75: 6.135,
-                9: 8.18,
-                9.25: 10.225,
-                9.5: 12.27,
-                9.75: 14.315,
-                10: 16.36,
-                10.25: 18.405,
-                10.5: 20.45,
-                10.75: 22.495,
-                11: 24.54,
-                11.25: 26.585,
-                11.5: 28.63,
-                11.75: 30.675,
-                12: 32.72,
-                12.25: 34.765,
-                12.5: 36.81,
-                12.75: 38.855,
-                13: 40.9,
-                13.25: 42.945,
-                13.5: 44.99,
-                13.75: 47.035,
-                14: 49.08,
-                14.25: 51.125,
-                14.5: 53.17,
-                14.75: 55.215,
-                15: 57.26,
-                15.25: 59.305,
-                15.5: 61.35,
-                15.75: 63.395,
-                16: 65.44,
-                16.25: 67.485,
-                16.5: 69.53,
-                16.75: 71.575,
-                17: 73.62,
-                17.25: 75.665,
-                17.5: 77.71,
-                17.75: 79.755,
-                18: 81.8,
-                18.25: 83.845,
-                18.5: 85.89,
-                18.75: 87.935,
-                19: 89.98,
-                19.25: 92.025,
-                19.5: 94.07,
-                19.75: 96.115,
+                8.0: -0.50, 
+                8.25: 1.43, 
+                8.5: 2.50, 
+                8.75: 4.15, 
+                9.0: 5.75, 
+                9.25: 7.13, 
+                9.5: 8.80, 
+                9.75: 14.32, 
+                10.0: 12.00, 
+                10.25: 18.41, 
+                10.5: 15.02, 
+                10.75: 16.42, 
+                11.0: 18.28, 
+                11.25: 19.77, 
+                11.5: 21.27, 
+                11.75: 22.76, 
+                12.0: 24.26, 
+                12.25: 25.75, 
+                12.5: 27.43, 
+                12.75: 29.12, 
+                13.0: 30.80, 
+                13.25: 32.20, 
+                13.5: 33.90, 
+                13.75: 35.25, 
+                14.0: 37.05, 
+                14.25: 38.60, 
+                14.5: 40.16, 
+                14.75: 41.71, 
+                15.0: 43.26, 
+                15.25: 44.85, 
+                15.5: 46.43, 
+                15.75: 48.02, 
+                16.0: 49.60,
+                16.25: 51.19, 
+                16.5: 52.77, 
+                16.75: 54.36, 
+                17.0: 55.94, 
+                17.25: 57.53, 
+                17.5: 59.11, 
+                17.75: 60.70, 
+                18.0: 62.28, 
+                18.25: 63.87, 
+                18.5: 65.45, 
+                18.75: 67.04, 
+                19.0: 68.62, 
+                19.25: 70.21, 
+                19.5: 71.79, 
+                19.75: 73.38, 
+                20.0: 74.96
             };
             
-            const topPosition = topPositionMap[startDecimalHour] || 0;
-
+            const topPosition = topPositionMap[startDecimalHour] || 150;
 
             const html = `
-                <div class="event" style="top: ${topPosition}%; height: ${height}%">
-                    <button style="width: 95%; margin-bottom:0">${summary}</button>
-                    <p style="margin-left: 2.5%; margin-right: 2%; font-size:${fontsize || 100}%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>
+            <div class="event" style="top: ${topPosition}%; height: ${height}%">
+                    <button style="width: 95%; margin-bottom:0; margin-top: ${marginTop}%">${summary}</button>
+                    ${durationInMinutes !== 30 ? `<p style="margin-left: 2.5%; margin-right: 2%; font-size:${fontsize || 100}%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>` : ''}
                 </div>
             `;
 
@@ -185,18 +202,72 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Erreur lors du chargement des événements :', error));
     }
 
+    function updateCurrentTimeLine() {
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const totalMinutes = (currentHour - 8) * 60 + currentMinutes; 
+        const percentageOfDay = (totalMinutes / (11 * 60)) * 100; 
+        const currentTimeLine = document.getElementById('current-time-line');
+        const currentTimeArrow = document.getElementById(`arrow-${currentHour}`);
+    
+        document.querySelectorAll('.current-time-arrow').forEach(arrow => {
+            arrow.style.display = 'none';
+        });
+
+        if (currentTimeArrow) {
+            currentTimeArrow.style.display = 'inline';
+            currentTimeArrow.textContent = '>';
+        }
+    
+        currentTimeLine.style.top = `${percentageOfDay}%`;
+        currentTimeLine.style.display = 'none';
+    
+        const day = now.getDay();
+        const days = {
+            1: 'lundi',
+            2: 'mardi',
+            3: 'mercredi',
+            4: 'jeudi',
+            5: 'vendredi'
+        };
+    
+        if (days[day]) {
+            const eventsContainer = document.getElementById(`event-${days[day]}`);
+            const events = eventsContainer.querySelectorAll('.event');
+            events.forEach(event => {
+                const eventTop = parseFloat(event.style.top);
+                const eventHeight = parseFloat(event.style.height);
+                if (percentageOfDay >= eventTop && percentageOfDay <= (eventTop + eventHeight)) {
+                    currentTimeLine.style.display = 'block';
+                    currentTimeLine.style.top = `${percentageOfDay}%`;
+                    currentTimeLine.style.left = `${eventsContainer.offsetLeft}px`;
+                    currentTimeLine.style.width = `${eventsContainer.offsetWidth}px`;
+                }
+            });
+        }
+    }
+    
     document.getElementById('prev-week').addEventListener('click', () => {
         currentWeekStart.setDate(currentWeekStart.getDate() - 7);
         loadEvents(document.getElementById('group-select').value);
     });
-
+    
     document.getElementById('next-week').addEventListener('click', () => {
         currentWeekStart.setDate(currentWeekStart.getDate() + 7);
         loadEvents(document.getElementById('group-select').value);
     });
-
-    document.getElementById('load-ics').addEventListener('click', () => {
-        currentWeekStart = getWeekStart(new Date()); // Reset to current week
+    
+    document.getElementById('today').addEventListener('click', () => {
+        currentWeekStart = getWeekStart(new Date()); 
         loadEvents(document.getElementById('group-select').value);
     });
+    
+    document.getElementById('load-ics').addEventListener('click', () => {
+        currentWeekStart = getWeekStart(new Date()); 
+        loadEvents(document.getElementById('group-select').value);
+    });
+    
+    setInterval(updateCurrentTimeLine, 1000); 
+    updateCurrentTimeLine(); 
 });
