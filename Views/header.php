@@ -1,7 +1,9 @@
 <?php
-if (!isset($_SESSION)) {
+if(!isset($_SESSION)) {
     session_start();
 }
+$cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+$itemCount = array_sum(array_column($cart, 'quantity'));
 
 $isAdminView = $_SESSION['isAdminView'] ?? false;
 $linearClassic = $_SESSION['linearClassic'] ?? 'linear-gradient(90deg, rgba(0, 151, 178, 1) 0%, rgba(32, 164, 153, 1) 27%, rgba(78, 182, 116, 1) 100%)';
@@ -15,7 +17,7 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
     <title>Header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans|Anton">
     <style>
         :root {
             --linearClassic: <?php echo $linearClassic; ?>;
