@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setWeekDates(startDate) {
-        const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
+        const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
         days.forEach((day, index) => {
             const date = new Date(startDate);
             date.setDate(startDate.getDate() + index);
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         Object.values(days).forEach(day => {
-            document.getElementById(`event-${day}`).innerHTML = ''; 
+            document.getElementById(`event-${day}`).innerHTML = '';
         });
 
         events.sort((a, b) => {
@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const durationInMinutes = (endHour * 60 + endMinutes) - (startHour * 60 + startMinutes);
             
             let height = 0;
+            let fontsize = 0;
 
             switch (durationInMinutes) {
                 case 180:
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 case 60:
                     height = 8,1433333333;
+                    fontsize = 75;
                     break;
                 default:
                     height = (durationInMinutes / 60) * (100 / 11);
@@ -153,22 +155,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const html = `
                 <div class="event" style="top: ${topPosition}%; height: ${height}%">
-                    <button style="width: 95%">${summary}</button>
-                    <p style="margin-left: 2.5%; style="margin-right: 2%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>
+                    <button style="width: 95%; margin-bottom:0">${summary}</button>
+                    <p style="margin-left: 2.5%; margin-right: 2%; font-size:${fontsize || 100}%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>
                 </div>
             `;
 
-            // Check if the event is in the current week
             const weekStart = getWeekStart(new Date(currentWeekStart));
             const weekEnd = new Date(weekStart);
-            weekEnd.setDate(weekEnd.getDate() + 4); // End of the week (Friday)
+            weekEnd.setDate(weekEnd.getDate() + 4); 
 
             if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
                 document.getElementById(`event-${days[day]}`).insertAdjacentHTML('beforeend', html);
             }
         });
 
-        setWeekDates(getWeekStart(new Date(currentWeekStart)));
+        setWeekDates(currentWeekStart);
     }
 
     function loadEvents(group) {
