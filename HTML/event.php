@@ -1,3 +1,16 @@
+<?php
+require '../Controllers/eventController.php';
+$controller = new eventController();
+$events = $controller->getEvents();
+
+$eventsByMonth = [];
+
+foreach ($events as $event) {
+    $month = date('n', strtotime($event['Date_Event']));
+    $eventsByMonth[$month][] = $event;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
