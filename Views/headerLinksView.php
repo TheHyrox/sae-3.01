@@ -1,3 +1,8 @@
+<?php
+$cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+$itemCount = array_sum(array_column($cart, 'quantity'));
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +19,13 @@
         <li><a href="../HTML/shop.php">boutique</a></li>
         <li><a href="../HTML/agenda.php">agenda</a></li>
         <li><a href="../HTML/newsletter.php">newsletter</a></li>
-        <li><a href="../HTML/checkout.php">panier</a></li>
+        <li><a href="../HTML/checkout.php">panier
+                <?php
+                if ($itemCount > 0) {
+                    echo '(' . $itemCount . ')';
+                }
+                ?>
+            </a></li>
     </ul>
 </div>
 </body>

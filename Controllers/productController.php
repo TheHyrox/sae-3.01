@@ -2,7 +2,7 @@
 require '../Models/productModel.php';
 require '../Utils/DBConfig/Databases.php';
 require '../Utils/DBConfig/Config.php';
-if(isset($_SESSION)){
+if(!isset($_SESSION)){
     session_start();
 }
 class productController
