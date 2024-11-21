@@ -26,7 +26,7 @@ class productModel
 
     public function getGrades(): false|array
     {
-        $req = $this->db->prepare('SELECT Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM grade');
+        $req = $this->db->prepare('SELECT Id_Grade, Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM grade');
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
