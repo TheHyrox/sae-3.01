@@ -2,6 +2,10 @@
 require_once '../Controllers/gestionController.php';
 
 $gestionController = new gestionController();
+$gestionController->handleAddProduct();
+$gestionController->handleAddGrade();
+$gestionController->handleAddCategory();
+
 $events = $gestionController->getEvents();
 
 $eventsByMonth = [];
@@ -37,26 +41,27 @@ foreach ($events as $event) {
                 <h2>Nouveau grade</h2>
                 <div class='imgBackground'><img src='../Icons/plus.png' alt=''></div>
                 <form action='' method='post'>
-                    <input type='submit' value='Ajouter'>
+                    <input type='submit' id='addGradeButton' value='Ajouter'>
                 </form>
             </article>
         <?php include '../Views/Shop/gradesView.php';
             echo "</div></div>";
         }
         ?>
-        
+
         <div class='produits'></div>
         <?php
         $categories = $gestionController->getCategories();
         foreach ($categories as $categorie) {
             echo "<div><h2>" . ucfirst($categorie) . "</h2><div class='produits'>";?>
-        <article class="add">
-            <h2>Nouveau produits</h2>
-            <div class='imgBackground'><img src='../Icons/plus.png' alt='' style="margin: 5px"></div>
-            <form action='' method='post'>
-                <input type='submit' value='Ajouter'>
-            </form>
-        </article>
+            <article class="add">
+                <h2>Nouveau produit</h2>
+                <div class='imgBackground'><img src='../Icons/plus.png' alt='' style="margin: 5px"></div>
+                <form action='' method='post'>
+                    <input type='hidden' name='Cat_Produit' value='<?php echo $categorie; ?>'>
+                    <input type='submit' class='addProductButton' value='Ajouter'>
+                </form>
+            </article>
             <?php $products = $gestionController->getProductsByCategory($categorie);
             if ($products) {
                 foreach ($products as $row) {
@@ -67,8 +72,25 @@ foreach ($events as $event) {
         }
         ?>
         <form id="category-add" action='' method='post'>
+            <input type='text' name='Cat_Produit' placeholder='Nouvelle catégorie' required>
             <input type='submit' value='Ajouter une catégorie'>
         </form>
+
+        <div id="addProductModal" class="modal">
+            <div class="modal-content">
+                <span class="close close-product">&times;</span>
+                <?php include '../Views/Gestion/addProductView.php'; ?>
+            </div>
+        </div>
+
+        <div id="addGradeModal" class="modal">
+            <div class="modal-content">
+                <span class="close close-grade">&times;</span>
+                <?php include '../Views/Gestion/addGradeView.php'; ?>
+            </div>
+        </div>
     </main>
 </body>
+<script src="../Script/addProduct.js"></script>
+<script src="../Script/addGrade.js"></script>
 </html>

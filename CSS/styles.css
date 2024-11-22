@@ -596,6 +596,7 @@ footer img{
     flex-direction: row;
     justify-content: center;
     gap: 25px;
+    overflow-x: auto;
 }
 .grades article img{
     padding: 50px;
