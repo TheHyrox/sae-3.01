@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let fontsize = 0;
             let marginTop = 3.556;
 
-
             switch (durationInMinutes) {
                 case 240:
                     height = 24.7;
@@ -177,10 +176,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
+            console.log('Event:', summary, 'Start:', startDate, 'End:', endDate, 'Day:', day, 'Top:', topPosition, 'Height:', height); // Debug log
+
+            
             const weekStart = getWeekStart(new Date(currentWeekStart));
+            weekStart.setHours(0, 0, 0, 0);
+
             const weekEnd = new Date(weekStart);
             weekEnd.setDate(weekEnd.getDate() + 4); 
+            weekEnd.setHours(20, 0, 0, 0); 
 
+            console.log(weekStart);
+            console.log(weekEnd);
+            
+            
             if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
                 document.getElementById(`event-${days[day]}`).insertAdjacentHTML('beforeend', html);
             }
@@ -248,25 +257,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    document.getElementById('prev-week').addEventListener('click', () => {
-        currentWeekStart.setDate(currentWeekStart.getDate() - 7);
-        loadEvents(document.getElementById('group-select').value);
-    });
-    
-    document.getElementById('next-week').addEventListener('click', () => {
-        currentWeekStart.setDate(currentWeekStart.getDate() + 7);
-        loadEvents(document.getElementById('group-select').value);
-    });
-    
-    document.getElementById('today').addEventListener('click', () => {
-        currentWeekStart = getWeekStart(new Date()); 
-        loadEvents(document.getElementById('group-select').value);
-    });
-    
-    document.getElementById('load-ics').addEventListener('click', () => {
-        currentWeekStart = getWeekStart(new Date()); 
-        loadEvents(document.getElementById('group-select').value);
-    });
+    const prevWeekButton = document.getElementById('prev-week');
+    if (prevWeekButton) {
+        prevWeekButton.addEventListener('click', () => {
+            currentWeekStart.setDate(currentWeekStart.getDate() - 7);
+            const groupTPInput = document.getElementById('group-tp');
+            const groupSelect = document.getElementById('group-select');
+            if (groupTPInput) {
+                loadEvents(groupTPInput.value);
+            } else if (groupSelect) {
+                loadEvents(groupSelect.value);
+            }
+        });
+    }
+
+    const nextWeekButton = document.getElementById('next-week');
+    if (nextWeekButton) {
+        nextWeekButton.addEventListener('click', () => {
+            currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+            const groupTPInput = document.getElementById('group-tp');
+            const groupSelect = document.getElementById('group-select');
+            if (groupTPInput) {
+                loadEvents(groupTPInput.value);
+            } else if (groupSelect) {
+                loadEvents(groupSelect.value);
+            }
+        });
+    }
+
+    const todayButton = document.getElementById('today');
+    if (todayButton) {
+        todayButton.addEventListener('click', () => {
+            currentWeekStart = getWeekStart(new Date()); 
+            const groupTPInput = document.getElementById('group-tp');
+            const groupSelect = document.getElementById('group-select');
+            if (groupTPInput) {
+                loadEvents(groupTPInput.value);
+            } else if (groupSelect) {
+                loadEvents(groupSelect.value);
+            }
+        });
+    }
+
+    const loadIcsButton = document.getElementById('load-ics');
+    if (loadIcsButton) {
+        loadIcsButton.addEventListener('click', () => {
+            currentWeekStart = getWeekStart(new Date()); 
+            const groupSelect = document.getElementById('group-select');
+            if (groupSelect) {
+                loadEvents(groupSelect.value);
+            }
+        });
+    }
 
     const groupTPInput = document.getElementById('group-tp');
     if (groupTPInput) {

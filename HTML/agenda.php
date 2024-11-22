@@ -2,22 +2,9 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include '../Utils/DBConfig/Database.php'; // Assurez-vous d'inclure votre fichier de connexion à la base de données
+include '../Utils/DBConfig/Database.php';
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-
-$groupTP = null;
-if (isset($_SESSION['Id_User'])) {
-    $userId = $_SESSION['Id_User'];
-    $query = $pdo->prepare("SELECT Grp_TP_User FROM utilisateur WHERE Id_User = :userId");
-    $query->execute(['Id_User' => $userId]);
-    $result = $query->fetch(PDO::FETCH_ASSOC);
-    if ($result && !empty($result['Grp_TP_User'])) {
-        $groupTP = $result['Grp_TP_User'];
-    }
-};
+$groupTP = $_SESSION['groupeTP'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -222,11 +209,11 @@ if (isset($_SESSION['Id_User'])) {
     <h1>Agenda</h1>
     <?php 
         if ($groupTP) {
-            echo "<h2>Groupe de TP : $groupTP</h2>";
+            echo "<h2>&emsp;Groupe de TP : $groupTP</h2>";
         }
     ?>
     <?php if ($groupTP === null): ?>
-        <label for="group-select">Choisissez un groupe :</label>
+        <label for="group-select">&emsp;Choisissez un groupe :</label>
         <select id="group-select">
             <option value="11A">11A</option>
             <option value="11B">11B</option>
@@ -252,127 +239,127 @@ if (isset($_SESSION['Id_User'])) {
         <button id="next-week">Semaine suivante &rarr;</button>
     </div>
 
-    <h2>Liste des événements</h2>
+    <h2>&emsp;Liste des événements</h2>
     <div class="schedule-container">
-    <table class="time-table">
-        <thead>
-            <tr>
-                <th class="hour-column">Heure</th>
-                <th class="day-column">Lundi <span id="monday-date"></span></th>
-                <th class="day-column">Mardi <span id="tuesday-date"></span></th>
-                <th class="day-column">Mercredi <span id="wednesday-date"></span></th>
-                <th class="day-column">Jeudi <span id="thursday-date"></span></th>
-                <th class="day-column">Vendredi <span id="friday-date"></span></th>
-            </tr>
-        </thead>
-        <tbody id="time-table-body">
-            <tr>
-                <td>8:00 <span class="current-time-arrow" id="arrow-8"></span></td>
-                <td id="monday-8"></td>
-                <td id="tuesday-8"></td>
-                <td id="wednesday-8"></td>
-                <td id="thursday-8"></td>
-                <td id="friday-8"></td>
-            </tr>
-            <tr>
-                <td>9:00 <span class="current-time-arrow" id="arrow-9"></span></td>
-                <td id="monday-9"></td>
-                <td id="tuesday-9"></td>
-                <td id="wednesday-9"></td>
-                <td id="thursday-9"></td>
-                <td id="friday-9"></td>
-            </tr>
-            <tr>
-                <td>10:00 <span class="current-time-arrow" id="arrow-10"></span></td>
-                <td id="monday-10"></td>
-                <td id="tuesday-10"></td>
-                <td id="wednesday-10"></td>
-                <td id="thursday-10"></td>
-                <td id="friday-10"></td>
-            </tr>
-            <tr>
-                <td>11:00 <span class="current-time-arrow" id="arrow-11"></span></td>
-                <td id="monday-11"></td>
-                <td id="tuesday-11"></td>
-                <td id="wednesday-11"></td>
-                <td id="thursday-11"></td>
-                <td id="friday-11"></td>
-            </tr>
-            <tr>
-                <td>12:00 <span class="current-time-arrow" id="arrow-12"></span></td>
-                <td id="monday-12"></td>
-                <td id="tuesday-12"></td>
-                <td id="wednesday-12"></td>
-                <td id="thursday-12"></td>
-                <td id="friday-12"></td>
-            </tr>
-            <tr>
-                <td>13:00 <span class="current-time-arrow" id="arrow-13"></span></td>
-                <td id="monday-13"></td>
-                <td id="tuesday-13"></td>
-                <td id="wednesday-13"></td>
-                <td id="thursday-13"></td>
-                <td id="friday-13"></td>
-            </tr>
-            <tr>
-                <td>14:00 <span class="current-time-arrow" id="arrow-14"></span></td>
-                <td id="monday-14"></td>
-                <td id="tuesday-14"></td>
-                <td id="wednesday-14"></td>
-                <td id="thursday-14"></td>
-                <td id="friday-14"></td>
-            </tr>
-            <tr>
-                <td>15:00 <span class="current-time-arrow" id="arrow-15"></span></td>
-                <td id="monday-15"></td>
-                <td id="tuesday-15"></td>
-                <td id="wednesday-15"></td>
-                <td id="thursday-15"></td>
-                <td id="friday-15"></td>
-            </tr>
-            <tr>
-                <td>16:00 <span class="current-time-arrow" id="arrow-16"></span></td>
-                <td id="monday-16"></td>
-                <td id="tuesday-16"></td>
-                <td id="wednesday-16"></td>
-                <td id="thursday-16"></td>
-                <td id="friday-16"></td>
-            </tr>
-            <tr>
-                <td>17:00 <span class="current-time-arrow" id="arrow-17"></span></td>
-                <td id="monday-17"></td>
-                <td id="tuesday-17"></td>
-                <td id="wednesday-17"></td>
-                <td id="thursday-17"></td>
-                <td id="friday-17"></td>
-            </tr>
-            <tr>
-                <td>18:00 <span class="current-time-arrow" id="arrow-18"></span></td>
-                <td id="monday-18"></td>
-                <td id="tuesday-18"></td>
-                <td id="wednesday-18"></td>
-                <td id="thursday-18"></td>
-                <td id="friday-18"></td>
-            </tr>
-            <tr>
-                <td>19:00 <span class="current-time-arrow" id="arrow-19"></span></td>
-                <td id="monday-19"></td>
-                <td id="tuesday-19"></td>
-                <td id="wednesday-19"></td>
-                <td id="thursday-19"></td>
-                <td id="friday-19"></td>
-            </tr>
-        </tbody>
-    </table>
-    <div id="events-container">
-        <div id="event-heure" class="day-column"></div>
-        <div id="event-lundi" class="day-column"></div>
-        <div id="event-mardi" class="day-column"></div>
-        <div id="event-mercredi" class="day-column"></div>
-        <div id="event-jeudi" class="day-column"></div>
-        <div id="event-vendredi" class="day-column"></div>
-        <div id="current-time-line" style="position: absolute; width: 100%; height: 2px; background-color: #D97D12; z-index: 1;"></div>
-    </div>
+        <table class="time-table">
+            <thead>
+                <tr>
+                    <th class="hour-column">Heure</th>
+                    <th class="day-column">Lundi <span id="monday-date"></span></th>
+                    <th class="day-column">Mardi <span id="tuesday-date"></span></th>
+                    <th class="day-column">Mercredi <span id="wednesday-date"></span></th>
+                    <th class="day-column">Jeudi <span id="thursday-date"></span></th>
+                    <th class="day-column">Vendredi <span id="friday-date"></span></th>
+                </tr>
+            </thead>
+            <tbody id="time-table-body">
+                <tr>
+                    <td>8:00 <span class="current-time-arrow" id="arrow-8"></span></td>
+                    <td id="monday-8"></td>
+                    <td id="tuesday-8"></td>
+                    <td id="wednesday-8"></td>
+                    <td id="thursday-8"></td>
+                    <td id="friday-8"></td>
+                </tr>
+                <tr>
+                    <td>9:00 <span class="current-time-arrow" id="arrow-9"></span></td>
+                    <td id="monday-9"></td>
+                    <td id="tuesday-9"></td>
+                    <td id="wednesday-9"></td>
+                    <td id="thursday-9"></td>
+                    <td id="friday-9"></td>
+                </tr>
+                <tr>
+                    <td>10:00 <span class="current-time-arrow" id="arrow-10"></span></td>
+                    <td id="monday-10"></td>
+                    <td id="tuesday-10"></td>
+                    <td id="wednesday-10"></td>
+                    <td id="thursday-10"></td>
+                    <td id="friday-10"></td>
+                </tr>
+                <tr>
+                    <td>11:00 <span class="current-time-arrow" id="arrow-11"></span></td>
+                    <td id="monday-11"></td>
+                    <td id="tuesday-11"></td>
+                    <td id="wednesday-11"></td>
+                    <td id="thursday-11"></td>
+                    <td id="friday-11"></td>
+                </tr>
+                <tr>
+                    <td>12:00 <span class="current-time-arrow" id="arrow-12"></span></td>
+                    <td id="monday-12"></td>
+                    <td id="tuesday-12"></td>
+                    <td id="wednesday-12"></td>
+                    <td id="thursday-12"></td>
+                    <td id="friday-12"></td>
+                </tr>
+                <tr>
+                    <td>13:00 <span class="current-time-arrow" id="arrow-13"></span></td>
+                    <td id="monday-13"></td>
+                    <td id="tuesday-13"></td>
+                    <td id="wednesday-13"></td>
+                    <td id="thursday-13"></td>
+                    <td id="friday-13"></td>
+                </tr>
+                <tr>
+                    <td>14:00 <span class="current-time-arrow" id="arrow-14"></span></td>
+                    <td id="monday-14"></td>
+                    <td id="tuesday-14"></td>
+                    <td id="wednesday-14"></td>
+                    <td id="thursday-14"></td>
+                    <td id="friday-14"></td>
+                </tr>
+                <tr>
+                    <td>15:00 <span class="current-time-arrow" id="arrow-15"></span></td>
+                    <td id="monday-15"></td>
+                    <td id="tuesday-15"></td>
+                    <td id="wednesday-15"></td>
+                    <td id="thursday-15"></td>
+                    <td id="friday-15"></td>
+                </tr>
+                <tr>
+                    <td>16:00 <span class="current-time-arrow" id="arrow-16"></span></td>
+                    <td id="monday-16"></td>
+                    <td id="tuesday-16"></td>
+                    <td id="wednesday-16"></td>
+                    <td id="thursday-16"></td>
+                    <td id="friday-16"></td>
+                </tr>
+                <tr>
+                    <td>17:00 <span class="current-time-arrow" id="arrow-17"></span></td>
+                    <td id="monday-17"></td>
+                    <td id="tuesday-17"></td>
+                    <td id="wednesday-17"></td>
+                    <td id="thursday-17"></td>
+                    <td id="friday-17"></td>
+                </tr>
+                <tr>
+                    <td>18:00 <span class="current-time-arrow" id="arrow-18"></span></td>
+                    <td id="monday-18"></td>
+                    <td id="tuesday-18"></td>
+                    <td id="wednesday-18"></td>
+                    <td id="thursday-18"></td>
+                    <td id="friday-18"></td>
+                </tr>
+                <tr>
+                    <td>19:00 <span class="current-time-arrow" id="arrow-19"></span></td>
+                    <td id="monday-19"></td>
+                    <td id="tuesday-19"></td>
+                    <td id="wednesday-19"></td>
+                    <td id="thursday-19"></td>
+                    <td id="friday-19"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="events-container">
+            <div id="event-heure" class="day-column"></div>
+            <div id="event-lundi" class="day-column"></div>
+            <div id="event-mardi" class="day-column"></div>
+            <div id="event-mercredi" class="day-column"></div>
+            <div id="event-jeudi" class="day-column"></div>
+            <div id="event-vendredi" class="day-column"></div>
+            <div id="current-time-line" style="position: absolute; width: 100%; height: 2px; background-color: #D97D12; z-index: 1;"></div>
+        </div>
 </body>
 <?php include '../Views/footer.php'; ?>
 </html>
