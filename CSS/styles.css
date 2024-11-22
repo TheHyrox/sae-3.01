@@ -503,9 +503,7 @@ footer img{
     overflow-y: scroll;
     height: 500px;
 }
-#event article{
-    /*display: none;*/
-}
+
 
 #event article .row{
     margin-top: auto;
@@ -873,7 +871,6 @@ footer img{
 .login-register div:last-child h2{
     font-size: 4em;
     width: 300px;
-    ali-self: center;
 }
 
 .form-other input[type=submit]{
@@ -1085,15 +1082,20 @@ select {
     text-align: center; /* Centre le texte sous l'image */
 }
 
-/* memberlist */
+/* memberlist and activities*/
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.panel{
+.panel-activity{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 15px;
+}
+.panel-list-member{
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 15px;
 }
-#settings, #list-management{
-    min-width: 300px;
+#settings, #list-member, #activity{
+    min-width: 400px;
     align-items: start;
     gap: 30px;
 }
@@ -1177,6 +1179,20 @@ select {
 #add-folder:hover {
     background-color: #CC7A00;
 }
+
+#activities{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+#activities p{
+    padding: 5px;
+    background-color: var(--secondary);
+    color: var(--white);
+    
+}
 /* management */
 
 
@@ -1198,3 +1214,72 @@ form#event-add,form#news-add{
 form#event-add,form#news-add input{
     width: 100%;
 }
+
+/* patenaire */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.partenaire{
+    align-items: start;
+    flex-direction: row;
+    padding: 10px;
+    height: 100%;
+    width: 75%; /* Réduit la largeur de la div */ 
+}
+
+.partenaire div{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+    justify-content: space-between;
+}
+.partenaire div div{
+    gap: 0px;
+}
+.partenaire h2{
+    max-width: 100%;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-inline: 0;
+    margin-block-end: -10px;
+}
+.partenaire h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.partenaire p{
+    max-width: 100%;
+}
+.partenaire img{
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 350px;
+    object-fit: cover;
+}
+.partenaire a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+.partenaire a img {
+    min-width: 25px;
+    max-width: 25px;
+    max-height: 35px;
+}
+
+.photo {
+    display: flex; /* Aligne les éléments enfants côte à côte */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 10px; /* Ajoute un espace entre les éléments */
+    justify-content: flex-start; /* Aligne les éléments à gauche */
+    width: 100%;
+}
+img {
+    width: 150px; /* Largeur fixe des images */
+    height: auto; /* Conserve les proportions */
+    border-radius: 10px;
+}
+
