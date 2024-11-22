@@ -176,6 +176,19 @@ input{
         width: 35px;
         height: auto;
     }
+    /* Main */
+    main{
+        margin: 25px 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    h2{
+        font-family: Anton;
+        color: var(--white);
+        text-transform: uppercase;
+    }
 }
 
 /* small pc screen */
@@ -294,7 +307,19 @@ input{
         width: 35px;
         height: auto;
     }
+    /* Main */
+    main{
+        margin: 25px 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
+    h2{
+        font-family: Anton;
+        color: var(--white);
+        text-transform: uppercase;
+    }
 }
 
 /* tablette screen */
@@ -457,7 +482,19 @@ input{
         width: 35px;
         height: auto;
     }
+    /* Main */
+    main{
+        margin: 20px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
+    h2{
+        font-family: Anton;
+        color: var(--white);
+        text-transform: uppercase;
+    }
 }
 
 /* Toggle button */
@@ -564,21 +601,6 @@ input[type="text"]:focus ,input[type="email"]:focus ,input[type="password"]:focu
 
 }
 
-/* main */
-/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-main{
-    margin: 25px 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-h2{
-    font-family: Anton;
-    color: var(--white);
-    text-transform: uppercase;
-}
 
 /* special event bar */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
