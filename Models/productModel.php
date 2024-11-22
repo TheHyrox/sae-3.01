@@ -12,7 +12,7 @@ class productModel
 
     public function getProductsByCategory($category): false|array
     {
-        $req = $this->db->prepare('SELECT Nom_Produit, URL_Img_Produit, Desc_Produit, Prix_Produit FROM produit WHERE Cat_Produit = :category');
+        $req = $this->db->prepare('SELECT Nom_Produit, URL_Img_Produit, Desc_Produit, Prix_Produit FROM produit WHERE Cat_Produit = :category AND Nom_Produit IS NOT NULL');
         $req->execute(array('category' => $category));
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -29,5 +29,23 @@ class productModel
         $req = $this->db->prepare('SELECT Id_Grade, Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM grade');
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addProduct($name, $price, $description, $category, $stock, $img): void
+    {
+        $req = $this->db->prepare('INSERT INTO produit (Nom_Produit, Prix_Produit, Desc_Produit, Cat_Produit, Stock_Produit, URL_Img_Produit) VALUES (:name, :price, :description, :category, :stock, :img)');
+        $req->execute(array('name' => $name, 'price' => $price, 'description' => $description, 'category' => $category, 'stock' => $stock, 'img' => $img));
+    }
+
+    public function addGrade(mixed $name, mixed $price, mixed $description, string $img): void
+    {
+        $req = $this->db->prepare('INSERT INTO grade (Nom_Grade, Prix_Grade, Desc_Grade, URL_Img_Grade) VALUES (:name, :price, :description, :img)');
+        $req->execute(array('name' => $name, 'price' => $price, 'description' => $description, 'img' => $img));
+    }
+
+    public function addCategory($category): void
+    {
+        $req = $this->db->prepare('INSERT INTO produit (Cat_Produit) VALUES (:category)');
+        $req->execute(array('category' => $category));
     }
 }
