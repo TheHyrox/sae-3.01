@@ -1082,15 +1082,20 @@ select {
     text-align: center; /* Centre le texte sous l'image */
 }
 
-/* memberlist */
+/* memberlist and activities*/
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.panel{
+.panel-activity{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 15px;
+}
+.panel-list-member{
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 15px;
 }
-#settings, #list-management{
-    min-width: 300px;
+#settings, #list-member, #activity{
+    min-width: 400px;
     align-items: start;
     gap: 30px;
 }
@@ -1173,6 +1178,20 @@ select {
 
 #add-folder:hover {
     background-color: #CC7A00;
+}
+
+#activities{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+#activities p{
+    padding: 5px;
+    background-color: var(--secondary);
+    color: var(--white);
+    
 }
 /* management */
 
@@ -1261,5 +1280,44 @@ img {
     width: 150px; /* Largeur fixe des images */
     height: auto; /* Conserve les proportions */
     border-radius: 10px;
+}
+
+/* Pages d'ajout des grades et produits */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--primary);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--secondary);
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: var(--white);
+}
+
+.close {
+    color: var(--white);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--red);
+    text-decoration: none;
+    cursor: pointer;
 }
 

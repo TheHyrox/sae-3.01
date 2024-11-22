@@ -1,7 +1,21 @@
+<?php
+session_start();
+include '../Utils/DBConfig/Database.php'; // Assurez-vous d'inclure votre fichier de connexion à la base de données
+
+$groupTP = null;
+if (isset($_SESSION['Id_User'])) {
+    $userId = $_SESSION['Id_User'];
+    $query = $pdo->prepare("SELECT Grp_TP_User FROM utilisateur WHERE Id_User = :userId");
+    $query->execute(['Id_User' => $userId]);
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    if ($result && !empty($result['Grp_TP_User'])) {
+        $groupTP = $result['Grp_TP_User'];
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
@@ -91,7 +105,7 @@
 
         .time-table th {
             background-color: var(--primary);
-            color: var(--white);
+            color: var (--white);
         }
 
         .time-table td {
@@ -114,7 +128,6 @@
             text-overflow: ellipsis; /* Ajoute "..." si le texte est trop long */
         }
 
-
         #events-container {
             position: absolute;
             top: 2.20%;
@@ -125,7 +138,6 @@
             pointer-events: none;
         }
 
-    
         /* Scroll bar */
         ::-webkit-scrollbar {
             width: 15px;
@@ -197,27 +209,35 @@
         }
 
     </style>
-    
 </head>
 <?php include '../Views/header.php'; ?>
 <body>
     <h1>Agenda</h1>
-    <label for="group-select">Choisissez un groupe :</label>
-    <select id="group-select">
-        <option value="TP11A">TP11A</option>
-        <option value="TP11B">TP11B</option>
-        <option value="TP12C">TP12C</option>
-        <option value="TP12D">TP12D</option>
-        <option value="TP21A">TP21A</option>
-        <option value="TP21B">TP21B</option>
-        <option value="TP22C">TP22C</option>
-        <option value="TP22D">TP22D</option>
-        <option value="TP31A">TP31A</option>
-        <option value="TP31B">TP31B</option>
-        <option value="TP32C">TP32C</option>
-        <option value="TP32D">TP32D</option>
-    </select>
-    <button id="load-ics">Charger les événements</button>
+    <?php 
+        if ($groupTP) {
+            echo "<h2>Groupe de TP : $groupTP</h2>";
+        }
+    ?>
+    <?php if ($groupTP === null): ?>
+        <label for="group-select">Choisissez un groupe :</label>
+        <select id="group-select">
+            <option value="11A">11A</option>
+            <option value="11B">11B</option>
+            <option value="12C">12C</option>
+            <option value="12D">12D</option>
+            <option value="21A">21A</option>
+            <option value="21B">21B</option>
+            <option value="22C">22C</option>
+            <option value="22D">22D</option>
+            <option value="31A">31A</option>
+            <option value="31B">31B</option>
+            <option value="32C">32C</option>
+            <option value="32D">32D</option>
+        </select>
+        <button id="load-ics">Charger les événements</button>
+    <?php else: ?>
+        <input type="hidden" id="group-tp" value="<?php echo htmlspecialchars($groupTP); ?>">
+    <?php endif; ?>
 
     <div class="week-navigation">
         <button id="prev-week">&larr; Semaine précédente</button>
