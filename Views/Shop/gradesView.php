@@ -3,7 +3,7 @@ foreach ($grades as $row) {
     if (isset($row['Id_Grade'])) {
         echo "<article>
                     <h2>" . htmlspecialchars($row['Nom_Grade']) . "</h2>
-                    <div class='imgBackground'><img src='../Pictures/" . htmlspecialchars($row['URL_Img_Grade']) . "' alt=''></div>
+                    <div class='imgBackground'><img src='../../Pictures/Uploads/" . htmlspecialchars($row['URL_Img_Grade']) . "' alt=''></div>
                     <p>" . htmlspecialchars($row['Desc_Grade']) . "</p>
                     <div class='row'>
                         <form action='checkout.php' method='post'>
