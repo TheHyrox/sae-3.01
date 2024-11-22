@@ -1188,10 +1188,15 @@ select {
     width: 100%;
 }
 #activities p{
-    padding: 5px;
+    padding: 12px;
     background-color: var(--secondary);
     color: var(--white);
-    
+    min-width: 0;
+    max-width: none;
+    border-width: 2px;
+    border-style: solid;
+    border-image: var(--linearClassic) 1;
+    align-self: start;
 }
 /* management */
 
@@ -1223,7 +1228,6 @@ form#event-add,form#news-add input{
     flex-direction: row;
     padding: 10px;
     height: 100%;
-    width: 75%; /* Réduit la largeur de la div */ 
 }
 
 .partenaire div{
