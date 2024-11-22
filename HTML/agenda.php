@@ -1,6 +1,12 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 include '../Utils/DBConfig/Database.php'; // Assurez-vous d'inclure votre fichier de connexion à la base de données
+
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 
 $groupTP = null;
 if (isset($_SESSION['Id_User'])) {
@@ -11,7 +17,7 @@ if (isset($_SESSION['Id_User'])) {
     if ($result && !empty($result['Grp_TP_User'])) {
         $groupTP = $result['Grp_TP_User'];
     }
-}
+};
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -210,8 +216,9 @@ if (isset($_SESSION['Id_User'])) {
 
     </style>
 </head>
-<?php include '../Views/header.php'; ?>
+
 <body>
+    <?php include '../Views/header.php'; ?>
     <h1>Agenda</h1>
     <?php 
         if ($groupTP) {
