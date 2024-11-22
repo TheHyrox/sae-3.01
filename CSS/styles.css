@@ -1204,7 +1204,6 @@ form#event-add,form#news-add input{
     flex-direction: row;
     padding: 10px;
     height: 100%;
-    width: 75%; /* Réduit la largeur de la div */ 
 }
 
 .partenaire div{
