@@ -503,9 +503,7 @@ footer img{
     overflow-y: scroll;
     height: 500px;
 }
-#event article{
-    /*display: none;*/
-}
+
 
 #event article .row{
     margin-top: auto;
@@ -873,7 +871,6 @@ footer img{
 .login-register div:last-child h2{
     font-size: 4em;
     width: 300px;
-    ali-self: center;
 }
 
 .form-other input[type=submit]{
