@@ -360,6 +360,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
             <div id="event-vendredi" class="day-column"></div>
             <div id="current-time-line" style="position: absolute; width: 100%; height: 2px; background-color: #D97D12; z-index: 1;"></div>
         </div>
+        <?php include '../Views/footer.php'; ?>
 </body>
-<?php include '../Views/footer.php'; ?>
+
 </html>

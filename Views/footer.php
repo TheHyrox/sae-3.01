@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="../CSS/styles.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton"/>
 <footer>
     <div>
         <h2>Mentions légales</h2>
@@ -67,4 +66,3 @@
         </div>
     </div>
 </footer>
-
