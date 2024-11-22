@@ -12,7 +12,7 @@ class productModel
 
     public function getProductsByCategory($category): false|array
     {
-        $req = $this->db->prepare('SELECT Nom_Produit, URL_Img_Produit, Desc_Produit, Prix_Produit FROM PRODUIT WHERE Cat_Produit = :category AND Nom_Produit IS NOT NULL');
+        $req = $this->db->prepare('SELECT Id_Produit, Nom_Produit, URL_Img_Produit, Desc_Produit, Prix_Produit FROM PRODUIT WHERE Cat_Produit = :category AND Nom_Produit IS NOT NULL');
         $req->execute(array('category' => $category));
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
