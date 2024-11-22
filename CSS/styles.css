@@ -1228,7 +1228,6 @@ form#event-add,form#news-add input{
     flex-direction: row;
     padding: 10px;
     height: 100%;
-    width: 75%; /* Réduit la largeur de la div */ 
 }
 
 .partenaire div{
@@ -1286,5 +1285,44 @@ img {
     width: 150px; /* Largeur fixe des images */
     height: auto; /* Conserve les proportions */
     border-radius: 10px;
+}
+
+/* Pages d'ajout des grades et produits */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--primary);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--secondary);
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: var(--white);
+}
+
+.close {
+    color: var(--white);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--red);
+    text-decoration: none;
+    cursor: pointer;
 }
 
