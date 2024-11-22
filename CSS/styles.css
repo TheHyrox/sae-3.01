@@ -1250,3 +1250,17 @@ form#event-add,form#news-add input{
     max-width: 25px;
     max-height: 35px;
 }
+
+.photo {
+    display: flex; /* Aligne les éléments enfants côte à côte */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 10px; /* Ajoute un espace entre les éléments */
+    justify-content: flex-start; /* Aligne les éléments à gauche */
+    width: 100%;
+}
+img {
+    width: 150px; /* Largeur fixe des images */
+    height: auto; /* Conserve les proportions */
+    border-radius: 10px;
+}
+
