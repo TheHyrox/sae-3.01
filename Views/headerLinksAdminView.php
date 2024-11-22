@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <button class="burger-menu" aria-label="Menu">
+    <button class="burger-menu">
         ☰
     </button>
     <h1>ADIIL</h1>
