@@ -46,7 +46,7 @@ class gestionController
 
             $img = '';
             if (isset($_FILES['productPicture']) && $_FILES['productPicture']['error'] === UPLOAD_ERR_OK) {
-                $img = '../Pictures/Uploads' . basename($_FILES['productPicture']['name']);
+                $img = basename($_FILES['productPicture']['name']);
                 move_uploaded_file($_FILES['productPicture']['tmp_name'], $img);
             }
 
@@ -65,7 +65,7 @@ class gestionController
 
             $img = '';
             if (isset($_FILES['gradePicture']) && $_FILES['gradePicture']['error'] === UPLOAD_ERR_OK) {
-                $img = '../Pictures/Uploads' . basename($_FILES['gradePicture']['name']);
+                $img = basename($_FILES['gradePicture']['name']);
                 move_uploaded_file($_FILES['gradePicture']['tmp_name'], $img);
             }
 
