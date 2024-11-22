@@ -44,6 +44,15 @@
                                 <p>JJ/MM/AAAA</p>
                             </div>
                         </div>
+                        <div>
+                            <form action="" method="post">
+                                <button type="submit" value="SupprimerEventID"><img src="" alt=""></button>
+                            </form>
+                            <div>
+                                <p>Event name</p>
+                                <p>JJ/MM/AAAA</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,6 +62,9 @@
                     <input type="submit" value="Sauvegarder">
                 </form>
             </div>
+            <form action="" method="post">
+                <button type="submit" value="retour"><img src="" alt=""></button>
+            </form>
         </article>
     </main>
     <script src="../Script/script.js"></script>
