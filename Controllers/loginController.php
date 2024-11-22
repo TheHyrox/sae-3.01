@@ -31,6 +31,7 @@ class loginController
                     }
                     $this->errorMessage = 'Connection réussie';
                     header('Location: ../HTML/index.php');
+                    exit(); // Ensure no further code is executed
                 } else {
                     $this->errorMessage = 'E-mail ou mot de passe incorrect';
                 }

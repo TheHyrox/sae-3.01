@@ -2,6 +2,9 @@
 require '../Controllers/loginController.php';
 $controller = new loginController();
 $controller->loginRequest();
+if(isset($_SESSION['email'])){
+    header('Location: ../HTML/account.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +20,7 @@ $controller->loginRequest();
     <main>
     <div class="login-register">
         <div>
-            <form class="form-login" action="login.php" method="POST" name="loginUser">
+            <form class="form-login" action="" method="POST" name="loginUser">
                 <h2>Connexion</h2>
                 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->errorMessage): ?>
                     <p class="error-message"><?php echo $controller->errorMessage; ?></p>
