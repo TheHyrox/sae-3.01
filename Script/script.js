@@ -1,6 +1,8 @@
 const slides = document.querySelectorAll('.slide');
 const monthBtns = document.querySelectorAll('.monthBtn');
 const months = document.querySelectorAll('.month');
+const burgerMenu = document.querySelector('.burger-menu');
+const navLinks = document.querySelector('.nav-links');
 let currentSlide = 0;
 
 function updateSlides() {
@@ -22,6 +24,13 @@ function slideClick(index) {
     currentSlide = index;
     updateSlides();
 }
+
+
+
+// Ajoute un événement pour afficher/masquer le menu
+burgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
 
 monthBtns.forEach((button, index) => {
     button.addEventListener('click', () => monthClick(index));

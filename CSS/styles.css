@@ -56,87 +56,207 @@ input{
   }
 
 
-/* header large pc */
+/* large pc */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-header{
-    z-index: 10;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px 5px 20px;
-    position: sticky;
-    top: 0;
-    overflow: hidden;
-    box-shadow: 0 0 30px 5px var(--secondary);;
-}
-header div{
-    display: flex;
-    align-items: center;
-}
-header h1{
-    background: var(--linearClassic);
-    background-clip: text;
-    color: transparent;
-    font-weight: 500;
-    font-family: Anton;
-    margin-right: 30px;
-    
-}
-header a{
-    text-decoration: none;
-    color: white;
-    
-}
-header a:hover{
-    text-decoration: underline;
-    color: white;
-    
-}
-header img{
-    width: 50px;
-    height: auto;
-    border-radius: 50px;
-    margin-left: 30px;
-}
-header ul{
-    list-style: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-header .switch{
-    margin-right: 30px;
-}
-
-
-
+@media screen and (min-width: 1100px) {
+    /* header */
+    header{
+        z-index: 10;
+        background-color: var(--primary);
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px 5px 20px;
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        box-shadow: 0 0 30px 5px var(--secondary);;
+    }
+    header div{
+        display: flex;
+        align-items: center;
+    }
+    header h1{
+        background: var(--linearClassic);
+        background-clip: text;
+        color: transparent;
+        font-weight: 500;
+        font-family: Anton;
+        margin-right: 30px;
+        
+    }
+    header a{
+        text-decoration: none;
+        color: var(--white);
+        
+    }
+    header a:hover{
+        text-decoration: underline;
+        color: var(--white);
+        
+    }
+    header img{
+        width: 50px;
+        height: auto;
+        border-radius: 50px;
+        margin-left: 30px;
+    }
+    header ul{
+        list-style: none;
+        text-transform: uppercase;
+        font-size: 18px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+    header .switch{
+        margin-right: 30px;
+    }
 
 
+
+
+
+
+}
+/* small pc screen */
+@media screen and (min-width: 900px) and (max-width: 1099px) {
+     /* header */
+     header{
+        z-index: 10;
+        background-color: var(--primary);
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px 5px 20px;
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        box-shadow: 0 0 30px 5px var(--secondary);;
+    }
+    header div{
+        display: flex;
+        align-items: center;
+    }
+    header h1{
+        background: var(--linearClassic);
+        background-clip: text;
+        color: transparent;
+        font-weight: 500;
+        font-family: Anton;
+        margin-right: 30px;
+    }
+    header a{
+        text-decoration: none;
+        color: var(--white);
+        
+    }
+    header a:hover{
+        text-decoration: underline;
+        color: var(--white);
+        
+    }
+    header img{
+        width: 50px;
+        height: auto;
+        border-radius: 50px;
+        margin-left: 30px;
+    }
+    header ul{
+        list-style: none;
+        text-transform: uppercase;
+        font-size: 15px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 15px;
+        margin: 0;
+        padding: 0;
+    }
+    header .switch{
+        margin-right: 30px;
+    }
+}
+
+/* tablette screen */
+@media screen and (max-width: 899px) {
+    /* header */
+    header{
+       z-index: 10;
+       background-color: var(--primary);
+       color: var(--white);
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 5px 20px 5px 20px;
+       position: sticky;
+       top: 0;
+       overflow: hidden;
+       box-shadow: 0 0 30px 5px var(--secondary);;
+   }
+   header div{
+       display: flex;
+       align-items: center;
+   }
+   header h1{
+       background: var(--linearClassic);
+       background-clip: text;
+       color: transparent;
+       font-weight: 500;
+       font-family: Anton;
+       margin-right: 30px;
+   }
+   header a{
+       text-decoration: none;
+       color: var(--white);
+       
+   }
+   header a:hover{
+       text-decoration: underline;
+       color: var(--white);
+       
+   }
+   header img{
+       width: 50px;
+       height: auto;
+       border-radius: 50px;
+       margin-left: 30px;
+   }
+   header ul{
+       list-style: none;
+       text-transform: uppercase;
+       font-size: 15px;
+       display: grid;
+       grid-auto-flow: column;
+       grid-column-gap: 15px;
+       margin: 0;
+       padding: 0;
+   }
+   header .switch{
+       margin-right: 30px;
+   }
+}
 
 /* Toggle button */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .switch {
-	display: inline-block;
-	position: relative;
-	width: 85px;
-	height: 40px;
-	cursor: pointer;
-	overflow: hidden;
+    display: inline-block;
+    position: relative;
+    width: 85px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
 }
 .switch input {
-	position: absolute;
-	top: -30px;
-	left: -30px;
-	width: 0;
-	height: 0;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 0;
+    height: 0;
 }
 .switch input + span {
     position: absolute;
@@ -148,36 +268,36 @@ header .switch{
     border-radius: 10px;
 }
 .switch input + span:before {
-	content: "";
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	left: 4px;
-	width: 30px;
-	height: 30px;
-	background: var(--linearClassic);
-	border-radius: 5px;
-	transform: translateY(-50%);
-	transition: all .2s;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 30px;
+    height: 30px;
+    background: var(--linearClassic);
+    border-radius: 5px;
+    transform: translateY(-50%);
+    transition: all .2s;
 }
 .switch input:checked + span:before {
-	left: 50px;
+    left: 50px;
     background: var(--linearAdmin);
 }
 .switch-admin input:checked + span:before {
-	background: var(--linearClassic);
+    background: var(--linearClassic);
 }
 
 .switch-text{
     width: 300px;
-	height: 60px;
+    height: 60px;
 }
 .switch-text input + span:before {
-	width: 140px;
+    width: 140px;
     height: 50px;
 }
 .switch-text input:checked + span:before {
-	left: 155px;
+    left: 155px;
 }
 /* Texte pour le bouton toggle */
 .s-text {
@@ -701,24 +821,24 @@ footer img{
     background-color: var(--primary);
     padding: 20px;
     border-radius: 10px;
-  }
-  
-  #agendaeventList {
+}
+
+#agendaeventList {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  #agendaeventList li {
+}
+
+#agendaeventList li {
     padding: 10px;
     border-bottom: 1px solid var(--secondary);
-  }
-  
-  #agendaeventList li:last-child {
+}
+
+#agendaeventList li:last-child {
     border-bottom: none;
-  }
-  
-  #agendaeventList li button {
+}
+
+#agendaeventList li button {
     background-color: var(--linearClassic);
     border: none;
     padding: 10px 20px;
@@ -726,81 +846,81 @@ footer img{
     text-transform: uppercase;
     font-size: 18px;
     cursor: pointer;
-  }
-  
-  #agendaeventList li button:hover {
+}
+
+#agendaeventList li button:hover {
     background-color: var(--linearAdmin);
-  }
-  
-  #agendaeventList li ul {
+}
+
+#agendaeventList li ul {
     display: none;
-  }
-  
-  #agendaeventList li.active ul {
+}
+
+#agendaeventList li.active ul {
     display: block;
-  }
-  
-  #agendaeventList li ul li {
+}
+
+#agendaeventList li ul li {
     padding: 10px;
     border-bottom: 1px solid var(--secondary);
-  }
-  
-  #agendaeventList li ul li:last-child {
-    border-bottom: none;
-  }
+}
 
-  /* Panier */
-  /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-  #panier, #paiement{
+#agendaeventList li ul li:last-child {
+    border-bottom: none;
+}
+
+/* Panier */
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#panier, #paiement{
     padding-left: 100px;
     padding-right: 100px;
-  }
-  #panier table{
+}
+#panier table{
     border-collapse: separate;
     border-spacing: 0 5px; 
     overflow: hidden;
     border-top: solid 2px #faf0e622;
     width: 100%;
     table-layout: fixed;
-  }
-  #panier th{
+}
+#panier th{
     height: 40px;
     color: var(--white);
     font-family: Josefin Sans;
     font-weight: 300;
     text-transform: uppercase;
-  }
-  #panier th:first-child{
+}
+#panier th:first-child{
     text-align: start;
-  }
-  #panier th:last-child{
+}
+#panier th:last-child{
     text-align: end;
-  }
-  #panier tr:not(:first-child){
+}
+#panier tr:not(:first-child){
     background: #faf0e622;
     color: var(--white);
     
-  }
-  #panier tr:not(:first-child) td{
+}
+#panier tr:not(:first-child) td{
     padding: 10px 0 10px 0;
     border: none;
     text-align: center;
     font-family: Josefin Sans;
     font-weight: 100;
     font-size: small;
-  }
-  #panier tr:not(:first-child) td:first-child  {
+}
+#panier tr:not(:first-child) td:first-child  {
     padding-left: 20px;
     border-radius: 5px 0 0 5px;
     text-align: start;
-  }
-  #panier tr:not(:first-child) td:last-child  {
+}
+#panier tr:not(:first-child) td:last-child  {
     padding-right: 20px;
     border-radius: 0 5px 5px 0;
     text-align: end;
-  }
+}
 
-  #total{
+#total{
     background-color: #faf0e622;
     display: flex;
     flex-direction: row;
@@ -808,39 +928,39 @@ footer img{
     border-radius: 5px;
     align-self: end;
     gap: 10px;
-  }
-  #total p {
+}
+#total p {
     width: 100%;
     min-width: 0;
     max-width: none;
     font-size: large;
     font-family: Anton;
-  }
-  #total h3{
+}
+#total h3{
     font-size: large;
-  }
+}
 
-  #paiement table{
+#paiement table{
     border-collapse: separate;
     border-spacing: 60px 20px; 
     overflow: hidden;
     border-top: solid 2px #faf0e622;
     width: 100%;
     table-layout: fixed;
-  }
-  #paiement th{
+}
+#paiement th{
     height: 40px;
     color: var(--white);
     font-family: Josefin Sans;
     font-weight: 300;
     text-transform: uppercase;
     text-align: start;
-  }
+}
 
-  #paiement input[type="submit"]{
+#paiement input[type="submit"]{
     width: 100%;
     margin: 0;
-  }
+}
     
 /* Page de login - register */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -903,15 +1023,15 @@ select {
     border-radius: 5px;
     padding: 5px 25px;
     outline: none; /* Supprime l'outline par défaut au focus */
-  }
+}
 
 
-  option {
+option {
     padding: 10px;
     font-size: 16px;
     color: var(--white);
     background-color: var(--secondary);
-  }
+}
 
 /* membreBDE */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -961,7 +1081,7 @@ select {
     display: flex;
     align-items: center;
     gap: 5px;
-  }
+}
 .membreBDE1 a img {
     min-width: 25px;
     max-width: 25px;
@@ -1016,7 +1136,7 @@ select {
     display: flex;
     align-items: center;
     gap: 5px;
-  }
+}
 .membreBDE2 a img {
     min-width: 25px;
     max-width: 25px;
@@ -1274,7 +1394,7 @@ form#event-add,form#news-add input{
     display: flex;
     align-items: center;
     gap: 5px;
-  }
+}
 
 .partenaire a img {
     min-width: 25px;

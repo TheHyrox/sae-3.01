@@ -12,8 +12,11 @@ $itemCount = array_sum(array_column($cart, 'quantity'));
 </head>
 <body>
 <div>
+    <button class="burger-menu" aria-label="Menu">
+        ☰
+    </button>
     <h1>ADIIL</h1>
-    <ul>
+    <ul class="nav-links">
         <li><a href="../HTML/index.php">accueil</a></li>
         <li><a href="../HTML/event.php">évènements</a></li>
         <li><a href="../HTML/shop.php">boutique</a></li>
