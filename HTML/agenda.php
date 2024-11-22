@@ -11,7 +11,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <title>ADIIL - Agenda</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.3.0/ical.min.js"></script>
     <script src="/Script/agenda.js" defer></script>
     <style>
@@ -26,14 +26,15 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
         html, body {
             padding: 0;
             margin: 0;
-            background-color: var(--secondary);
+            background-color: var(--primary);
             color: var(--white);
             font-family: 'Josefin Sans', sans-serif;
         }
     
         h1 {
             text-align: center;
-            margin: 20px 0;
+            margin-top: 20px;
+            margin: 30px 0px 20px 0p;
             color: var(--green);
         }
     
@@ -58,7 +59,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
     
         .week-navigation {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             margin: 10px;
         }
     
@@ -87,39 +88,64 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
             border-collapse: collapse;
             margin: 20px 0;
             position: relative;
-        }
-
-        .time-table th, .time-table td {
-            border: 1px solid var(--primary);
-            padding: 5px;
-            text-align: center;
-            vertical-align: top;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .time-table th {
+            padding: 5px;
+            text-align: center;
+            vertical-align: top;
             background-color: var(--primary);
             color: var (--white);
         }
 
         .time-table td {
+            border-left: 1px solid var(--primary);
+            position: relative;
             background-color: var(--secondary);
             height: 100px;
-            position: relative;
-            overflow: hidden;
+            padding: 5px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .time-table tr:first-child td::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(0deg, var(4,13,18,1) 100%, rgba(25,32,37,1) 0%);
+        }
+        .time-table tr:last-child td::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(0deg, rgba(25,32,37,1) 50%, rgba(4,13,18,1) 100%);
         }
 
         .time-table td div {
-            background-color: #9a4bff; /* Couleur de fond */
-            color: #fff; /* Texte blanc */
-            border-radius: 5px; /* Coins arrondis */
+            background-color: #9a4bff; 
+            color: #fff; 
+            border-radius: 5px; 
             padding: 5px;
             margin: 5px 0;
             font-size: 0.9em;
             text-align: center;
-            overflow: hidden; /* Empêche le débordement */
+            overflow: hidden; 
             white-space: nowrap;
-            text-overflow: ellipsis; /* Ajoute "..." si le texte est trop long */
+            text-overflow: ellipsis; 
         }
+
+        .time-table .hour-column {
+            border: none;
+        }
+
 
         #events-container {
             position: absolute;
@@ -144,18 +170,6 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
         ::-webkit-scrollbar-thumb {
             background-color: var(--green);
             border-radius: 2px;
-        }
-    
-        table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-    
-        th, td {
-            border: 1px solid var(--white);
-            padding: 10px;
-            text-align: center;
         }
     
         .hour-column {
@@ -205,13 +219,8 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
 </head>
 
 <body>
-    <?php include '../Views/header.php'; ?>
+    <!--<?php include '../Views/header.php'; ?>-->
     <h1>Agenda</h1>
-    <?php 
-        if ($groupTP) {
-            echo "<h2>&emsp;Groupe de TP : $groupTP</h2>";
-        }
-    ?>
     <?php if ($groupTP === null): ?>
         <label for="group-select">&emsp;Choisissez un groupe :</label>
         <select id="group-select">
@@ -238,8 +247,6 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
         <button id="today">Aujourd'hui</button>
         <button id="next-week">Semaine suivante &rarr;</button>
     </div>
-
-    <h2>&emsp;Liste des événements</h2>
     <div class="schedule-container">
         <table class="time-table">
             <thead>
@@ -352,15 +359,15 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
             </tbody>
         </table>
         <div id="events-container">
-            <div id="event-heure" class="day-column"></div>
+            <div id="event-heure" class="hour-column"></div>
             <div id="event-lundi" class="day-column"></div>
             <div id="event-mardi" class="day-column"></div>
             <div id="event-mercredi" class="day-column"></div>
             <div id="event-jeudi" class="day-column"></div>
             <div id="event-vendredi" class="day-column"></div>
-            <div id="current-time-line" style="position: absolute; width: 100%; height: 2px; background-color: #D97D12; z-index: 1;"></div>
+            <div id="current-time-line" style="position: absolute; width: 100%; height: 2px; background-color: orange;"></div>
         </div>
-        <?php include '../Views/footer.php'; ?>
+        <!--<?php include '../Views/footer.php'; ?>-->
 </body>
 
 </html>

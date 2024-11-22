@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let currentWeekStart = new Date(); 
+    currentWeekStart = getWeekStart(currentWeekStart)
+    currentWeekStart.setHours(0, 0, 0, 0);
 
     const resourceIds = {
         '11A': 282,
@@ -176,8 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            console.log('Event:', summary, 'Start:', startDate, 'End:', endDate, 'Day:', day, 'Top:', topPosition, 'Height:', height); // Debug log
-
+            //console.log('Event:', summary, 'Start:', startDate, 'End:', endDate, 'Day:', day, 'Top:', topPosition, 'Height:', height); // Debug log
             
             const weekStart = getWeekStart(new Date(currentWeekStart));
             weekStart.setHours(0, 0, 0, 0);
@@ -186,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
             weekEnd.setDate(weekEnd.getDate() + 4); 
             weekEnd.setHours(20, 0, 0, 0); 
 
-            console.log(weekStart);
-            console.log(weekEnd);
+            //console.log(weekStart);
+            //console.log(weekEnd);
             
             
             if (startDate >= weekStart && startDate <= weekEnd && days[day]) {
@@ -215,22 +216,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = new Date();
         const currentHour = now.getHours();
         const currentMinutes = now.getMinutes();
-        const totalMinutes = (currentHour - 8) * 60 + currentMinutes; 
-        const percentageOfDay = (totalMinutes / (11 * 60)) * 100; 
+        const totalMinutes = (currentHour * 60) + currentMinutes; 
+        const startHour = 8;
+        const endHour = 19; 
+        const totalDayMinutes = (endHour - startHour) * 60; 
+        const minutesSinceStart = totalMinutes - (startHour * 60);
+
+        let percentageOfDay = (minutesSinceStart / totalDayMinutes) * 100;
+        percentageOfDay = percentageOfDay * (75.7 + 0.7) / 100 - 0.7;
+        percentageOfDay = Math.max(-0.7, Math.min(percentageOfDay, 75.7));
+    
+        //console.log(minutesSinceStart);
+        //console.log(percentageOfDay);
+    
         const currentTimeLine = document.getElementById('current-time-line');
         const currentTimeArrow = document.getElementById(`arrow-${currentHour}`);
     
         document.querySelectorAll('.current-time-arrow').forEach(arrow => {
             arrow.style.display = 'none';
         });
-
+    
         if (currentTimeArrow) {
             currentTimeArrow.style.display = 'inline';
             currentTimeArrow.textContent = '>';
         }
     
-        currentTimeLine.style.top = `${percentageOfDay}%`;
-        currentTimeLine.style.display = 'none';
+        if (currentTimeLine) {
+            currentTimeLine.style.top = `${percentageOfDay}%`;
+            currentTimeLine.style.display = 'block';
+        }
     
         const day = now.getDay();
         const days = {
@@ -240,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             4: 'jeudi',
             5: 'vendredi'
         };
-    
+        
         if (days[day]) {
             const eventsContainer = document.getElementById(`event-${days[day]}`);
             const events = eventsContainer.querySelectorAll('.event');
