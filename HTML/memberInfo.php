@@ -13,7 +13,7 @@
   <body>
   <?php include '../Views/header.php'; ?>
     <main>
-        <article>
+        <article class="member-info">
             <div>
                 <div>
                     <h2>Informations du membre</h2>
@@ -35,18 +35,18 @@
                 <div>
                     <h2>Inscriptions</h2>
                     <div>
-                        <div>
+                        <div class="member-event">
                             <form action="" method="post">
-                                <button type="submit" value="SupprimerEventID"><img src="" alt=""></button>
+                                <button type="submit" value="SupprimerEventID"><img src="../Icons/bin.png" alt=""></button>
                             </form>
                             <div>
                                 <p>Event name</p>
                                 <p>JJ/MM/AAAA</p>
                             </div>
                         </div>
-                        <div>
+                        <div class="member-event">
                             <form action="" method="post">
-                                <button type="submit" value="SupprimerEventID"><img src="" alt=""></button>
+                                <button type="submit" value="SupprimerEventID"><img src="../Icons/bin.png" alt=""></button>
                             </form>
                             <div>
                                 <p>Event name</p>
@@ -55,15 +55,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <form action="" method="post">
-                    <input type="submit" value="Supprimer utilisateur">
-                    <input type="submit" value="Sauvegarder">
+                <form action="" method="post" class="back">
+                    <button type="submit" value="retour"><img src="../Icons/back.png" alt=""></button>
                 </form>
             </div>
             <form action="" method="post">
-                <button type="submit" value="retour"><img src="" alt=""></button>
+                <input type="submit" value="Supprimer utilisateur">
+                <input type="submit" value="Sauvegarder">
             </form>
         </article>
     </main>

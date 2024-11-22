@@ -1358,4 +1358,96 @@ img {
     text-decoration: none;
     cursor: pointer;
 }
+/* membre info */
+article.member-info{
+    justify-content: start;
+    align-items: start;
+    padding: 10px;
+}
+article.member-info div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+article.member-info div div{
+    flex-direction: column;
+}
+article.member-info div div div{
+    overflow: auto;
+}
+article.member-info ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+article.member-info li{
+    display: flex;
+    gap: 5px;
+}
+article.member-info li p{
+    min-width: 0;
+    max-width: none;
+    
+}
+article.member-info li h3{
+    text-transform: none;
+    font-size: 20px;
+}
+article.member-info form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+article.member-info div form.back{
+    margin-left: auto;
+    width: auto;
+    display: block;
+}
+article.member-info .member-event {
+    display: flex;
+    flex-direction: row;
+}
+article.member-info .member-event div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: var(--secondary);
+    color: var(--white);
+    min-width: 0;
+    max-width: none;
+    border-width: 2px;
+    border-style: solid;
+    border-image: var(--linearClassic) 1;
+}
+article.member-info .member-event form{
+    width: auto;
+}
+article.member-info .member-event p{
+    min-width: 0;
+    max-width: none;
+}
+article.member-info button[type="submit"]{
+    background: var(--linearClassic);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    line-height: 0;
+    height: auto;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 20px;
+}
 
+article.member-info button[type="submit"] img{
+    min-width: 0;
+    width: 30px;
+    max-width: none;
+    height: 30px;
+}
