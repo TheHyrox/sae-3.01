@@ -1082,15 +1082,20 @@ select {
     text-align: center; /* Centre le texte sous l'image */
 }
 
-/* memberlist */
+/* memberlist and activities*/
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.panel{
+.panel-activity{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 15px;
+}
+.panel-list-member{
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 15px;
 }
-#settings, #list-management{
-    min-width: 300px;
+#settings, #list-member, #activity{
+    min-width: 400px;
     align-items: start;
     gap: 30px;
 }
@@ -1173,6 +1178,20 @@ select {
 
 #add-folder:hover {
     background-color: #CC7A00;
+}
+
+#activities{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+#activities p{
+    padding: 5px;
+    background-color: var(--secondary);
+    color: var(--white);
+    
 }
 /* management */
 
