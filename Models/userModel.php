@@ -21,22 +21,19 @@ class UserModel {
         return $req->fetch();
     }
 
-    public function addUser($email, $motdepasse, $grp_tp_user): void
-    {
+    public function addUser($email, $motdepasse, $grp_tp_user): void {
         $req = $this->db->prepare('INSERT INTO utilisateur (Mail_User, Mdp_User, Grp_TP_User) VALUES (:email, :motdepasse, :grp_tp_user)');
         $req->execute(array('email' => $email, 'motdepasse' => password_hash($motdepasse, PASSWORD_DEFAULT), 'grp_tp_user' => $grp_tp_user));
     }
 
-    public function emailExists($email): bool
-    {
+    public function emailExists($email): bool {
         $stmt = $this->db->prepare("SELECT COUNT(*) FROM utilisateur WHERE Mail_User = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         return $stmt->fetchColumn() > 0;
     }
 
-    public function passwordIsValid($email, $password): bool
-    {
+    public function passwordIsValid($email, $password): bool {
         $stmt = $this->db->prepare("SELECT Mdp_User FROM utilisateur WHERE Mail_User = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -44,12 +41,18 @@ class UserModel {
         return password_verify($password, $hashedPassword);
     }
 
-    public function isAdmin($email): bool
-    {
+    public function isAdmin($email): bool {
         $stmt = $this->db->prepare("SELECT Niv_Acces_User FROM utilisateur WHERE Mail_User = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         return $stmt->fetchColumn() < 4;
+    }
+
+    public function getGrpTPUser($email): ?string {
+        $stmt = $this->db->prepare("SELECT Grp_TP_User FROM utilisateur WHERE Mail_User = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
 }
 ?>
