@@ -2,18 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentWeekStart = new Date(); 
 
     const resourceIds = {
-        'TP11A': 282,
-        'TP11B': 567,
-        'TP12C': 861,
-        'TP12D': 869,
-        'TP21A': 2667,
-        'TP21B': 2668,
-        'TP22C': 3113,
-        'TP22D': 3115,
-        'TP31A': 5269,
-        'TP31B': 5419,
-        'TP32C': 6239,
-        'TP32D': 6241
+        '11A': 282,
+        '11B': 567,
+        '12C': 861,
+        '12D': 869,
+        '21A': 2667,
+        '21B': 2668,
+        '22C': 3113,
+        '22D': 3115,
+        '31A': 5269,
+        '31B': 5419,
+        '32C': 6239,
+        '32D': 6241
     };
 
     function getDownloadLink(group) {
@@ -267,7 +267,12 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWeekStart = getWeekStart(new Date()); 
         loadEvents(document.getElementById('group-select').value);
     });
-    
+
+    const groupTPInput = document.getElementById('group-tp');
+    if (groupTPInput) {
+        loadEvents(groupTPInput.value);
+    }
+
     setInterval(updateCurrentTimeLine, 1000); 
     updateCurrentTimeLine(); 
 });
