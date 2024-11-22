@@ -12,7 +12,7 @@ class eventModel
 
     public function getEvents(): false|array
     {
-        $req = $this->db->prepare('SELECT * FROM event');
+        $req = $this->db->prepare('SELECT * FROM EVENT');
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
