@@ -668,6 +668,11 @@ footer img{
     max-height: 350px;
     object-fit: cover;
 }
+
+.letter form button{
+    margin-left: auto;
+}
+
 .letter form button{
     background: var(--linearClassic);
     border: none;
@@ -1255,6 +1260,7 @@ form#event-add,form#news-add input{
 }
 .partenaire p{
     max-width: 100%;
+    align-self: start;
 }
 .partenaire img{
     min-width: 250px;
@@ -1269,10 +1275,36 @@ form#event-add,form#news-add input{
     align-items: center;
     gap: 5px;
   }
+
 .partenaire a img {
     min-width: 25px;
     max-width: 25px;
     max-height: 35px;
+}
+
+.partenaire form{
+    margin-left: auto;
+}
+
+.partenaire form button{
+    background: var(--linearClassic);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    line-height: 0;
+    height: 100%;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.partenaire form button img{
+    min-width: 0;
+    width: 30px;
+    max-width: none;
+    height: 30px;
 }
 
 .photo {
