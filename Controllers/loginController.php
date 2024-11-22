@@ -4,7 +4,6 @@ require '../Utils/DBConfig/Database.php';
 require '../Utils/DBConfig/Config.php';
 if(!isset($_SESSION)){
     session_start();
-    header('Location: ../HTML/index.php');
 }
 
 class loginController
