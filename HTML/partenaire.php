@@ -12,7 +12,35 @@
 <?php include '../Views/header.php'; ?>
 
     <main>
-        
+    <form id="news-add" action='' method='post'>
+            <input type='submit' value='Ajouter un partenaire'>
+        </form>
+    <article class="partenaire">
+        <img src="../Pictures/mathis.jpg" alt="">
+        <div>
+          <div>
+            <h2>Nom entreprise</h2>
+            <h3>titre</h3>
+            <p>Description du partenaire a quoi il sert ect...</p>
+            <a href="mailto:prenom.nom.etu@univ-lemans.fr">
+              <img src="../Icons/mail.png" alt="Email"> contact.entreprise@laposte.net
+            </a>
+          </div> 
+        </div>
+        </article>
+        <article class="partenaire">
+        <img src="../Pictures/mathis.jpg" alt="">
+        <div>
+          <div>
+            <h2>Nom entreprise</h2>
+            <h3>titre</h3>
+            <p>Description du partenaire a quoi il sert ect...</p>
+            <a href="mailto:prenom.nom.etu@univ-lemans.fr">
+              <img src="../Icons/mail.png" alt="Email"> contact.entreprise@laposte.net
+            </a>
+          </div> 
+        </div>
+        </article>
     </main>
 
     <script src="../Script/script.js"></script>

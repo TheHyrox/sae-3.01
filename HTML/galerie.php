@@ -13,18 +13,20 @@
   <body>
   <?php include '../Views/header.php'; ?>
     <main>
-        <article class="photo">
-            <img src="../Pictures/mathis.jpg" alt="">
-            <div>
-                <h2>Mathis</h2> 
-            </div>
-        </article>
-        <article class="photo">
-            <img src="../Pictures/enzo.jpg" alt="">
-            <div>
-                <h2>Enzo</h2> 
-            </div>
-        </article>
+      <div class="photo">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+          <img src="../Pictures/bde.jpg" alt="photo galerie">
+      </div>
     </main>
     <?php include '../Views/footer.php'; ?>
     <script src="../Script/script.js"></script>
