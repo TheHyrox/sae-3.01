@@ -12,7 +12,7 @@
 <?php include '../Views/header.php'; ?>
 
     <main>
-        <div class="panel">
+        <div class="panel-list-member">
             <article id="settings">
                 <h2>Options</h2>
                 <label class="switch switch-text">
@@ -58,7 +58,7 @@
                     </li>
                 </ul>
             </article>
-            <article id="list-management">
+            <article id="list-member">
                 <h2>Liste des membres</h2>
                 <div id="research">
                     <form action="" method="post">
