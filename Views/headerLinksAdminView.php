@@ -7,8 +7,11 @@
 </head>
 <body>
 <div>
+    <button class="burger-menu">
+        ☰
+    </button>
     <h1>ADIIL</h1>
-    <ul>
+    <ul class="nav-links">
         <li><a href="../HTML/activitesGlobale.php">activités</a></li>
         <li><a href="../HTML/membersList.php">membres et rôles</a></li>
         <li><a href="../HTML/file.php">fichiers</a></li>

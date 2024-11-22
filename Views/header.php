@@ -26,7 +26,7 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
         ?>
     </div>
 
-    <div>
+    <div id="accountHeader">
         <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
             <label class="switch switch-admin">
                 <input type="checkbox" id="adminSwitch" name="demoCheckBox">
@@ -61,6 +61,15 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
                 localStorage.setItem('linearClassic', getComputedStyle(document.documentElement).getPropertyValue('--linearClassic'));
                 localStorage.setItem('linearAdmin', getComputedStyle(document.documentElement).getPropertyValue('--linearAdmin'));
             });
+        }
+    });
+</script>
+<script>
+    //make the 
+    document.querySelector('#accountHeader img').addEventListener('click', function() {
+        const accountLink = document.querySelector('#accountHeader a');
+        if (accountLink) {
+            window.location.href = accountLink.href;
         }
     });
 </script>
