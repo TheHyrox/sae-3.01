@@ -275,6 +275,99 @@ input{
         max-height: 350px;
         object-fit: cover;
     }
+    
+    /* Panier */
+    /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    #panier, #paiement{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    #panier table{
+        border-collapse: separate;
+        border-spacing: 0 5px; 
+        overflow: hidden;
+        border-top: solid 2px #faf0e622;
+        width: 100%;
+        table-layout: fixed;
+    }
+    #panier th{
+        height: 40px;
+        color: var(--white);
+        font-family: Josefin Sans;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    #panier th:first-child{
+        text-align: start;
+    }
+    #panier th:last-child{
+        text-align: end;
+    }
+    #panier tr:not(:first-child){
+        background: #faf0e622;
+        color: var(--white);
+        
+    }
+    #panier tr:not(:first-child) td{
+        padding: 10px 0 10px 0;
+        border: none;
+        text-align: center;
+        font-family: Josefin Sans;
+        font-weight: 100;
+        font-size: small;
+    }
+    #panier tr:not(:first-child) td:first-child  {
+        padding-left: 20px;
+        border-radius: 5px 0 0 5px;
+        text-align: start;
+    }
+    #panier tr:not(:first-child) td:last-child  {
+        padding-right: 20px;
+        border-radius: 0 5px 5px 0;
+        text-align: end;
+    }
+
+    #total{
+        background-color: #faf0e622;
+        display: flex;
+        flex-direction: row;
+        padding: 2px 15px;
+        border-radius: 5px;
+        align-self: end;
+        gap: 10px;
+    }
+    #total p {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        font-size: large;
+        font-family: Anton;
+    }
+    #total h3{
+        font-size: large;
+    }
+
+    #paiement table{
+        border-collapse: separate;
+        border-spacing: 60px 20px; 
+        overflow: hidden;
+        border-top: solid 2px #faf0e622;
+        width: 100%;
+        table-layout: fixed;
+    }
+    #paiement th{
+        height: 40px;
+        color: var(--white);
+        font-family: Josefin Sans;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: start;
+    }
+
+    #paiement input[type="submit"]{
+        width: 100%;
+        margin: 0;
+    }
 }
 
 /* small pc screen */
@@ -488,6 +581,99 @@ input{
         max-width: 250px;
         max-height: 350px;
         object-fit: cover;
+    }
+    
+    /* Panier */
+    /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    #panier, #paiement{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    #panier table{
+        border-collapse: separate;
+        border-spacing: 0 5px; 
+        overflow: hidden;
+        border-top: solid 2px #faf0e622;
+        width: 100%;
+        table-layout: fixed;
+    }
+    #panier th{
+        height: 40px;
+        color: var(--white);
+        font-family: Josefin Sans;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    #panier th:first-child{
+        text-align: start;
+    }
+    #panier th:last-child{
+        text-align: end;
+    }
+    #panier tr:not(:first-child){
+        background: #faf0e622;
+        color: var(--white);
+        
+    }
+    #panier tr:not(:first-child) td{
+        padding: 10px 0 10px 0;
+        border: none;
+        text-align: center;
+        font-family: Josefin Sans;
+        font-weight: 100;
+        font-size: small;
+    }
+    #panier tr:not(:first-child) td:first-child  {
+        padding-left: 20px;
+        border-radius: 5px 0 0 5px;
+        text-align: start;
+    }
+    #panier tr:not(:first-child) td:last-child  {
+        padding-right: 20px;
+        border-radius: 0 5px 5px 0;
+        text-align: end;
+    }
+
+    #total{
+        background-color: #faf0e622;
+        display: flex;
+        flex-direction: row;
+        padding: 2px 15px;
+        border-radius: 5px;
+        align-self: end;
+        gap: 10px;
+    }
+    #total p {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        font-size: large;
+        font-family: Anton;
+    }
+    #total h3{
+        font-size: large;
+    }
+
+    #paiement table{
+        border-collapse: separate;
+        border-spacing: 60px 20px; 
+        overflow: hidden;
+        border-top: solid 2px #faf0e622;
+        width: 100%;
+        table-layout: fixed;
+    }
+    #paiement th{
+        height: 40px;
+        color: var(--white);
+        font-family: Josefin Sans;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: start;
+    }
+
+    #paiement input[type="submit"]{
+        width: 100%;
+        margin: 0;
     }
 }
 
@@ -751,6 +937,103 @@ input{
         max-width: none;
         max-height: 200px;
         object-fit: cover;
+    }
+
+    /* Panier */
+    /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    #panier, #paiement{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #panier table{
+        border-collapse: separate;
+        border-spacing: 0 5px; 
+        overflow: hidden;
+        border-top: solid 2px #faf0e622;
+        width: 100%;
+        table-layout: fixed;
+    }
+    #panier th{
+        height: 40px;
+        color: var(--white);
+        font-family: Josefin Sans;
+        font-weight: 300;
+        font-size: 10px;
+        text-transform: uppercase;
+    }
+    #panier th:first-child{
+        text-align: start;
+    }
+    #panier th:last-child{
+        text-align: end;
+    }
+    #panier tr:not(:first-child){
+        background: #faf0e622;
+        color: var(--white);
+        
+    }
+    #panier tr:not(:first-child) td{
+        padding: 10px 0 10px 0;
+        border: none;
+        text-align: center;
+        font-family: Josefin Sans;
+        font-weight: 100;
+        font-size: small;
+    }
+    #panier tr:not(:first-child) td:first-child  {
+        padding-left: 20px;
+        border-radius: 5px 0 0 5px;
+        text-align: start;
+    }
+    #panier tr:not(:first-child) td:last-child  {
+        padding-right: 20px;
+        border-radius: 0 5px 5px 0;
+        text-align: end;
+    }
+    #panier input[type="submit"]{
+        padding: 5px;
+    }
+
+    #total{
+        background-color: #faf0e622;
+        display: flex;
+        flex-direction: row;
+        padding: 2px 15px;
+        border-radius: 5px;
+        align-self: end;
+        gap: 10px;
+    }
+    #total p {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        font-size: large;
+        font-family: Anton;
+    }
+    #total h3{
+        font-size: large;
+    }
+
+    #paiement table{
+        border-collapse: separate;
+        border-spacing: 10px ; 
+        overflow: hidden;
+        border-top: solid 2px #faf0e622;
+        width: 100%;
+        table-layout: fixed;
+    }
+    #paiement th{
+        height: 40px;
+        color: var(--white);
+        font-family: Josefin Sans;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: start;
+    }
+
+    #paiement input[type="submit"]{
+        width: 100%;
+        margin: 0;
     }
 }
 
@@ -1179,98 +1462,6 @@ input[type=submit]{
 }
 
 
-/* Panier */
-/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#panier, #paiement{
-    padding-left: 100px;
-    padding-right: 100px;
-}
-#panier table{
-    border-collapse: separate;
-    border-spacing: 0 5px; 
-    overflow: hidden;
-    border-top: solid 2px #faf0e622;
-    width: 100%;
-    table-layout: fixed;
-}
-#panier th{
-    height: 40px;
-    color: var(--white);
-    font-family: Josefin Sans;
-    font-weight: 300;
-    text-transform: uppercase;
-}
-#panier th:first-child{
-    text-align: start;
-}
-#panier th:last-child{
-    text-align: end;
-}
-#panier tr:not(:first-child){
-    background: #faf0e622;
-    color: var(--white);
-    
-}
-#panier tr:not(:first-child) td{
-    padding: 10px 0 10px 0;
-    border: none;
-    text-align: center;
-    font-family: Josefin Sans;
-    font-weight: 100;
-    font-size: small;
-}
-#panier tr:not(:first-child) td:first-child  {
-    padding-left: 20px;
-    border-radius: 5px 0 0 5px;
-    text-align: start;
-}
-#panier tr:not(:first-child) td:last-child  {
-    padding-right: 20px;
-    border-radius: 0 5px 5px 0;
-    text-align: end;
-}
-
-#total{
-    background-color: #faf0e622;
-    display: flex;
-    flex-direction: row;
-    padding: 2px 15px;
-    border-radius: 5px;
-    align-self: end;
-    gap: 10px;
-}
-#total p {
-    width: 100%;
-    min-width: 0;
-    max-width: none;
-    font-size: large;
-    font-family: Anton;
-}
-#total h3{
-    font-size: large;
-}
-
-#paiement table{
-    border-collapse: separate;
-    border-spacing: 60px 20px; 
-    overflow: hidden;
-    border-top: solid 2px #faf0e622;
-    width: 100%;
-    table-layout: fixed;
-}
-#paiement th{
-    height: 40px;
-    color: var(--white);
-    font-family: Josefin Sans;
-    font-weight: 300;
-    text-transform: uppercase;
-    text-align: start;
-}
-
-#paiement input[type="submit"]{
-    width: 100%;
-    margin: 0;
-}
     
 /* Page de login - register */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
