@@ -65,7 +65,6 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
     });
 </script>
 <script>
-    //make the 
     document.querySelector('#accountHeader img').addEventListener('click', function() {
         const accountLink = document.querySelector('#accountHeader a');
         if (accountLink) {
