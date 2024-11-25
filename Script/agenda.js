@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const html = `
             <div class="event" style="top: ${topPosition}%; height: ${height}%">
-                    <button style="width: 95%; margin-bottom:0; margin-top: ${marginTop}%">${summary}</button>
+                    <button id="event-button" style="width: 95%; margin-bottom:0; margin-top: ${marginTop}%">${summary}</button>
                     ${durationInMinutes !== 30 ? `<p style="margin-left: 2.5%; margin-right: 2%; font-size:${fontsize || 100}%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>` : ''}
                 </div>
             `;
