@@ -8,7 +8,7 @@
 <body>
 <div>
     <button class="burger-menu">
-        ☰
+        <img src="../Icons/burgerMenu.svg" alt="">
     </button>
     <h1>ADIIL</h1>
     <ul class="nav-links">
