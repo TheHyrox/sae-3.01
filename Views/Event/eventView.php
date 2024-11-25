@@ -33,7 +33,7 @@ $months = [
             </ul>
         </div>
         <?php
-        if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
+        if(isset($_SESSION['isAdminView']) && $_SESSION['isAdminView']) {
             include 'eventCardAdminView.php';
         } else {
             include 'eventCardView.php';
