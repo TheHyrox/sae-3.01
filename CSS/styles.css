@@ -189,6 +189,71 @@ input{
         color: var(--white);
         text-transform: uppercase;
     }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        align-items: center;
+    }
+
+    /* Carousel */
+
+    #carousel{
+        display: flex;
+        align-items: center;
+        height: 320px;
+    }
+    #carousel button{
+        border: none;
+        background-color: transparent;
+        opacity: 70%;
+        width: 300px;
+        height: 220px;
+        border-radius: 5px;
+        display: none;
+        order: 0;
+        transition: transform 0.5s ease, background-color 0.9s ease, opacity 0.3s ease, width 0.9s ease, height 0.9s ease;
+        position: relative;
+        padding-block: 0;
+        padding-inline: 0;
+    }
+    #carousel .pre{
+        order: 1;
+        display: block;
+        transform: translateX(-100%);
+    }
+    
+    #carousel .active{
+        order: 2;
+        z-index: 1;
+        width: 370px;
+        height: 300px;
+        display: block;
+        opacity: 100%;
+        margin: 10px -350px ;
+        box-shadow: 0 0 30px -5px var(--primary);
+    }
+    #carousel .next{
+        order: 3;
+        display: block;
+        transform: translateX(100%);
+    }
+    #carousel img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /*event*/
+    #event{
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 20px;
+    }
+    #eventList input[type=submit]{
+        font-size: 22px;
+    }
 }
 
 /* small pc screen */
@@ -319,6 +384,69 @@ input{
         font-family: Anton;
         color: var(--white);
         text-transform: uppercase;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+    }
+    /* Carousel */
+
+    #carousel{
+        display: flex;
+        align-items: center;
+        height: 320px;
+    }
+    #carousel button{
+        border: none;
+        background-color: transparent;
+        opacity: 70%;
+        width: 300px;
+        height: 220px;
+        border-radius: 5px;
+        display: none;
+        order: 0;
+        transition: transform 0.5s ease, background-color 0.9s ease, opacity 0.3s ease, width 0.9s ease, height 0.9s ease;
+        position: relative;
+        padding-block: 0;
+        padding-inline: 0;
+    }
+    #carousel .pre{
+        order: 1;
+        display: block;
+        transform: translateX(-80%);
+    }
+    
+    #carousel .active{
+        order: 2;
+        z-index: 1;
+        width: 370px;
+        height: 300px;
+        display: block;
+        opacity: 100%;
+        margin: 10px -350px ;
+        box-shadow: 0 0 30px -5px var(--primary);
+    }
+    #carousel .next{
+        order: 3;
+        display: block;
+        transform: translateX(80%);
+    }
+    #carousel img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    /*event*/
+    #event{
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 20px;
+    }
+    #eventList input[type=submit]{
+        font-size: 22px;
     }
 }
 
@@ -496,6 +624,72 @@ input{
         text-transform: uppercase;
         font-size: 20px;
     }
+
+    .row{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+    /* Carousel */
+
+    #carousel{
+        display: flex;
+        align-items: center;
+        height: 200px;
+    }
+    #carousel button{
+        border: none;
+        background-color: transparent;
+        opacity: 70%;
+        width: 180px;
+        height: 120px;
+        border-radius: 5px;
+        display: none;
+        order: 0;
+        transition: transform 0.5s ease, background-color 0.9s ease, opacity 0.3s ease, width 0.9s ease, height 0.9s ease;
+        position: relative;
+        padding-block: 0;
+        padding-inline: 0;
+    }
+    #carousel .pre{
+        order: 1;
+        display: block;
+        transform: translateX(-25%);
+    }
+    
+    #carousel .active{
+        order: 2;
+        z-index: 1;
+        width: 210px;
+        height: 160px;
+        display: block;
+        opacity: 100%;
+        margin: 10px -200px ;
+        box-shadow: 0 0 30px -5px var(--primary);
+    }
+    #carousel .next{
+        order: 3;
+        display: block;
+        transform: translateX(25%);
+    }
+    #carousel img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    /*event*/
+    #event{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    #eventList p{
+        display: none;
+    }
+    #eventList input[type=submit]{
+        font-size: 15px;
+    }
 }
 
 /* Toggle button */
@@ -637,12 +831,7 @@ input[type="text"]:focus ,input[type="email"]:focus ,input[type="password"]:focu
 } 
 
 
-.row{
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    align-items: center;
-}
+
 
 /* article */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -750,62 +939,13 @@ input[type=submit]{
     background-clip: text;
     color: transparent;
 }
-#carousel{
-    display: flex;
-    align-items: center;
-    height: 320px;
-}
-#carousel button{
-    border: none;
-    background-color: transparent;
-    opacity: 70%;
-    width: 300px;
-    height: 220px;
-    border-radius: 5px;
-    display: none;
-    order: 0;
-    transition: transform 0.5s ease, background-color 0.9s ease, opacity 0.3s ease, width 0.9s ease, height 0.9s ease;
-    position: relative;
-    padding-block: 0;
-    padding-inline: 0;
-}
-#carousel .pre{
-    order: 1;
-    display: block;
-    transform: translateX(-100%);
-}
-
-#carousel .active{
-    order: 2;
-    z-index: 1;
-    width: 370px;
-    height: 300px;
-    display: block;
-    opacity: 100%;
-    margin: 10px -350px ;
-    box-shadow: 0 0 30px -5px var(--primary);
-}
-#carousel .next{
-    order: 3;
-    display: block;
-    transform: translateX(100%);
-}
-#carousel img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 
 /*events*/
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-#event{
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 20px;
-}
+
 #eventList{
     font-size: 50px;
     overflow-y: scroll;
@@ -877,7 +1017,6 @@ input[type=submit]{
     padding-block: 0;
     color: var(--white);
     font-family: Josefin Sans;
-    font-size: 22px;
     font-weight: lighter;
     text-transform: none;
     align-items: center;
@@ -1004,289 +1143,57 @@ input[type=submit]{
 
 /*AGENDA*/
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#agenda-page label, h1, td, p{
-    text-align: center;
-    color: var(--white);
-    font-family: 'Josefin Sans', sans-serif;
+
+#agenda {
+    background-color: var(--primary);
+    padding: 20px;
+    border-radius: 10px;
 }
 
-#agenda-page #titre {
-    margin-top: 3%;
-    margin-bottom: 2%;
-}
-
-#agenda-page html, #agenda-page body {
+#agendaeventList {
+    list-style: none;
     padding: 0;
     margin: 0;
-    background-color: var(--primary);
-    color: var(--white);
-    font-family: 'Josefin Sans', sans-serif;
 }
 
-#agenda-page label, #agenda-page select, #agenda-page button {
-    display: block;
-    font-size: 1.2em;
-}
-
-#agenda-page #event-button {
-    display: block;
-    margin: 10px auto;
-    font-size: 1.2em;
-}
-
-#agenda-page select, #agenda-page button {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--green);
-    color: var(--white);
-    cursor: pointer;
-}
-
-#agenda-page button:hover {
-    background-color: var(--orange);
-}
-
-#agenda-page .group-select-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1%; 
-}
-
-#agenda-page .group-select-container label {
-    margin-right: 1%;
-}
-
-#agenda-page .week-navigation {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-#agenda-page .week-navigation button {
-    background-color: var(--green);
-    color: var(--white);
-    border: none;
+#agendaeventList li {
     padding: 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
+    border-bottom: 1px solid var(--secondary);
 }
 
-#agenda-page .week-navigation button:hover {
-    background-color: var(--orange);
+#agendaeventList li:last-child {
+    border-bottom: none;
 }
 
-#agenda-page .schedule-container {
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-}
-
-#agenda-page .time-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#agenda-page .time-table th {
-    padding: 5px;
-    text-align: center;
-    vertical-align: top;
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-#agenda-page .time-table td {
-    border-left: 1px solid var(--primary);
-    position: relative;
-    background-color: var(--secondary);
-    height: 100px;
-    padding: 5px;
-    text-align: center;
-    vertical-align: top;
-}
-
-#agenda-page .time-table tr:first-child td::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(0deg, var(4,13,18,1) 100%, rgba(25,32,37,1) 0%);
-}
-
-#agenda-page .time-table tr:last-child td::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(0deg, rgba(25,32,37,1) 50%, rgba(4,13,18,1) 100%);
-}
-
-#agenda-page .time-table td div {
-    background-color: #9a4bff; 
-    color: #fff; 
-    border-radius: 5px; 
-    padding: 5px;
-    margin: 5px 0;
-    font-size: 0.9em;
-    text-align: center;
-    overflow: hidden; 
-    white-space: nowrap;
-    text-overflow: ellipsis; 
-}
-
-#agenda-page .time-table .hour-column {
+#agendaeventList li button {
+    background-color: var(--linearClassic);
     border: none;
+    padding: 10px 20px;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
 }
 
-#agenda-page #events-container {
-    position: absolute;
-    top: 2.20%;
-    left: 0;
-    width: 100%;
-    height: 98%;
-    display: flex;
-    pointer-events: none;
+#agendaeventList li button:hover {
+    background-color: var(--linearAdmin);
 }
 
-#agenda-page .hour-column {
-    width: 5%;
-}
-
-#agenda-page .day-column {
-    width: 18%;
-    height: 100%;
-    top: 0;
-    position: relative;
-}
-
-#agenda-page #event-heure {
-    width: 5.55%;
-}
-
-#agenda-page #event-lundi, #agenda-page #event-mardi, #agenda-page #event-mercredi, #agenda-page #event-jeudi, #agenda-page #event-vendredi {
-    width: 17.90%;
-    padding: 1%;
-}
-
-#agenda-page .event {
-    position: absolute;
-    width: 98%;
-    left: 1%;
-    box-sizing: border-box;
-    background-color: var(--primary);
-    border: #4EB674 1px solid;
-    border-radius: 5px;
-}
-
-#agenda-page p {
-    margin: 0;
-    text-align: center;
-    padding: 5px;
-}
-
-#agenda-page .current-time-arrow {
+#agendaeventList li ul {
     display: none;
-    color: #D97D12;
-    font-size: 1.5em;
-    font-weight: bold;
 }
 
-
-
-/* Responsive 1080p*/
-@media (min-width: 1920px) {
-    #agenda-page .schedule-container {
-        width: 80%;
-    }
-
-    #agenda-page .time-table td {
-        height: 120px;
-    }
-
-    #agenda-page .time-table td div {
-        font-size: 1em;
-    }
-
-    #agenda-page .week-navigation button {
-        padding: 15px;
-    }
+#agendaeventList li.active ul {
+    display: block;
 }
 
-/* Responsive Tab 11"*/
-@media (min-width: 768px) and (max-width: 1024px) {
-    #agenda-page .schedule-container {
-        width: 95%;
-    }
-
-    #agenda-page .time-table td {
-        height: 80px;
-    }
-
-    #agenda-page .time-table td div {
-        font-size: 0.8em;
-    }
-
-    #agenda-page .week-navigation button {
-        padding: 10px;
-    }
+#agendaeventList li ul li {
+    padding: 10px;
+    border-bottom: 1px solid var(--secondary);
 }
 
-/* Responsive Tab 8"*/
-@media (min-width: 600px) and (max-width: 768px) {
-    #agenda-page .schedule-container {
-        width: 100%;
-    }
-
-    #agenda-page .time-table td {
-        height: 70px;
-    }
-
-    #agenda-page .time-table td div {
-        font-size: 0.7em;
-    }
-
-    #agenda-page .week-navigation button {
-        padding: 8px;
-    }
-}
-
-/* Responsive Mobile*/
-@media (max-width: 600px) {
-    #agenda-page .schedule-container {
-        width: 100%;
-    }
-
-    #agenda-page .time-table td {
-        height: 60px;
-    }
-
-    #agenda-page .time-table td div {
-        font-size: 0.6em;
-    }
-
-    #agenda-page .week-navigation button {
-        padding: 5px;
-    }
-
-    #agenda-page .group-select-container {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    #agenda-page .week-navigation {
-        flex-direction: column;
-        gap: 5px;
-    }
+#agendaeventList li ul li:last-child {
+    border-bottom: none;
 }
 
 /* Panier */
