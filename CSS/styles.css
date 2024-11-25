@@ -1201,6 +1201,94 @@ input[type=submit]{
     font-weight: bold;
 }
 
+
+
+/* Responsive 1080p*/
+@media (min-width: 1920px) {
+    #agenda-page .schedule-container {
+        width: 80%;
+    }
+
+    #agenda-page .time-table td {
+        height: 120px;
+    }
+
+    #agenda-page .time-table td div {
+        font-size: 1em;
+    }
+
+    #agenda-page .week-navigation button {
+        padding: 15px;
+    }
+}
+
+/* Responsive Tab 11"*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    #agenda-page .schedule-container {
+        width: 95%;
+    }
+
+    #agenda-page .time-table td {
+        height: 80px;
+    }
+
+    #agenda-page .time-table td div {
+        font-size: 0.8em;
+    }
+
+    #agenda-page .week-navigation button {
+        padding: 10px;
+    }
+}
+
+/* Responsive Tab 8"*/
+@media (min-width: 600px) and (max-width: 768px) {
+    #agenda-page .schedule-container {
+        width: 100%;
+    }
+
+    #agenda-page .time-table td {
+        height: 70px;
+    }
+
+    #agenda-page .time-table td div {
+        font-size: 0.7em;
+    }
+
+    #agenda-page .week-navigation button {
+        padding: 8px;
+    }
+}
+
+/* Responsive Mobile*/
+@media (max-width: 600px) {
+    #agenda-page .schedule-container {
+        width: 100%;
+    }
+
+    #agenda-page .time-table td {
+        height: 60px;
+    }
+
+    #agenda-page .time-table td div {
+        font-size: 0.6em;
+    }
+
+    #agenda-page .week-navigation button {
+        padding: 5px;
+    }
+
+    #agenda-page .group-select-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #agenda-page .week-navigation {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
 /* Panier */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #panier, #paiement{

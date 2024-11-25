@@ -40,6 +40,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+/*
+    function applyResponsiveStyles() {
+        const eventPElements = document.querySelectorAll('#agenda-page #event-p');
+    
+        if (window.matchMedia('(min-width: 1920px)').matches) {
+            eventPElements.forEach(el => {
+                el.style.fontSize = '1em';
+            });
+        } else if (window.matchMedia('(min-width: 768px) and (max-width: 1024px)').matches) {
+            eventPElements.forEach(el => {
+                el.style.fontSize = '0.8em';
+            });
+        } else if (window.matchMedia('(min-width: 600px) and (max-width: 768px)').matches) {
+            eventPElements.forEach(el => {
+                el.style.fontSize = '0.7em';
+            });
+        } else if (window.matchMedia('(max-width: 600px)').matches) {
+            eventPElements.forEach(el => {
+                el.style.fontSize = '0.6em';
+            });
+        }
+    }*/
+
     function renderEvents(events) {
         const days = {
             1: 'lundi',
@@ -174,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const html = `
             <div class="event" style="top: ${topPosition}%; height: ${height}%">
                     <button id="event-button" style="width: 95%; margin-bottom:0; margin-top: ${marginTop}%">${summary}</button>
-                    ${durationInMinutes !== 30 ? `<p style="margin-left: 2.5%; margin-right: 2%; font-size:${fontsize || 100}%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>` : ''}
+                    ${durationInMinutes !== 30 ? `<p id="event-p" style="margin-left: 2.5%; margin-right: 2%; font-size:${fontsize || 100}%">${location} - ${professor}<br/>${startHour}h${startMinutes.toString().padStart(2, '0')} - ${endHour}h${endMinutes.toString().padStart(2, '0')}</p>` : ''}
                 </div>
             `;
 
@@ -328,6 +351,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (groupTPInput) {
         loadEvents(groupTPInput.value);
     }
+
+
+    window.addEventListener('resize', () => {
+        applyResponsiveStyles();
+    });
 
     setInterval(updateCurrentTimeLine, 1000); 
     updateCurrentTimeLine(); 
