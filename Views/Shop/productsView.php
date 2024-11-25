@@ -1,5 +1,5 @@
 <?php
-$isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true;
+$isAdmin = isset($_SESSION['isAdminView']) && $_SESSION['isAdminView'] === true;
 
 echo "<article>
     <h2>" . htmlspecialchars($row['Nom_Produit']) . "</h2>
@@ -8,9 +8,9 @@ echo "<article>
     <div class='row'>";
 
 if ($isAdmin) {
-    echo "<form action='editProduct.php' method='post'>
+    echo "<form action='' method='post'>
         <input type='hidden' name='product_id' value='" . htmlspecialchars($row['Id_Produit']) . "'>
-        <input type='submit' name='edit_product' value='Modifier'>
+        <input type='submit' id='editProductButton' value='Modifier'>
     </form>";
 } else {
     echo "<form action='checkout.php' method='post'>
