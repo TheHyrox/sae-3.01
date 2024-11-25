@@ -263,6 +263,18 @@ input{
         gap: 25px;
         overflow-x: auto;
     }
+    .letter{
+        align-items: start;
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+    .letter img{
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 350px;
+        object-fit: cover;
+    }
 }
 
 /* small pc screen */
@@ -464,6 +476,18 @@ input{
         justify-content: center;
         gap: 25px;
         overflow-x: auto;
+    }
+    .letter{
+        align-items: start;
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+    .letter img{
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 350px;
+        object-fit: cover;
     }
 }
 
@@ -714,6 +738,19 @@ input{
         justify-content: start;
         gap: 25px;
         overflow-x: auto;
+    }
+    .letter{
+        align-items: start;
+        flex-direction: column;
+        padding: 10px;
+        height: 100%;
+    }
+    .letter img{
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+        max-height: 200px;
+        object-fit: cover;
     }
 }
 
@@ -1094,12 +1131,7 @@ input[type=submit]{
 
 /* newsletter */
 
-.letter{
-    align-items: start;
-    flex-direction: row;
-    padding: 10px;
-    height: 100%;
-}
+
 
 .letter div{
     display: flex;
@@ -1111,14 +1143,7 @@ input[type=submit]{
 .letter div div{
     gap: 0px;
 }
-.letter h2{
-    max-width: 100%;
-    font-size: 30px;
-    padding: 0;
-    margin: 0;
-    margin-inline: 0;
-    margin-block-end: -10px;
-}
+
 .letter h3{
     font-size: 20px;
     margin-bottom: 10px;
@@ -1126,12 +1151,6 @@ input[type=submit]{
 .letter p{
     max-width: 100%;
     align-self: start;
-}
-.letter img{
-    min-width: 250px;
-    max-width: 250px;
-    max-height: 350px;
-    object-fit: cover;
 }
 
 .letter form button{
