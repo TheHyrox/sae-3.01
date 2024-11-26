@@ -1,20 +1,26 @@
-var gradeModal = document.getElementById("addGradeModal");
+var addGradeModal = document.getElementById("addGradeModal");
 
-var gradeBtn = document.getElementById("addGradeButton");
+var addGradeBtn = document.getElementById("addGradeButton");
 
-var gradeSpan = document.getElementsByClassName("close-grade")[0];
+var addGradeSpan = document.getElementsByClassName("close-grade")[0];
 
-gradeBtn.onclick = function(event) {
+addGradeBtn.onclick = function(event) {
     event.preventDefault();
-    gradeModal.style.display = "block";
+    document.getElementById('gradeName').value = '';
+    document.getElementById('gradeDescription').value = '';
+    document.getElementById('gradePrice').value = '';
+    document.getElementById('gradePicture').value = '';
+    document.getElementById('gradePicturePreview').src = '';
+
+    addGradeModal.style.display = "block";
 }
 
-gradeSpan.onclick = function() {
-    gradeModal.style.display = "none";
+addGradeSpan.onclick = function() {
+    addGradeModal.style.display = "none";
 }
 
 window.onclick = function(event) {
-    if (event.target === gradeModal) {
-        gradeModal.style.display = "none";
+    if (event.target === addGradeModal) {
+        addGradeModal.style.display = "none";
     }
 }
