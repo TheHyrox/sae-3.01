@@ -82,6 +82,11 @@ $result = $conn->query($all);
         <div class="panel-list-member">
             <article id="settings">
                 <h2>Options</h2>
+                <label class="switch switch-text">
+                    <input type="checkbox" id="memberRoleSwitch" name="demoCheckBox">
+                    <span class="s-text"></span>
+                    <span></span>
+                </label>
                 <ul>
                     <li>
                         <label class="switch">
