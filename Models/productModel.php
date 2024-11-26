@@ -48,4 +48,23 @@ class productModel
         $req = $this->db->prepare('INSERT INTO PRODUIT (Cat_Produit) VALUES (:category)');
         $req->execute(array('category' => $category));
     }
+
+    public function editProduct($name, $price, $description, $category, $stock, $img): void
+    {
+        $req = $this->db->prepare('UPDATE PRODUIT SET Nom_Produit = :name, Prix_Produit = :price, Desc_Produit = :description, Cat_Produit = :category, Stock_Produit = :stock, URL_Img_Produit = :img WHERE Id_Produit = :id');
+        $req->execute(array('name' => $name, 'price' => $price, 'description' => $description, 'category' => $category, 'stock' => $stock, 'img' => $img, 'id' => $_POST['product_id']));
+    }
+
+    public function editGrade($id, $name, $price, $description, $img): void
+    {
+        $req = $this->db->prepare('UPDATE GRADE SET Nom_Grade = :name, Prix_Grade = :price, Desc_Grade = :description, URL_Img_Grade = :img WHERE Id_Grade = :id');
+        $req->execute(array('name' => $name, 'price' => $price, 'description' => $description, 'img' => $img, 'id' => $id));
+    }
+
+    public function getGradeById($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM GRADE WHERE Id_Grade = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

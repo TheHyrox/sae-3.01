@@ -1,5 +1,5 @@
 <?php
-$isAdmin = isset($_SESSION['isAdminView']) && $_SESSION['isAdminView'] === true;
+$isAdminActive = isset($_SESSION['isAdminView']) && $_SESSION['isAdminView'] === true;
 
 foreach ($grades as $row) {
     if (isset($row['Id_Grade'])) {
@@ -9,7 +9,7 @@ foreach ($grades as $row) {
                     <p>" . htmlspecialchars($row['Desc_Grade']) . "</p>
                     <div class='row'>";
 
-        if ($isAdmin) {
+        if ($isAdminActive) {
             echo "<form action='' method='post'>
                         <input type='hidden' name='grade_id' value='" . htmlspecialchars($row['Id_Grade']) . "'>
                         <input type='submit' id='editGradeButton' 
