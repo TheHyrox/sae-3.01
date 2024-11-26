@@ -114,11 +114,11 @@ class gestionController
             $price = $_POST['Prix_Grade'];
             $id = $_POST['Id_Grade'];
 
-            $img = $_POST['current_imgEdit'];
-            if (isset($_FILES['gradePictureEditN']) && $_FILES['gradePictureEditN']['error'] === UPLOAD_ERR_OK) {
-                $img = basename($_FILES['gradePictureEditN']['name']);
+            $img = $_POST['current_img'];
+            if (isset($_FILES['gradePictureEdit']) && $_FILES['gradePictureEdit']['error'] === UPLOAD_ERR_OK) {
+                $img = basename($_FILES['gradePictureEdit']['name']);
 
-                move_uploaded_file($_FILES['gradePictureEditN']['tmp_name'], "../Pictures/Uploads/" . $img);
+                move_uploaded_file($_FILES['gradePictureEdit']['tmp_name'], "../Pictures/Uploads/" . $img);
             }
 
             $this->productModel->editGrade($id, $name, $price, $description, $img);

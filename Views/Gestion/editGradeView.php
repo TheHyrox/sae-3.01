@@ -12,7 +12,7 @@
     <input type='number' id='gradePriceEdit' name='Prix_Grade' required>
 
     <label for="gradePictureEdit">Image du grade:</label>
-    <input type="file" id="gradePictureEdit" name="gradePictureEditN" accept="image/png, image/jpeg">
+    <input type="file" id="gradePictureEdit" name="gradePictureEdit" accept="image/png, image/jpeg">
     <input type="hidden" id="currentImgEdit" name="current_imgEdit">
     <img id="gradePicturePreviewEdit" src="" alt="">
 
