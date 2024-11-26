@@ -5,6 +5,8 @@ $gestionController = new gestionController();
 $gestionController->handleAddProduct();
 $gestionController->handleAddGrade();
 $gestionController->handleAddCategory();
+$gestionController->handleEditProduct();
+$gestionController->handleEditGrade();
 
 $events = $gestionController->getEvents();
 
@@ -89,8 +91,23 @@ foreach ($events as $event) {
                 <?php include '../Views/Gestion/addGradeView.php'; ?>
             </div>
         </div>
+
+        <div id="editProductModal" class="modal">
+            <div class="modal-content">
+                <span class="close close-product">&times;</span>
+                <?php include '../Views/Gestion/editProductView.php'; ?>
+            </div>
+        </div>
+
+        <div id="editGradeModal" class="modal">
+            <div class="modal-content">
+                <span class="close close-grade">&times;</span>
+                <?php include '../Views/Gestion/editGradeView.php'; ?>
+            </div>
+        </div>
     </main>
 </body>
-<script src="../Script/addProduct.js"></script>
-<script src="../Script/addGrade.js"></script>
+<script src="../Script/Gestion/addProduct.js"></script>
+<script src="../Script/Gestion/addGrade.js"></script>
+<script src="../Script/Gestion/editGrade.js"></script>
 </html>

@@ -47,7 +47,7 @@ class gestionController
             $img = '';
             if (isset($_FILES['productPicture']) && $_FILES['productPicture']['error'] === UPLOAD_ERR_OK) {
                 $img = basename($_FILES['productPicture']['name']);
-                move_uploaded_file($_FILES['productPicture']['tmp_name'], $img);
+                move_uploaded_file($_FILES['productPicture']['tmp_name'], "../Pictures/Uploads/" . $img);
             }
 
             $this->productModel->addProduct($name, $price, $description, $category, $stock, $img);
@@ -58,7 +58,7 @@ class gestionController
 
     public function handleAddGrade(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Grade'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Grade']) && !isset($_POST['Id_Grade'])) {
             $name = $_POST['Nom_Grade'];
             $description = $_POST['Desc_Grade'];
             $price = $_POST['Prix_Grade'];
@@ -66,7 +66,7 @@ class gestionController
             $img = '';
             if (isset($_FILES['gradePicture']) && $_FILES['gradePicture']['error'] === UPLOAD_ERR_OK) {
                 $img = basename($_FILES['gradePicture']['name']);
-                move_uploaded_file($_FILES['gradePicture']['tmp_name'], $img);
+                move_uploaded_file($_FILES['gradePicture']['tmp_name'], "../Pictures/Uploads/" . $img);
             }
 
             $this->productModel->addGrade($name, $price, $description, $img);
@@ -83,5 +83,52 @@ class gestionController
             header('Location: ' . $_SERVER['REQUEST_URI']);
             exit();
         }
+    }
+
+    public function handleEditProduct(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Produit'])) {
+            $name = $_POST['Nom_Produit'];
+            $description = $_POST['Desc_Produit'];
+            $price = $_POST['Prix_Produit'];
+            $category = $_POST['Cat_Produit'];
+            $stock = $_POST['Stock_Produit'];
+
+            $img = $_POST['current_img'];
+            if (isset($_FILES['productPicture']) && $_FILES['productPicture']['error'] === UPLOAD_ERR_OK) {
+                $img = basename($_FILES['productPicture']['name']);
+                move_uploaded_file($_FILES['productPicture']['tmp_name'], "../Pictures/Uploads/" . $img);
+            }
+
+            $this->productModel->editProduct($name, $price, $description, $category, $stock, $img);
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit();
+        }
+    }
+
+    public function handleEditGrade(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Id_Grade'])) {
+            $name = $_POST['Nom_Grade'];
+            $description = $_POST['Desc_Grade'];
+            $price = $_POST['Prix_Grade'];
+            $id = $_POST['Id_Grade'];
+
+            $img = $_POST['current_imgEdit'];
+            if (isset($_FILES['gradePictureEditN']) && $_FILES['gradePictureEditN']['error'] === UPLOAD_ERR_OK) {
+                $img = basename($_FILES['gradePictureEditN']['name']);
+
+                move_uploaded_file($_FILES['gradePictureEditN']['tmp_name'], "../Pictures/Uploads/" . $img);
+            }
+
+            $this->productModel->editGrade($id, $name, $price, $description, $img);
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit();
+        }
+    }
+
+    public function getGradeById($id)
+    {
+        return $this->productModel->getGradeById($id);
     }
 }
