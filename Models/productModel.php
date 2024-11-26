@@ -12,7 +12,7 @@ class productModel
 
     public function getProductsByCategory($category): false|array
     {
-        $req = $this->db->prepare('SELECT Id_Produit, Nom_Produit, URL_Img_Produit, Desc_Produit, Prix_Produit FROM PRODUIT WHERE Cat_Produit = :category AND Nom_Produit IS NOT NULL');
+        $req = $this->db->prepare('SELECT Id_Produit, Nom_Produit, URL_Img_Produit, Desc_Produit, Prix_Produit, Stock_Produit FROM PRODUIT WHERE Cat_Produit = :category AND Nom_Produit IS NOT NULL');
         $req->execute(array('category' => $category));
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -49,10 +49,10 @@ class productModel
         $req->execute(array('category' => $category));
     }
 
-    public function editProduct($name, $price, $description, $category, $stock, $img): void
+    public function editProduct($id, $name, $price, $description, $category, $stock, $img): void
     {
         $req = $this->db->prepare('UPDATE PRODUIT SET Nom_Produit = :name, Prix_Produit = :price, Desc_Produit = :description, Cat_Produit = :category, Stock_Produit = :stock, URL_Img_Produit = :img WHERE Id_Produit = :id');
-        $req->execute(array('name' => $name, 'price' => $price, 'description' => $description, 'category' => $category, 'stock' => $stock, 'img' => $img, 'id' => $_POST['product_id']));
+        $req->execute(array('name' => $name, 'price' => $price, 'description' => $description, 'category' => $category, 'stock' => $stock, 'img' => $img, 'id' => $id));
     }
 
     public function editGrade($id, $name, $price, $description, $img): void
@@ -64,6 +64,13 @@ class productModel
     public function getGradeById($id)
     {
         $stmt = $this->db->prepare("SELECT * FROM GRADE WHERE Id_Grade = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getProductById(mixed $id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM PRODUIT WHERE Id_Produit = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

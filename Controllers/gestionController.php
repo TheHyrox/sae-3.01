@@ -37,7 +37,7 @@ class gestionController
 
     public function handleAddProduct(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Produit'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['Id_Produit'])) {
             $name = $_POST['Nom_Produit'];
             $description = $_POST['Desc_Produit'];
             $price = $_POST['Prix_Produit'];
@@ -58,7 +58,7 @@ class gestionController
 
     public function handleAddGrade(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Grade']) && !isset($_POST['Id_Grade'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['Id_Grade']) && !isset($_POST['Id_Produit'])) {
             $name = $_POST['Nom_Grade'];
             $description = $_POST['Desc_Grade'];
             $price = $_POST['Prix_Grade'];
@@ -77,7 +77,7 @@ class gestionController
 
     public function handleAddCategory(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Cat_Produit'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Cat_Produit']) && !isset($_POST['Id_Produit'])) {
             $category = $_POST['Cat_Produit'];
             $this->productModel->addCategory($category);
             header('Location: ' . $_SERVER['REQUEST_URI']);
@@ -87,7 +87,8 @@ class gestionController
 
     public function handleEditProduct(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Produit'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Id_Produit'])) {
+            $id = $_POST['Id_Produit'];
             $name = $_POST['Nom_Produit'];
             $description = $_POST['Desc_Produit'];
             $price = $_POST['Prix_Produit'];
@@ -95,12 +96,12 @@ class gestionController
             $stock = $_POST['Stock_Produit'];
 
             $img = $_POST['current_img'];
-            if (isset($_FILES['productPicture']) && $_FILES['productPicture']['error'] === UPLOAD_ERR_OK) {
-                $img = basename($_FILES['productPicture']['name']);
-                move_uploaded_file($_FILES['productPicture']['tmp_name'], "../Pictures/Uploads/" . $img);
+            if (isset($_FILES['productPictureEdit']) && $_FILES['productPictureEdit']['error'] === UPLOAD_ERR_OK) {
+                $img = basename($_FILES['productPictureEdit']['name']);
+                move_uploaded_file($_FILES['productPictureEdit']['tmp_name'], "../Pictures/Uploads/" . $img);
             }
 
-            $this->productModel->editProduct($name, $price, $description, $category, $stock, $img);
+            $this->productModel->editProduct($id, $name, $price, $description, $category, $stock, $img);
             header('Location: ' . $_SERVER['REQUEST_URI']);
             exit();
         }
@@ -130,5 +131,10 @@ class gestionController
     public function getGradeById($id)
     {
         return $this->productModel->getGradeById($id);
+    }
+
+    public function getProductById(mixed $id)
+    {
+        return $this->productModel->getProductById($id);
     }
 }

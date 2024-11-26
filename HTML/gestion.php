@@ -109,5 +109,6 @@ foreach ($events as $event) {
 </body>
 <script src="../Script/Gestion/addProduct.js"></script>
 <script src="../Script/Gestion/addGrade.js"></script>
+<script src="../Script/Gestion/editProduct.js"></script>
 <script src="../Script/Gestion/editGrade.js"></script>
 </html>
