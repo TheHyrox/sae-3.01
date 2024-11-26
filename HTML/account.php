@@ -8,7 +8,7 @@
     <title>ADIIL - Compte</title>
 </head>
 <body>
-<nav>
+<nav class="nav-links">
     <h2>Mon compte</h2>
     <ul>
         <li><a href="" class="red">Retour</a></li> <!--Faut garger la page précédante pour la rouvrir là -->
@@ -17,6 +17,9 @@
         <li><a href="../Utils/logout.php" class="red">Déconnexion</a></li> <!-- Updated link to logout.php -->
     </ul>
 </nav>
+<button class="burger-menu">
+    <img src="../Icons/arrow-right.png" alt="">
+</button>
 <main>
     <div>
         <h2 id="info-perso">Mes informations personnelles</h2>
@@ -51,7 +54,7 @@
                 <h3>---</h3>
             </div>
         </div>
-        <div>
+        <div class="events">
             <h2 id="inscr">Mes inscriptions</h2>
             <div class="row">
                 <ul>
@@ -82,5 +85,6 @@
         </div>
     </div>
 </main>
+<script src="../Script/script.js"></script>
 </body>
 </html>

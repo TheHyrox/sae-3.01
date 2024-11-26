@@ -30,7 +30,9 @@ function slideClick(index) {
 // Ajoute un événement pour afficher/masquer le menu
 burgerMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
 });
+
 
 monthBtns.forEach((button, index) => {
     button.addEventListener('click', () => monthClick(index));
