@@ -1,5 +1,5 @@
 <?php
-$isAdmin = isset($_SESSION['isAdminView']) && $_SESSION['isAdminView'] === true;
+$isAdminView = isset($_SESSION['isAdminView']) && $_SESSION['isAdminView'] === true;
 
 echo "<article>
     <h2>" . htmlspecialchars($row['Nom_Produit']) . "</h2>
@@ -7,10 +7,17 @@ echo "<article>
     <p>" . htmlspecialchars($row['Desc_Produit']) . "</p>
     <div class='row'>";
 
-if ($isAdmin) {
+if ($isAdminView) {
     echo "<form action='' method='post'>
         <input type='hidden' name='product_id' value='" . htmlspecialchars($row['Id_Produit']) . "'>
-        <input type='submit' id='editProductButton' value='Modifier'>
+        <input type='submit' id='editProductButton' 
+               data-id='" . htmlspecialchars($row['Id_Produit']) . "'
+               data-name='" . htmlspecialchars($row['Nom_Produit']) . "'
+               data-description='" . htmlspecialchars($row['Desc_Produit']) . "'
+               data-price='" . htmlspecialchars($row['Prix_Produit']) . "'
+               data-stock='" . htmlspecialchars($row['Stock_Produit']) . "'
+               data-img='" . htmlspecialchars($row['URL_Img_Produit']) . "'
+               value='Modifier'>
     </form>";
 } else {
     echo "<form action='checkout.php' method='post'>
