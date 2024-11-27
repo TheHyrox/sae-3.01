@@ -6,12 +6,12 @@ use DBConfig\Database;
 
 $conn = Database::getConnection();
 
-$all = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur";
-$allmember = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur WHERE Niv_Acces_User = 4";
-$alladmin = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur WHERE Niv_Acces_User > 4";
-$but1 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur WHERE Grp_TP_User IN ('11A', '11B', '12C', '12D')";
-$but2 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur WHERE Grp_TP_User IN ('21A', '21B', '22C', '22D')";
-$but3 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur WHERE Grp_TP_User IN ('31A', '31B', '32C', '32D')";
+$all = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
+$allmember = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Niv_Acces_User = 4";
+$alladmin = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Niv_Acces_User > 4";
+$but1 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('11A', '11B', '12C', '12D')";
+$but2 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('21A', '21B', '22C', '22D')";
+$but3 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('31A', '31B', '32C', '32D')";
 $result = $conn->query($all);
 ?>
 

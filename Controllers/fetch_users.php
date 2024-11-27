@@ -25,7 +25,7 @@ if (in_array('but3', $groups)) {
     $conditions[] = "Grp_TP_User IN ('31A', '31B', '32C', '32D')";
 }
 
-$sql = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM utilisateur";
+$sql = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
 if (!empty($conditions)) {
     $sql .= " WHERE " . implode(' OR ', $conditions);
 }
