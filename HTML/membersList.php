@@ -9,11 +9,12 @@ $conn = Database::getConnection();
 $all = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
 $allmember = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Niv_Acces_User = 4";
 $alladmin = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Niv_Acces_User > 4";
+
 $but1 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('11A', '11B', '12C', '12D')";
 $but2 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('21A', '21B', '22C', '22D')";
 $but3 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('31A', '31B', '32C', '32D')";
 
-$allrole = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
+$allrole = "SELECT Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM GRADE";
 
 $result = $conn->query($all);
 ?>
@@ -75,28 +76,34 @@ $result = $conn->query($all);
                 checkSwitches();
             });
 
-            $('#memberRoleSwitch').change(function() {
-                isRoleMode = this.checked;
-                if (isRoleMode) {
-                    $('#showMembersSwitch').next('p').text('Role 1');
-                    $('#showAdminSwitch').next('p').text('Role 2');
-                    $('#showBut1Switch').next('p').text('Role 3');
-                    $('#showBut2Switch').next('p').text('Role 4');
-                    $('#showBut3Switch').next('p').text('Role 5');
-                } else {
-                    $('#showMembersSwitch').next('p').text('View Members');
-                    $('#showAdminSwitch').next('p').text('View Admins');
-                    $('#showBut1Switch').next('p').text('BUT1');
-                    $('#showBut2Switch').next('p').text('BUT2');
-                    $('#showBut3Switch').next('p').text('BUT3');
-                }
-                fetchUsers(['all']);
-            });
-
-            // Set default mode to view all
             $('#showAllSwitch').prop('checked', true);
             $('#memberRoleSwitch').prop('checked', false);
             fetchUsers(['all']);
+
+            $('#memberRoleSwitch').on('change', function() {
+                console.log('memberRoleSwitch changed to: ' + $(this).prop('checked'));
+                isRoleMode = this.checked;
+                console.log("isRoleMode: " + isRoleMode);
+
+                if (isRoleMode) {
+                    console.log('Switching to role mode');
+                    $('#viewmember-p').text('Role 1');
+                    $('#viewadmin-p').text('Role 2');
+                    $('#viewbut1-p').text('Role 3');
+                    $('#viewbut2-p').text('Role 4');
+                    $('#viewbut3-p').text('Role 5');
+                } else {
+                    console.log('Switching to member mode');
+                    $('#viewmember-p').text('View Members');
+                    $('#viewadmin-p').text('View Admins');
+                    $('#viewbut1-p').text('BUT1');
+                    $('#viewbut2-p').text('BUT2');
+                    $('#viewbut3-p').text('BUT3');
+                }
+
+                // Fetch users with the updated role mode
+                checkSwitches();
+            });
         });
     </script>
 </head>
@@ -118,42 +125,42 @@ $result = $conn->query($all);
                             <input type="checkbox" id="showAllSwitch" name="demoCheckBox">
                             <span></span>
                         </label>
-                        <p>View All</p>
+                        <p id="viewall-p">View All</p>
                     </li>
                     <li>
                         <label class="switch">
                             <input type="checkbox" id="showMembersSwitch" name="demoCheckBox">
                             <span></span>
                         </label>
-                        <p>View Members</p>
+                        <p id="viewmember-p">View Members</p>
                     </li>
                     <li>
                         <label class="switch">
                             <input type="checkbox" id="showAdminSwitch" name="demoCheckBox">
                             <span></span>
                         </label>
-                        <p>View Admins</p>
+                        <p id="viewadmin-p">View Admins</p>
                     </li>
                     <li>
                         <label class="switch">
                             <input type="checkbox" id="showBut1Switch" name="demoCheckBox">
                             <span></span>
                         </label>
-                        <p>BUT1</p>
+                        <p id="viewbut1-p">BUT1</p>
                     </li>
                     <li>
                         <label class="switch">
                             <input type="checkbox" id="showBut2Switch" name="demoCheckBox">
                             <span></span>
                         </label>
-                        <p>BUT2</p>
+                        <p id="viewbut2-p">BUT2</p>
                     </li>
                     <li>
                         <label class="switch">
                             <input type="checkbox" id="showBut3Switch" name="demoCheckBox">
                             <span></span>
                         </label>
-                        <p>BUT3</p>
+                        <p id="viewbut3-p">BUT3</p>
                     </li>
                 </ul>
             </article>

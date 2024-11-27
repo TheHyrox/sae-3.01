@@ -6,11 +6,9 @@ use DBConfig\Database;
 
 $conn = Database::getConnection();
 
-$roleMode = isset($_POST['roleMode']);
+$roleMode = isset($_POST['roleMode']) ? filter_var($_POST['roleMode'], FILTER_VALIDATE_BOOLEAN) : false;
 
-echo 'isRoleMode = ' . $roleMode . ';';
-
-if ($roleMode == 1) {
+if ($roleMode == false) {
     $groups = isset($_POST['groups']) ? $_POST['groups'] : [];
     $conditions = [];
 
