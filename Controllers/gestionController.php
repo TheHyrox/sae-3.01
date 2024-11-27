@@ -35,9 +35,34 @@ class gestionController
         return $this->eventModel->getEvents();
     }
 
+    public function handleAddEvent(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Event']) && !isset($_POST['Id_Event'])) {
+            $name = $_POST['Nom_Event'];
+            $description = $_POST['Desc_Event'];
+            $date = $_POST['Date_Event'];
+            $lieu = $_POST['Lieu_Event'];
+            $cat = $_POST['Cat_Event'];
+            $nb_places = $_POST['Nb_Places_Event'];
+            $prix = $_POST['Prix_Event'];
+
+            echo "<script>console.log('event')</script>";
+
+            $img = '';
+            if (isset($_FILES['eventPicture']) && $_FILES['eventPicture']['error'] === UPLOAD_ERR_OK) {
+                $img = basename($_FILES['eventPicture']['name']);
+                move_uploaded_file($_FILES['eventPicture']['tmp_name'], "../Pictures/Uploads/" . $img);
+            }
+
+            $this->eventModel->addEvent($name, $description, $date, $lieu, $cat, $nb_places, $prix, $img);
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit();
+        }
+    }
+
     public function handleAddProduct(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['Id_Produit'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Nom_Produit']) && !isset($_POST['Id_Produit'])) {
             $name = $_POST['Nom_Produit'];
             $description = $_POST['Desc_Produit'];
             $price = $_POST['Prix_Produit'];
@@ -58,7 +83,7 @@ class gestionController
 
     public function handleAddGrade(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['Id_Grade']) && !isset($_POST['Id_Produit'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['Id_Grade']) && !isset($_POST['Id_Produit']) && isset($_POST['Nom_Grade'])) {
             $name = $_POST['Nom_Grade'];
             $description = $_POST['Desc_Grade'];
             $price = $_POST['Prix_Grade'];

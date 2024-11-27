@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             eventDetails.querySelector('h2').textContent = name;
             eventDetails.querySelector('p').textContent = description;
-            eventDetails.querySelector('img').src = item.getAttribute('data-image') ? item.getAttribute('data-image') : '../Pictures/defaultProfilePicture.png';
+            eventDetails.querySelector('img').src = item.getAttribute('data-image') ? '../Pictures/Uploads/' + item.getAttribute('data-image') : '../Pictures/defaultProfilePicture.png';
             eventDetails.querySelector('.row h3').textContent = date;
         });
     });
