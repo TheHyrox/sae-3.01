@@ -6,12 +6,6 @@ var addGradeSpan = document.getElementsByClassName("close-grade")[0];
 
 addGradeBtn.onclick = function(event) {
     event.preventDefault();
-    document.getElementById('gradeName').value = '';
-    document.getElementById('gradeDescription').value = '';
-    document.getElementById('gradePrice').value = '';
-    document.getElementById('gradePicture').value = '';
-    document.getElementById('gradePicturePreview').src = '';
-
     addGradeModal.style.display = "block";
 }
 
