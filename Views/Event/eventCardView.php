@@ -4,7 +4,13 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quisquam aspernatur assumenda excepturi, architecto sit ipsum odit adipisci eveniet provident, consectetur reprehenderit quidem illo! Eligendi a adipisci magnam dolores repellendus!</p>
     <div class="row">
         <form action="" method="post">
-            <input type="submit" value="Participer">
+            <?php
+            if (isset($_SESSION['isAdminView']) && $_SESSION['isAdminView']) {
+                echo "<input type='submit' value='Modifier'>";
+            } else {
+                echo "<input type='submit' value='Réserver'>";
+            }
+            ?>
         </form>
         <h3>3€</h3>
     </div>

@@ -18,7 +18,7 @@ $months = [
                         <?php if (isset($eventsByMonth[$num])): ?>
                             <ul class="eventList">
                                 <?php foreach ($eventsByMonth[$num] as $event): ?>
-                                    <li class="eventItem" data-id="<?= $event['Id_Event'] ?>" data-name="<?= htmlspecialchars($event['Nom_Event']) ?>" data-date="<?= date('d/m/Y', strtotime($event['Date_Event'])) ?>" data-description="Description de l'événement">
+                                    <li class="eventItem" data-id="<?= $event['Id_Event'] ?>" data-name="<?= htmlspecialchars($event['Nom_Event']) ?>" data-date="<?= date('d/m/Y', strtotime($event['Date_Event'])) ?>" data-description="<?= htmlspecialchars($event['Desc_Event']) ?>" data-image="<?= htmlspecialchars($event['URL_Img_Event']) ?>">
                                         <form action="" method="post">
                                             <input type="hidden" name="id" value="<?= $event['Id_Event'] ?>">
                                             <input type="submit" name="event" value="<?= htmlspecialchars($event['Nom_Event']) ?>">
@@ -33,11 +33,7 @@ $months = [
             </ul>
         </div>
         <?php
-        if(isset($_SESSION['isAdminView']) && $_SESSION['isAdminView']) {
-            include 'eventCardAdminView.php';
-        } else {
             include 'eventCardView.php';
-        }
         ?>
     </div>
 <script src="../../Script/script.js"></script>
