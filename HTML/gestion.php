@@ -2,6 +2,7 @@
 require_once '../Controllers/gestionController.php';
 
 $gestionController = new gestionController();
+$gestionController->handleAddEvent();
 $gestionController->handleAddProduct();
 $gestionController->handleAddGrade();
 $gestionController->handleAddCategory();
@@ -31,7 +32,7 @@ foreach ($events as $event) {
     <main>
         <h2>Évènements</h2>
         <form id="event-add" action='' method='post'>
-            <input type='submit' value='Ajouter un évènement'>
+            <input type='submit' id="addEventButton" value='Ajouter un évènement'>
         </form>
         <?php include '../Views/Event/eventView.php' ?>
 
@@ -78,6 +79,13 @@ foreach ($events as $event) {
             <input type='submit' value='Ajouter une catégorie'>
         </form>
 
+        <div id="addEventModal" class="modal">
+            <div class="modal-content">
+                <span class="close close-event">&times;</span>
+                <?php include '../Views/Gestion/addEventView.php'; ?>
+            </div>
+        </div>
+
         <div id="addProductModal" class="modal">
             <div class="modal-content">
                 <span class="close close-product">&times;</span>
@@ -107,6 +115,7 @@ foreach ($events as $event) {
         </div>
     </main>
 </body>
+<script src="../Script/Gestion/addEvent.js"></script>
 <script src="../Script/Gestion/addProduct.js"></script>
 <script src="../Script/Gestion/addGrade.js"></script>
 <script src="../Script/Gestion/editProduct.js"></script>
