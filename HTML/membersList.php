@@ -12,6 +12,9 @@ $alladmin = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Ni
 $but1 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('11A', '11B', '12C', '12D')";
 $but2 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('21A', '21B', '22C', '22D')";
 $but3 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('31A', '31B', '32C', '32D')";
+
+$allrole = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
+
 $result = $conn->query($all);
 ?>
 
@@ -26,53 +29,75 @@ $result = $conn->query($all);
     <title>ADIIL - Membres</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function() {
-        function fetchUsers(groups) {
-            $.ajax({
-                url: '../Controllers/fetch_users.php',
-                type: 'POST',
-                data: { groups: groups },
-                success: function(data) {
-                    $('#list-result').html(data);
+        $(document).ready(function() {
+            let isRoleMode = false;
+
+            function fetchUsers(groups) {
+                $.ajax({
+                    url: '../Controllers/fetch_users.php',
+                    type: 'POST',
+                    data: { groups: groups, roleMode: isRoleMode },
+                    success: function(data) {
+                        $('#list-result').html(data);
+                    }
+                });
+            }
+
+            function getActiveFilters() {
+                let activeFilters = [];
+                if ($('#showMembersSwitch').is(':checked')) activeFilters.push('members');
+                if ($('#showAdminSwitch').is(':checked')) activeFilters.push('admin');
+                if ($('#showBut1Switch').is(':checked')) activeFilters.push('but1');
+                if ($('#showBut2Switch').is(':checked')) activeFilters.push('but2');
+                if ($('#showBut3Switch').is(':checked')) activeFilters.push('but3');
+                return activeFilters;
+            }
+
+            function checkSwitches() {
+                let activeFilters = getActiveFilters();
+                if (activeFilters.length === 0) {
+                    $('#showAllSwitch').prop('checked', true);
+                    fetchUsers(['all']);
+                } else {
+                    $('#showAllSwitch').prop('checked', false);
+                    fetchUsers(activeFilters);
+                }
+            }
+
+            $('#showAllSwitch').change(function() {
+                if (this.checked) {
+                    fetchUsers(['all']);
+                    $('input[type="checkbox"]').not(this).prop('checked', false);
                 }
             });
-        }
 
-        function getActiveFilters() {
-            let activeFilters = [];
-            if ($('#showMembersSwitch').is(':checked')) activeFilters.push('members');
-            if ($('#showAdminSwitch').is(':checked')) activeFilters.push('admin');
-            if ($('#showBut1Switch').is(':checked')) activeFilters.push('but1');
-            if ($('#showBut2Switch').is(':checked')) activeFilters.push('but2');
-            if ($('#showBut3Switch').is(':checked')) activeFilters.push('but3');
-            return activeFilters;
-        }
+            $('#showMembersSwitch, #showAdminSwitch, #showBut1Switch, #showBut2Switch, #showBut3Switch').change(function() {
+                checkSwitches();
+            });
 
-        function checkSwitches() {
-            let activeFilters = getActiveFilters();
-            if (activeFilters.length === 0) {
-                $('#showAllSwitch').prop('checked', true);
+            $('#memberRoleSwitch').change(function() {
+                isRoleMode = this.checked;
+                if (isRoleMode) {
+                    $('#showMembersSwitch').next('p').text('Role 1');
+                    $('#showAdminSwitch').next('p').text('Role 2');
+                    $('#showBut1Switch').next('p').text('Role 3');
+                    $('#showBut2Switch').next('p').text('Role 4');
+                    $('#showBut3Switch').next('p').text('Role 5');
+                } else {
+                    $('#showMembersSwitch').next('p').text('View Members');
+                    $('#showAdminSwitch').next('p').text('View Admins');
+                    $('#showBut1Switch').next('p').text('BUT1');
+                    $('#showBut2Switch').next('p').text('BUT2');
+                    $('#showBut3Switch').next('p').text('BUT3');
+                }
                 fetchUsers(['all']);
-            } else {
-                $('#showAllSwitch').prop('checked', false);
-                fetchUsers(activeFilters);
-            }
-        }
+            });
 
-        $('#showAllSwitch').change(function() {
-            if (this.checked) {
-                fetchUsers(['all']);
-                $('input[type="checkbox"]').not(this).prop('checked', false);
-            }
-        });
-
-        $('#showMembersSwitch, #showAdminSwitch, #showBut1Switch, #showBut2Switch, #showBut3Switch').change(function() {
-            checkSwitches();
-        });
-
+            // Set default mode to view all
             $('#showAllSwitch').prop('checked', true);
+            $('#memberRoleSwitch').prop('checked', false);
             fetchUsers(['all']);
-    });
+        });
     </script>
 </head>
 <body>
