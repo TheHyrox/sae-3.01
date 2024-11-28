@@ -17,4 +17,9 @@ class newsletterController
     {
         return $this->model->getNewsletters();
     }
+
+    public function addNewsletter(string $title, string $text, int $visible): bool
+    {
+        return $this->model->addNewsletter($title, $text, $visible);
+    }
 }

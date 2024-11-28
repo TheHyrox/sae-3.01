@@ -26,8 +26,8 @@
     <label for="Lieu_Event">Lieu de l'évenement</label>
     <input type="text" id="eventPlace" name="Lieu_Event" required>
 
-    <label for="Nb_Places_Event">Nombre de places pour l'évenement</label>
-    <input type="number" id="eventPlaces" name="Nb_Places_Event" required>
+    <label for="Nb_Place_Event">Nombre de places pour l'évenement</label>
+    <input type="number" id="eventPlaces" name="Nb_Place_Event" required>
 
     <img id="eventPicturePreview" src="" alt="">
     <script>

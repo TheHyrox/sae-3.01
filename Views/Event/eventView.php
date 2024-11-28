@@ -1,9 +1,4 @@
 <?php
-
-
-
-
-
 $months = [
     9 => 'Septembre', 10 => 'Octobre', 11 => 'Novembre', 12 => 'Décembre', 1 => 'Janvier', 2 => 'Février',
     3 => 'Mars', 4 => 'Avril', 5 => 'Mai', 6 => 'Juin', 7 => 'Juillet', 8 => 'Août',
@@ -20,7 +15,7 @@ $months = [
                                 <?php foreach ($eventsByMonth[$num] as $event): ?>
                                     <li class="eventItem" data-id="<?= $event['Id_Event'] ?>" data-name="<?= htmlspecialchars($event['Nom_Event']) ?>" data-date="<?= date('d/m/Y', strtotime($event['Date_Event'])) ?>" data-description="<?= htmlspecialchars($event['Desc_Event']) ?>" data-image="<?= htmlspecialchars($event['URL_Img_Event']) ?>">
                                         <form action="" method="post">
-                                            <input type="hidden" name="id" value="<?= $event['Id_Event'] ?>">
+                                            <input type="hidden" name="id" value="<?= $event['Id_Event'] ?>" data-id="<?= $event['Id_Event'] ?>">
                                             <input type="submit" name="event" value="<?= htmlspecialchars($event['Nom_Event']) ?>">
                                         </form>
                                         <p><?= date('d/m/Y', strtotime($event['Date_Event'])) ?></p>

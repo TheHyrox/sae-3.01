@@ -3,6 +3,7 @@ require_once '../Controllers/gestionController.php';
 
 $gestionController = new gestionController();
 $gestionController->handleAddEvent();
+$gestionController->handleEditEvent();
 $gestionController->handleAddProduct();
 $gestionController->handleAddGrade();
 $gestionController->handleAddCategory();
@@ -86,6 +87,15 @@ foreach ($events as $event) {
             </div>
         </div>
 
+
+        <div id="editEventModal" class="modal">
+            <div class="modal-content">
+                <span class="close close-category">&times;</span>
+                <?php include '../Views/Gestion/editEventView.php'; ?>
+            </div>
+        </div>
+
+
         <div id="addProductModal" class="modal">
             <div class="modal-content">
                 <span class="close close-product">&times;</span>
@@ -116,6 +126,7 @@ foreach ($events as $event) {
     </main>
 </body>
 <script src="../Script/Gestion/addEvent.js"></script>
+<script src="../Script/Gestion/editEvent.js"></script>
 <script src="../Script/Gestion/addProduct.js"></script>
 <script src="../Script/Gestion/addGrade.js"></script>
 <script src="../Script/Gestion/editProduct.js"></script>

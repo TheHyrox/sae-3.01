@@ -59,10 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
     eventItems.forEach(item => {
         item.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent form submission
+            const id = item.getAttribute('data-id');
             const name = item.getAttribute('data-name');
             const date = item.getAttribute('data-date');
             const description = item.getAttribute('data-description');
 
+            eventDetails.setAttribute('data-id', id);
             eventDetails.querySelector('h2').textContent = name;
             eventDetails.querySelector('p').textContent = description;
             eventDetails.querySelector('img').src = item.getAttribute('data-image') ? '../Pictures/Uploads/' + item.getAttribute('data-image') : '../Pictures/defaultProfilePicture.png';

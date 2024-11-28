@@ -17,7 +17,7 @@ $newsletters = $controller->getNewsletters();
 <?php include '../Views/header.php'; ?>
 <main>
     <?php foreach ($newsletters as $newsletter): ?>
-        <?php if ($newsletter['Visible'] == 1): ?>
+        <?php if (isset($newsletter['Visible']) && $newsletter['Visible'] == 1): ?>
             <article class="letter">
                 <img src="../Pictures/<?= htmlspecialchars($newsletter['URL_Image_News']) ?>" alt="">
                 <div>
