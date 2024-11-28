@@ -16,11 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (xhr.status === 200) {
                     try {
                         var event = JSON.parse(xhr.responseText);
+                        const eventDate = new Date(event.Date_Event).toISOString().split('T')[0];
+
                         document.getElementById('eventIdEdit').value = event.Id_Event;
                         document.getElementById('eventNameEdit').value = event.Nom_Event;
                         document.getElementById('eventDescriptionEdit').value = event.Desc_Event;
-                        document.getElementById('eventDateEdit').value = event.Date_Event;
-                        document.getElementById('eventLocationEdit').value = event.Lieu_Event;
+                        document.getElementById('eventDateEdit').value = eventDate;                        document.getElementById('eventLocationEdit').value = event.Lieu_Event;
                         document.getElementById('eventCategoryEdit').value = event.Cat_Event;
                         document.getElementById('eventPlaceEdit').value = event.Nb_Place_Event;
                         document.getElementById('eventPriceEdit').value = event.Prix_Event;
