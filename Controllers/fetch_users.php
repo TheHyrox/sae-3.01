@@ -7,6 +7,7 @@ use DBConfig\Database;
 $conn = Database::getConnection();
 
 $roleMode = isset($_POST['roleMode']) ? filter_var($_POST['roleMode'], FILTER_VALIDATE_BOOLEAN) : false;
+$searchTerm = isset($_POST['search']) ? $_POST['search'] : '';
 
 if ($roleMode == false) {
     $groups = isset($_POST['groups']) ? $_POST['groups'] : [];
@@ -16,7 +17,7 @@ if ($roleMode == false) {
         $conditions[] = "Niv_Acces_User = 4";
     }
     if (in_array('admin', $groups)) {
-        $conditions[] = "Niv_Acces_User > 4";
+        $conditions[] = "Niv_Acces_User < 4";
     }
     if (in_array('but1', $groups)) {
         $conditions[] = "Grp_TP_User IN ('11A', '11B', '12C', '12D')";
@@ -30,10 +31,17 @@ if ($roleMode == false) {
 
     $sql = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
     if (!empty($conditions)) {
-        $sql .= " WHERE " . implode(' OR ', $conditions);
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    }
+    if (!empty($searchTerm)) {
+        $sql .= !empty($conditions) ? " AND " : " WHERE ";
+        $sql .= "(Nom_User LIKE '%$searchTerm%' OR Prenom_User LIKE '%$searchTerm%' OR Grp_TP_User LIKE '%$searchTerm%')";
     }
 } else {
     $sql = "SELECT Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM GRADE";
+    if (!empty($searchTerm)) {
+        $sql .= " WHERE Nom_Grade LIKE '%$searchTerm%' OR Desc_Grade LIKE '%$searchTerm%'";
+    }
 }
 
 $result = $conn->query($sql);
@@ -65,8 +73,11 @@ if ($result->rowCount() > 0) {
             echo '<div class="profil-bar">';
             echo '<div>';
             echo '<img src="' . $urlImgGrade . '" alt="">';
-            echo '<p style="text-align: left">' . $nomGrade . ' - ' . $descGrade . ' - ' . $prixGrade . '</p>';
+            echo '<p style="text-align: left">' . $nomGrade . ' - ' . $descGrade . ' - ' . $prixGrade . '€' . '</p>';
             echo '</div>';
+            echo '<form action="" method="post">';
+            echo '<button type="submit" value="' . $idUser . '">Voir</button>';
+            echo '</form>';
             echo '</div>';
         }
     }
