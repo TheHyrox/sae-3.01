@@ -12,7 +12,7 @@
 <?php include '../Views/header.php'; ?>
 
     <main>
-        <div class="folderfond">
+        <article class="folderfond">
             <div class="folder">
             <a href="" class="image-folder">
                 <img src="../Icons/folder.svg" alt="Folder">
@@ -38,8 +38,13 @@
             </a>
                 <span>Fichier 1</span>
             </div>
-            
-        </div>
+            <div class="file">
+            <a href="" class="image-file">
+                <img src="../Icons/file.svg" alt="file">
+            </a>
+                <span>Fichier 2</span>
+            </div>
+        </article>
     </main>
     <script src="../Script/script.js"></script>
 </body>

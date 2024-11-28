@@ -585,6 +585,19 @@ body.popup-open {
         border-image: var(--linearClassic) 1;
         align-self: start;
     }
+
+    .partenaire{
+        align-items: start;
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+    .partenaire img{
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 350px;
+        object-fit: cover;
+    }
 }
 
 /* small pc screen */
@@ -1106,6 +1119,19 @@ body.popup-open {
         border-style: solid;
         border-image: var(--linearClassic) 1;
         align-self: start;
+    }
+
+    .partenaire{
+        align-items: start;
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+    .partenaire img{
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 350px;
+        object-fit: cover;
     }
 }
 
@@ -1675,6 +1701,20 @@ body.popup-open {
         border-style: solid;
         border-image: var(--linearClassic) 1;
         align-self: start;
+    }
+
+    .partenaire{
+        align-items: start;
+        flex-direction: column;
+        padding: 10px;
+        height: 100%;
+    }
+    .partenaire img{
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+        max-height: 200px;
+        object-fit: cover;
     }
     
 }
@@ -2302,23 +2342,23 @@ option {
 }
 
 .folderfond {
-    display: flex; /* Aligne les éléments enfants côte à côte */
-    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
-    gap: 10px; /* Ajoute un espace entre les éléments */
-    justify-content: flex-start; /* Aligne les éléments à gauche */
-    background-color: var(--primary);
-    border-radius: 10px;
-    padding: 10px 20px;
-    width: 100%;
-    height: 500px;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap:wrap; 
+    gap: 10px; 
+    justify-content: start;
+    justify-items: start; 
+    align-items: start;
+    height: 100%;
     overflow-y: auto;
 }
 
 .folder, .file {
-    display: flex; /* Active le mode flex pour organiser les enfants */
-    flex-direction: column; /* Place les enfants en colonne */
-    align-items: center; /* Centre horizontalement le contenu */
-    margin-left: 10px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 130px;
+
 }
 
 .image-folder img {
@@ -2338,7 +2378,7 @@ option {
     margin-top: 10px;
     color: var(--white);
     font-size: 14px;
-    text-align: center; /* Centre le texte sous l'image */
+    text-align: center; 
 }
 
 /* management */
@@ -2356,22 +2396,15 @@ article.add img{
     background-color: transparent;
     border: solid 2px var(--primary);
 }
-form#event-add,form#news-add{
+form#event-add,form#news-add,form#partenaire-add{
     width: 100%;
 }
-form#event-add,form#news-add input{
+form#event-add input,form#news-add input,form#partenaire-add input{
     width: 100%;
 }
 
 /* patenaire */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-.partenaire{
-    align-items: start;
-    flex-direction: row;
-    padding: 10px;
-    height: 100%;
-}
 
 .partenaire div{
     display: flex;
@@ -2399,12 +2432,7 @@ form#event-add,form#news-add input{
     max-width: 100%;
     align-self: start;
 }
-.partenaire img{
-    min-width: 250px;
-    max-width: 250px;
-    max-height: 350px;
-    object-fit: cover;
-}
+
 .partenaire a {
     color: white;
     text-decoration: none;

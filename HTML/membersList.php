@@ -178,5 +178,6 @@
             </article>
         </div>
     </main>
+    <script src="../Script/script.js"></script>
 </body>
 </html>
