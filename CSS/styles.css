@@ -581,6 +581,19 @@ input{
         border-image: var(--linearClassic) 1;
         align-self: start;
     }
+
+    .partenaire{
+        align-items: start;
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+    .partenaire img{
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 350px;
+        object-fit: cover;
+    }
 }
 
 /* small pc screen */
@@ -1102,6 +1115,19 @@ input{
         border-style: solid;
         border-image: var(--linearClassic) 1;
         align-self: start;
+    }
+
+    .partenaire{
+        align-items: start;
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+    .partenaire img{
+        min-width: 250px;
+        max-width: 250px;
+        max-height: 350px;
+        object-fit: cover;
     }
 }
 
@@ -1671,6 +1697,20 @@ input{
         border-style: solid;
         border-image: var(--linearClassic) 1;
         align-self: start;
+    }
+
+    .partenaire{
+        align-items: start;
+        flex-direction: column;
+        padding: 10px;
+        height: 100%;
+    }
+    .partenaire img{
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+        max-height: 200px;
+        object-fit: cover;
     }
     
 }
@@ -2270,22 +2310,15 @@ article.add img{
     background-color: transparent;
     border: solid 2px var(--primary);
 }
-form#event-add,form#news-add{
+form#event-add,form#news-add,form#partenaire-add{
     width: 100%;
 }
-form#event-add,form#news-add input{
+form#event-add input,form#news-add input,form#partenaire-add input{
     width: 100%;
 }
 
 /* patenaire */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-.partenaire{
-    align-items: start;
-    flex-direction: row;
-    padding: 10px;
-    height: 100%;
-}
 
 .partenaire div{
     display: flex;
@@ -2313,12 +2346,7 @@ form#event-add,form#news-add input{
     max-width: 100%;
     align-self: start;
 }
-.partenaire img{
-    min-width: 250px;
-    max-width: 250px;
-    max-height: 350px;
-    object-fit: cover;
-}
+
 .partenaire a {
     color: white;
     text-decoration: none;
