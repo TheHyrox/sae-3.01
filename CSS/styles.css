@@ -1719,7 +1719,7 @@ input{
 
 /* textfield */
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-input[type="text"],input[type="email"],input[type="password"] {
+input[type="text"],input[type="email"],input[type="password"],input[type="number"],textarea {
     width: 100%;               
     padding: 10px; 
     margin: 0;     
@@ -2423,6 +2423,13 @@ img {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     color: var(--white);
 }
+.modal-content form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: Josefin Sans;
+}
+
 
 .close {
     color: var(--white);
