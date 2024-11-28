@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
             xhr.open('GET', '../Controllers/getProduct.php?id=' + productId, true);
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    console.log(xhr.responseText);
                     try {
                         var product = JSON.parse(xhr.responseText);
                         document.getElementById('productIdEdit').value = product.Id_Produit;

@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
             xhr.open('GET', '../Controllers/getGrade.php?id=' + gradeId, true);
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    console.log(xhr.responseText);
                     try {
                         var grade = JSON.parse(xhr.responseText);
                         document.getElementById('gradeIdEdit').value = grade.Id_Grade;
