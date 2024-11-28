@@ -54,6 +54,7 @@ if ($result->rowCount() > 0) {
             $nomUser = isset($row["Nom_User"]) ? $row["Nom_User"] : 'N/A';
             $grpTPUser = isset($row["Grp_TP_User"]) ? $row["Grp_TP_User"] : 'N/A';
             $idUser = isset($row["Id_User"]) ? $row["Id_User"] : 'N/A';
+            $idGrade = isset($row["Id_Grade"]) ? $row["Id_Grade"] : 'N/A';
 
             echo '<div class="profil-bar">';
             echo '<div>';
@@ -76,7 +77,7 @@ if ($result->rowCount() > 0) {
             echo '<p style="text-align: left">' . $nomGrade . ' - ' . $descGrade . ' - ' . $prixGrade . '€' . '</p>';
             echo '</div>';
             echo '<form action="" method="post">';
-            echo '<button type="submit" value="' . $idUser . '">Voir</button>';
+            echo '<button type="submit" value="' . $idGrade . '">Voir</button>';
             echo '</form>';
             echo '</div>';
         }
