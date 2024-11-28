@@ -54,7 +54,6 @@ if ($result->rowCount() > 0) {
             $nomUser = isset($row["Nom_User"]) ? $row["Nom_User"] : 'N/A';
             $grpTPUser = isset($row["Grp_TP_User"]) ? $row["Grp_TP_User"] : 'N/A';
             $idUser = isset($row["Id_User"]) ? $row["Id_User"] : 'N/A';
-            $idGrade = isset($row["Id_Grade"]) ? $row["Id_Grade"] : 'N/A';
 
             echo '<div class="profil-bar">';
             echo '<div>';
@@ -66,6 +65,7 @@ if ($result->rowCount() > 0) {
             echo '</form>';
             echo '</div>';
         } else {
+            $idGrade = isset($row["Id_Grade"]) ? $row["Id_Grade"] : 'N/A';
             $nomGrade = isset($row["Nom_Grade"]) ? $row["Nom_Grade"] : 'N/A';
             $descGrade = isset($row["Desc_Grade"]) ? $row["Desc_Grade"] : 'N/A';
             $urlImgGrade = isset($row["URL_Img_Grade"]) ? "../Pictures/" . $row["URL_Img_Grade"] : '';
