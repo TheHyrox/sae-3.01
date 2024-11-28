@@ -43,10 +43,8 @@ class gestionController
             $date = $_POST['Date_Event'];
             $lieu = $_POST['Lieu_Event'];
             $cat = $_POST['Cat_Event'];
-            $nb_places = $_POST['Nb_Places_Event'];
+            $nb_places = $_POST['Nb_Place_Event'];
             $prix = $_POST['Prix_Event'];
-
-            echo "<script>console.log('event')</script>";
 
             $img = '';
             if (isset($_FILES['eventPicture']) && $_FILES['eventPicture']['error'] === UPLOAD_ERR_OK) {
@@ -55,6 +53,30 @@ class gestionController
             }
 
             $this->eventModel->addEvent($name, $description, $date, $lieu, $cat, $nb_places, $prix, $img);
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit();
+        }
+    }
+
+    public function handleEditEvent(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Id_Event'])) {
+            $id = $_POST['Id_Event'];
+            $name = $_POST['Nom_Event'];
+            $description = $_POST['Desc_Event'];
+            $date = $_POST['Date_Event'];
+            $lieu = $_POST['Lieu_Event'];
+            $cat = $_POST['Cat_Event'];
+            $nb_places = $_POST['Nb_Place_Event'];
+            $prix = $_POST['Prix_Event'];
+
+            $img = $_POST['current_img'];
+            if (isset($_FILES['eventPictureEdit']) && $_FILES['eventPictureEdit']['error'] === UPLOAD_ERR_OK) {
+                $img = basename($_FILES['eventPictureEdit']['name']);
+                move_uploaded_file($_FILES['eventPictureEdit']['tmp_name'], "../Pictures/Uploads/" . $img);
+            }
+
+            $this->eventModel->editEvent($id, $name, $description, $date, $lieu, $cat, $nb_places, $prix, $img);
             header('Location: ' . $_SERVER['REQUEST_URI']);
             exit();
         }
@@ -161,5 +183,10 @@ class gestionController
     public function getProductById(mixed $id)
     {
         return $this->productModel->getProductById($id);
+    }
+
+    public function getEventById(mixed $id)
+    {
+        return $this->eventModel->getEventById($id);
     }
 }
