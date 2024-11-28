@@ -120,6 +120,87 @@ input{
     .burger-menu{
         display: none;
     }
+
+    /* Toggle button */
+    /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+    .switch {
+        display: inline-block;
+        position: relative;
+        width: 85px;
+        height: 40px;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .switch input {
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 0;
+        height: 0;
+    }
+    .switch input + span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--secondary);
+        border-radius: 10px;
+    }
+    .switch input + span:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        width: 30px;
+        height: 30px;
+        background: var(--linearClassic);
+        border-radius: 5px;
+        transform: translateY(-50%);
+        transition: all .2s;
+    }
+    .switch input:checked + span:before {
+        left: 50px;
+        background: var(--linearAdmin);
+    }
+    .switch-admin input:checked + span:before {
+        background: var(--linearClassic);
+    }
+
+    .switch-text{
+        width: 300px;
+        height: 60px;
+    }
+    .switch-text input + span:before {
+        width: 140px;
+        height: 50px;
+    }
+    .switch-text input:checked + span:before {
+        left: 155px;
+    }
+    /* Texte pour le bouton toggle */
+    .s-text {
+        font-size: 35px;
+        text-align: center;
+        color: var(--secondary);
+        font-weight: bold;
+        font-family: Anton;
+        text-transform: uppercase;
+        pointer-events: none; /* Empêche les clics sur le texte */
+
+    }
+
+    .switch-text input + span.s-text::before {
+        content: "Membres"; 
+        position: absolute;
+    }
+
+    .switch-text input:checked + span.s-text::before {
+        content: "Rôles"; 
+    }
+
     
     /* footer */
     /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -383,6 +464,123 @@ input{
         background: var(--linearClassic);
         border-radius: 0 15px 15px 0;
     }
+
+    /* memberlist and activities*/
+    /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    .panel-activity{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 15px;
+    }
+    .panel-list-member{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 15px;
+    }
+    #settings, #list-member, #activity{
+        min-width: 400px;
+        align-items: start;
+        gap: 30px;
+    }
+    #settings ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    #settings li{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    #research{
+        width: 100%;
+    }
+    #research form{
+        background: var(--linearClassic);
+        display: flex;
+        flex-direction: row;
+        padding: 2px;
+        border-radius: 5px;
+        width: 100%;
+    }
+    #research input[type="text"]{
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+    }
+    #research button{
+        border: none;
+        background: transparent;
+        width: 40px;
+        height: 40px;
+    }
+    #list-result{
+        width: 100%;
+        height: 500px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .profil-bar{
+        background-color: var(--secondary);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px;
+    }
+    .profil-bar div{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .profil-bar img{
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+    .profil-bar form{
+        height: 100%;
+    }
+    .profil-bar button{
+        background: var(--linearClassic);
+        border: none;
+        border-radius: 5px;
+        padding: 5px 30px;
+        height: 100%;
+        color: var(--secondary);
+        font-weight: bold;
+        font-family: Anton;
+        text-transform: uppercase;
+        font-size: 20px;    
+    }
+
+    #add-folder:hover {
+        background-color: #CC7A00;
+    }
+
+    #activities{
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+    #activities p{
+        padding: 12px;
+        background-color: var(--secondary);
+        color: var(--white);
+        min-width: 0;
+        max-width: none;
+        border-width: 2px;
+        border-style: solid;
+        border-image: var(--linearClassic) 1;
+        align-self: start;
+    }
 }
 
 /* small pc screen */
@@ -445,6 +643,88 @@ input{
     .burger-menu{
         display: none;
     }
+
+
+    /* Toggle button */
+    /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+    .switch {
+        display: inline-block;
+        position: relative;
+        width: 85px;
+        height: 40px;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .switch input {
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 0;
+        height: 0;
+    }
+    .switch input + span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--secondary);
+        border-radius: 10px;
+    }
+    .switch input + span:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        width: 30px;
+        height: 30px;
+        background: var(--linearClassic);
+        border-radius: 5px;
+        transform: translateY(-50%);
+        transition: all .2s;
+    }
+    .switch input:checked + span:before {
+        left: 50px;
+        background: var(--linearAdmin);
+    }
+    .switch-admin input:checked + span:before {
+        background: var(--linearClassic);
+    }
+
+    .switch-text{
+        width: 300px;
+        height: 60px;
+    }
+    .switch-text input + span:before {
+        width: 140px;
+        height: 50px;
+    }
+    .switch-text input:checked + span:before {
+        left: 155px;
+    }
+    /* Texte pour le bouton toggle */
+    .s-text {
+        font-size: 35px;
+        text-align: center;
+        color: var(--secondary);
+        font-weight: bold;
+        font-family: Anton;
+        text-transform: uppercase;
+        pointer-events: none; /* Empêche les clics sur le texte */
+
+    }
+
+    .switch-text input + span.s-text::before {
+        content: "Membres"; 
+        position: absolute;
+    }
+
+    .switch-text input:checked + span.s-text::before {
+        content: "Rôles"; 
+    }
+
     /* footer */
     /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -704,6 +984,125 @@ input{
         background: var(--linearClassic);
         border-radius: 0 15px 15px 0;
     }
+
+    /* memberlist and activities*/
+    /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    .panel-activity{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .panel-list-member{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 15px;
+    }
+    #settings, #list-member, #activity{
+        min-width: 300px;
+        align-items: start;
+        gap: 30px;
+    }
+    #settings ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    #settings li{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    #research{
+        width: 100%;
+    }
+    #research form{
+        background: var(--linearClassic);
+        display: flex;
+        flex-direction: row;
+        padding: 2px;
+        border-radius: 5px;
+        width: 100%;
+    }
+    #research input[type="text"]{
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+    }
+    #research button{
+        border: none;
+        background: transparent;
+        width: 40px;
+        height: 40px;
+    }
+    #list-result{
+        width: 100%;
+        height: 500px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .profil-bar{
+        background-color: var(--secondary);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px;
+    }
+    .profil-bar div{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .profil-bar img{
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+    .profil-bar form{
+        height: 100%;
+    }
+    .profil-bar button{
+        background: var(--linearClassic);
+        border: none;
+        border-radius: 5px;
+        padding: 5px 30px;
+        height: 100%;
+        color: var(--secondary);
+        font-weight: bold;
+        font-family: Anton;
+        text-transform: uppercase;
+        font-size: 20px;    
+    }
+
+    #add-folder:hover {
+        background-color: #CC7A00;
+    }
+
+    #activities{
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        overflow-y: auto;
+        height: 500px;
+    }
+    #activities p{
+        padding: 12px;
+        background-color: var(--secondary);
+        color: var(--white);
+        min-width: 0;
+        max-width: none;
+        border-width: 2px;
+        border-style: solid;
+        border-image: var(--linearClassic) 1;
+        align-self: start;
+    }
 }
 
 /* tablette screen */
@@ -809,6 +1208,87 @@ input{
             margin: 0;
             border-radius: 0;
     }
+
+    /* Toggle button */
+    /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+    .switch {
+        display: inline-block;
+        position: relative;
+        width: 85px;
+        height: 40px;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .switch input {
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 0;
+        height: 0;
+    }
+    .switch input + span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--secondary);
+        border-radius: 10px;
+    }
+    .switch input + span:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        width: 30px;
+        height: 30px;
+        background: var(--linearClassic);
+        border-radius: 5px;
+        transform: translateY(-50%);
+        transition: all .2s;
+    }
+    .switch input:checked + span:before {
+        left: 50px;
+        background: var(--linearAdmin);
+    }
+    .switch-admin input:checked + span:before {
+        background: var(--linearClassic);
+    }
+
+    .switch-text{
+        width: 270px;
+        height: 50px;
+    }
+    .switch-text input + span:before {
+        width: 125px;
+        height: 40px;
+    }
+    .switch-text input:checked + span:before {
+        left: 140px;
+    }
+    /* Texte pour le bouton toggle */
+    .s-text {
+        font-size: 27px;
+        text-align: center;
+        color: var(--secondary);
+        font-weight: bold;
+        font-family: Anton;
+        text-transform: uppercase;
+        pointer-events: none; /* Empêche les clics sur le texte */
+
+    }
+
+    .switch-text input + span.s-text::before {
+        content: "Membres"; 
+        position: absolute;
+    }
+
+    .switch-text input:checked + span.s-text::before {
+        content: "Rôles"; 
+    }
+
 
     /* footer */
     /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1078,87 +1558,123 @@ input{
     .login-register div:last-child{
         display: none;
     }
+
+    /* memberlist and activities*/
+    /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    .panel-activity, .panel-list-member{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #settings, #list-member, #activity{
+        min-width: 200px;
+        align-items: start;
+        gap: 30px;
+    }
+    
+    #settings ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    #settings li{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    #research{
+        width: 100%;
+    }
+    #research form{
+        background: var(--linearClassic);
+        display: flex;
+        flex-direction: row;
+        padding: 2px;
+        border-radius: 5px;
+        width: 100%;
+    }
+    #research input[type="text"]{
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+    }
+    #research button{
+        border: none;
+        background: transparent;
+        width: 40px;
+        height: 40px;
+    }
+    #list-result{
+        width: 100%;
+        height: 500px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .profil-bar{
+        background-color: var(--secondary);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px;
+    }
+    .profil-bar div{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .profil-bar img{
+        display: none;
+    }
+    .profil-bar form{
+        height: 100%;
+    }
+    .profil-bar button{
+        background: var(--linearClassic);
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        height: 100%;
+        color: var(--secondary);
+        font-weight: bold;
+        font-family: Anton;
+        text-transform: uppercase;
+        font-size: 20px;    
+    }
+
+    #add-folder:hover {
+        background-color: #CC7A00;
+    }
+
+    #activities{
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        overflow-y: auto;
+        height: 500px;
+    }
+    #activities p{
+        padding: 12px;
+        background-color: var(--secondary);
+        color: var(--white);
+        min-width: 0;
+        max-width: none;
+        border-width: 2px;
+        border-style: solid;
+        border-image: var(--linearClassic) 1;
+        align-self: start;
+    }
+    
 }
 
-/* Toggle button */
-/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-.switch {
-    display: inline-block;
-    position: relative;
-    width: 85px;
-    height: 40px;
-    cursor: pointer;
-    overflow: hidden;
-}
-.switch input {
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 0;
-    height: 0;
-}
-.switch input + span {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--secondary);
-    border-radius: 10px;
-}
-.switch input + span:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 4px;
-    width: 30px;
-    height: 30px;
-    background: var(--linearClassic);
-    border-radius: 5px;
-    transform: translateY(-50%);
-    transition: all .2s;
-}
-.switch input:checked + span:before {
-    left: 50px;
-    background: var(--linearAdmin);
-}
-.switch-admin input:checked + span:before {
-    background: var(--linearClassic);
-}
-
-.switch-text{
-    width: 300px;
-    height: 60px;
-}
-.switch-text input + span:before {
-    width: 140px;
-    height: 50px;
-}
-.switch-text input:checked + span:before {
-    left: 155px;
-}
-/* Texte pour le bouton toggle */
-.s-text {
-    font-size: 35px;
-    text-align: center;
-    color: var(--secondary);
-    font-weight: bold;
-    font-family: Anton;
-    text-transform: uppercase;
-    pointer-events: none; /* Empêche les clics sur le texte */
-
-}
-
-.switch-text input + span.s-text::before {
-    content: "Membres"; 
-    position: absolute;
-}
-
-.switch-text input:checked + span.s-text::before {
-    content: "Rôles"; 
-}
 
 
 /* textfield */
@@ -1739,122 +2255,6 @@ option {
     text-align: center; /* Centre le texte sous l'image */
 }
 
-/* memberlist and activities*/
-/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.panel-activity{
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 15px;
-}
-.panel-list-member{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 15px;
-}
-#settings, #list-member, #activity{
-    min-width: 400px;
-    align-items: start;
-    gap: 30px;
-}
-#settings ul{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-#settings li{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-#research{
-    width: 100%;
-}
-#research form{
-    background: var(--linearClassic);
-    display: flex;
-    flex-direction: row;
-    padding: 2px;
-    border-radius: 5px;
-    width: 100%;
-}
-#research input[type="text"]{
-    border: none;
-    border-radius: 3px;
-    width: 100%;
-}
-#research button{
-    border: none;
-    background: transparent;
-    width: 40px;
-    height: 40px;
-}
-#list-result{
-    width: 100%;
-    height: 500px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.profil-bar{
-    background-color: var(--secondary);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px;
-}
-.profil-bar div{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-.profil-bar img{
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-.profil-bar form{
-    height: 100%;
-}
-.profil-bar button{
-    background: var(--linearClassic);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 30px;
-    height: 100%;
-    color: var(--secondary);
-    font-weight: bold;
-    font-family: Anton;
-    text-transform: uppercase;
-    font-size: 20px;    
-}
-
-#add-folder:hover {
-    background-color: #CC7A00;
-}
-
-#activities{
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-}
-#activities p{
-    padding: 12px;
-    background-color: var(--secondary);
-    color: var(--white);
-    min-width: 0;
-    max-width: none;
-    border-width: 2px;
-    border-style: solid;
-    border-image: var(--linearClassic) 1;
-    align-self: start;
-}
 /* management */
 
 
