@@ -1,24 +1,3 @@
-<?php
-require_once '../Utils/DBConfig/Config.php';
-require_once '../Utils/DBConfig/Database.php';
-
-use DBConfig\Database;
-
-$conn = Database::getConnection();
-
-$all = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR";
-$allmember = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Niv_Acces_User = 4";
-$alladmin = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Niv_Acces_User > 4";
-
-$but1 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('11A', '11B', '12C', '12D')";
-$but2 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('21A', '21B', '22C', '22D')";
-$but3 = "SELECT Id_User, Nom_User, Prenom_User, Grp_TP_User, Url_PP_User, Niv_Acces_User FROM UTILISATEUR WHERE Grp_TP_User IN ('31A', '31B', '32C', '32D')";
-
-$allrole = "SELECT Nom_Grade, Desc_Grade, URL_Img_Grade, Prix_Grade FROM GRADE";
-
-$result = $conn->query($all);
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,11 +12,11 @@ $result = $conn->query($all);
         $(document).ready(function() {
             let isRoleMode = false;
 
-            function fetchUsers(groups) {
+            function fetchUsers(groups, searchTerm = '') {
                 $.ajax({
                     url: '../Controllers/fetch_users.php',
                     type: 'POST',
-                    data: { groups: groups, roleMode: isRoleMode },
+                    data: { groups: groups, roleMode: isRoleMode, search: searchTerm },
                     success: function(data) {
                         $('#list-result').html(data);
                     }
@@ -81,28 +60,33 @@ $result = $conn->query($all);
             fetchUsers(['all']);
 
             $('#memberRoleSwitch').on('change', function() {
-                console.log('memberRoleSwitch changed to: ' + $(this).prop('checked'));
                 isRoleMode = this.checked;
-                console.log("isRoleMode: " + isRoleMode);
 
                 if (isRoleMode) {
-                    console.log('Switching to role mode');
                     $('#viewmember-p').text('Role 1');
                     $('#viewadmin-p').text('Role 2');
                     $('#viewbut1-p').text('Role 3');
-                    $('#viewbut2-p').text('Role 4');
-                    $('#viewbut3-p').text('Role 5');
+                    $('#viewbut2-p').hide(); 
+                    $('#showBut2Switch').hide();
+                    $('#viewbut3-p').hide(); 
+                    $('#showBut3Switch').hide();
                 } else {
-                    console.log('Switching to member mode');
                     $('#viewmember-p').text('View Members');
                     $('#viewadmin-p').text('View Admins');
                     $('#viewbut1-p').text('BUT1');
-                    $('#viewbut2-p').text('BUT2');
-                    $('#viewbut3-p').text('BUT3');
+                    $('#viewbut2-p').text('BUT2').show();
+                    $('#showBut2Switch').show();
+                    $('#viewbut3-p').text('BUT3').show(); 
+                    $('#showBut3Switch').show();
                 }
 
-                // Fetch users with the updated role mode
                 checkSwitches();
+            });
+
+            $('#researchInput').on('input', function() {
+                let searchTerm = $(this).val().toLowerCase(); // Get the search term
+                let activeFilters = getActiveFilters();
+                fetchUsers(activeFilters, searchTerm); // Fetch users with the search term
             });
         });
     </script>
@@ -167,8 +151,8 @@ $result = $conn->query($all);
             <article id="list-member">
                 <h2>Liste des membres</h2>
                 <div id="research">
-                    <form action="" method="post">
-                        <input type="text" name="research" id="research" placeholder="Rechercher..." required>
+                    <form id="searchForm" action="" method="post">
+                        <input type="text" name="research" id="researchInput" placeholder="Rechercher..." required>
                         <button type="submit" value="search"><img src="../Icons/search.png" alt=""></button>
                     </form>
                 </div>
