@@ -1,7 +1,7 @@
 <?php
-require_once '../Models/userModel.php';
-require '../Utils/DBConfig/Database.php';
-require '../Utils/DBConfig/Config.php';
+require_once 'Models/userModel.php';
+require 'Utils/DBConfig/Database.php';
+require 'Utils/DBConfig/Config.php';
 
 class UserController {
     private UserModel $model;

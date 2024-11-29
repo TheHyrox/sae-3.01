@@ -11,7 +11,7 @@
     <title>ADIIL - Membre BDE</title>
   </head>
   <body>
-  <?php include '../Views/header.php'; ?>
+  <?php include 'Views/header.php'; ?>
     <main>
       <section class="objectif-section">
         <h1>Nos Objectifs</h1>
@@ -71,7 +71,7 @@
         </div>
       </article>    
     </main>
-    <?php include '../Views/footer.php'; ?>
+    <?php include 'Views/footer.php'; ?>
     <script src="../Script/script.js"></script>
   </body>
 </html>

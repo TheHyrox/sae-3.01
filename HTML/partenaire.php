@@ -9,7 +9,7 @@
     <title>ADIIL - Partenaires</title>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
   <main>
     <form id="partenaire-add" action='' method='post'>
       <input type='submit' value='Ajouter un partenaire'>

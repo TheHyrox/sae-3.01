@@ -1,7 +1,7 @@
 <?php
-require '../Models/productModel.php';
-require_once '../Utils/DBConfig/Database.php';
-require_once '../Utils/DBConfig/Config.php';
+require 'Models/productModel.php';
+require_once 'Utils/DBConfig/Database.php';
+require_once 'Utils/DBConfig/Config.php';
 
 class productController
 {

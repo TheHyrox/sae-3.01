@@ -14,7 +14,7 @@
 
             function fetchUsers(groups, searchTerm = '') {
                 $.ajax({
-                    url: '../Controllers/fetch_users.php',
+                    url: 'Controllers/fetch_users.php',
                     type: 'POST',
                     data: { groups: groups, roleMode: isRoleMode, search: searchTerm },
                     success: function(data) {
@@ -92,7 +92,7 @@
     </script>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
 
     <main>
         <div class="panel-list-member">

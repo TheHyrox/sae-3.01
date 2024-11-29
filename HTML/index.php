@@ -11,7 +11,7 @@
     <title>ADIIL - Accueil</title>
   </head>
   <body>
-  <?php include '../Views/header.php'; ?>
+  <?php include 'Views/header.php'; ?>
     <main>
       <!-- show only if there is a special event and take the next one -->
       <div id="annonce">
@@ -35,7 +35,7 @@
             Voici la nouvelle équipe de l’ADILL !!! Promis ils ne mordent pas ^^
           </p>
           <!-- add page in action -->
-          <form action="membreBDE.php" method="post">
+          <form action="membreBDE" method="post">
             <input type="submit" value="Découvrir" />
           </form>
         </article>
@@ -88,12 +88,12 @@
             <img src="../Pictures/gemino.jpg" alt="" />
           </button>
         </div>
-        <form action="galerie.php" method="post">
+        <form action="galerie" method="post">
           <input type="submit" value="Voir la galerie" />
         </form>
       </article>
     </main>
-    <?php include '../Views/footer.php'; ?>
+    <?php include 'Views/footer.php'; ?>
     <script src="../Script/script.js"></script>
   </body>
 </html>

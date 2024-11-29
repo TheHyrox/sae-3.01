@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminSwitch.addEventListener('change', () => {
             const isChecked = adminSwitch.checked;
 
-            fetch(isChecked ? '../Views/headerLinksAdminView.php' : '../Views/headerLinksView.php')
+            fetch(isChecked ? 'Views/headerLinksAdminView.php' : 'Views/headerLinksView.php')
                 .then(response => {
                     if (!response.ok) throw new Error('Erreur lors du chargement des liens');
                     return response.text();

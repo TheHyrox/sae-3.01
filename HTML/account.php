@@ -14,7 +14,7 @@
         <li><a href="" class="red">Retour</a></li> <!--Faut garger la page précédante pour la rouvrir là -->
         <li><a href="#info-perso">Mes informations personnelles</a></li>
         <li><a href="#inscr">Mes inscriptions</a></li>
-        <li><a href="../Utils/logout.php" class="red">Déconnexion</a></li> <!-- Updated link to logout.php -->
+        <li><a href="Utils/logout.php" class="red">Déconnexion</a></li> <!-- Updated link to logout.php -->
     </ul>
 </nav>
 <button class="burger-menu">

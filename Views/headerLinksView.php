@@ -17,12 +17,12 @@ $itemCount = array_sum(array_column($cart, 'quantity'));
     </button>
     <h1>ADIIL</h1>
     <ul class="nav-links">
-        <li><a href="../HTML/index.php">accueil</a></li>
-        <li><a href="../HTML/event.php">évènements</a></li>
-        <li><a href="../HTML/shop.php">boutique</a></li>
-        <li><a href="../HTML/agenda.php">agenda</a></li>
-        <li><a href="../HTML/newsletter.php">newsletter</a></li>
-        <li><a href="../HTML/checkout.php">panier
+        <li><a href="/index">accueil</a></li>
+        <li><a href="/event">évènements</a></li>
+        <li><a href="/shop">boutique</a></li>
+        <li><a href="/agenda">agenda</a></li>
+        <li><a href="/newsletter">newsletter</a></li>
+        <li><a href="/checkout">panier
                 <?php
                 if ($itemCount > 0) {
                     echo '(' . $itemCount . ')';

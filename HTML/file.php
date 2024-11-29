@@ -9,7 +9,7 @@
     <title>ADIIL - Fichiers</title>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
 
     <main>
         <article class="folderfond">

@@ -9,7 +9,7 @@
     <title>ADIIL - Activités</title>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
 
     <main>
         <div class="panel-activity">

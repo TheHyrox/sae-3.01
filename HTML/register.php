@@ -1,5 +1,5 @@
 <?php
-require '../Controllers/registerController.php';
+require 'Controllers/registerController.php';
 $controller = new registerController();
 $controller->registerRequest();
 ?>
@@ -13,7 +13,7 @@ $controller->registerRequest();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton" />
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
 <main>
     <div class="login-register">
         <div>

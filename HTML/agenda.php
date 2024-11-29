@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include '../Utils/DBConfig/Database.php';
+include 'Utils/DBConfig/Database.php';
 
 $groupTP = $_SESSION['groupeTP'] ?? null;
 ?>
@@ -25,7 +25,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
 
 </head>
 <body>
-    <?php include '../Views/header.php'; ?>
+    <?php include 'Views/header.php'; ?>
     <main>
         <h1 id="agenda-titre">Agenda</h1>
 
@@ -60,7 +60,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
 
 
     </main>
-    <?php include '../Views/footer.php'; ?>
+    <?php include 'Views/footer.php'; ?>
     
 </body>
 </html>

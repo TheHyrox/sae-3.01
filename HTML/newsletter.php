@@ -1,5 +1,5 @@
 <?php
-require '../Controllers/newsletterController.php';
+require 'Controllers/newsletterController.php';
 
 $controller = new newsletterController();
 $newsletters = $controller->getNewsletters();
@@ -14,7 +14,7 @@ $newsletters = $controller->getNewsletters();
     <title>ADIIL - Newsletter</title>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
 <main>
     <?php foreach ($newsletters as $newsletter): ?>
         <?php if (isset($newsletter['Visible']) && $newsletter['Visible'] == 1): ?>
@@ -32,7 +32,7 @@ $newsletters = $controller->getNewsletters();
         <?php endif; ?>
     <?php endforeach; ?>
 </main>
-<?php include '../Views/footer.php'; ?>
+<?php include 'Views/footer.php'; ?>
 <script src="../Script/script.js"></script>
 </body>
 </html>

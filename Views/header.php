@@ -19,9 +19,9 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
     <div id="linksContainer">
         <?php
         if ($isAdminView) {
-            include '../Views/headerLinksAdminView.php';
+            include 'Views/headerLinksAdminView.php';
         } else {
-            include '../Views/headerLinksView.php';
+            include 'Views/headerLinksView.php';
         }
         ?>
     </div>
@@ -35,9 +35,9 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
         <?php endif; ?>
 
         <?php if (isset($_SESSION['email'])): ?>
-            <a href="../HTML/account.php" data-default-link="../HTML/account.php" data-admin-link="../HTML/adminAccount.php">Mon compte</a>
+            <a href="account" data-default-link="account" data-admin-link="adminAccount">Mon compte</a>
         <?php else: ?>
-            <a href="../HTML/login.php" data-default-link="../HTML/login.php" data-admin-link="../HTML/adminLogin.php">Se connecter</a>
+            <a href="login" data-default-link="login" data-admin-link="adminLogin">Se connecter</a>
         <?php endif; ?>
         <img src="../Pictures/defaultProfilePicture.png" alt="">
     </div>

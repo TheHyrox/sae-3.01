@@ -12,12 +12,12 @@
     </button>
     <h1>ADIIL</h1>
     <ul class="nav-links">
-        <li><a href="../HTML/activity.php">activités</a></li>
-        <li><a href="../HTML/membersList.php">membres et rôles</a></li>
-        <li><a href="../HTML/file.php">fichiers</a></li>
-        <li><a href="../HTML/gestion.php">gestion</a></li>
-        <li><a href="../HTML/newsletterAdmin.php">newsletter</a></li>
-        <li><a href="../HTML/partenaire.php">partenaires</a></li>
+        <li><a href="activity">activités</a></li>
+        <li><a href="membersList">membres et rôles</a></li>
+        <li><a href="file">fichiers</a></li>
+        <li><a href="gestion">gestion</a></li>
+        <li><a href="newsletterAdmin">newsletter</a></li>
+        <li><a href="partenaire">partenaires</a></li>
     </ul>
 </div>
 </body>

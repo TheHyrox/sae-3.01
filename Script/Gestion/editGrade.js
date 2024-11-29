@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var gradeId = this.getAttribute('data-id');
 
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '../Controllers/getGrade.php?id=' + gradeId, true);
+            xhr.open('GET', 'Controllers/getGrade.php?id=' + gradeId, true);
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     try {

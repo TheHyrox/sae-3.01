@@ -1,8 +1,10 @@
 <?php
 
-require '../Models/newsletterModel.php';
-require '../Utils/DBConfig/Database.php';
-require '../Utils/DBConfig/Config.php';
+use Models\newsletterModel;
+
+require 'Models/newsletterModel.php';
+require 'Utils/DBConfig/Database.php';
+require 'Utils/DBConfig/Config.php';
 
 class newsletterController
 {

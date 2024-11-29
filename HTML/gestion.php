@@ -1,5 +1,5 @@
 <?php
-require_once '../Controllers/gestionController.php';
+require_once 'Controllers/gestionController.php';
 
 $gestionController = new gestionController();
 $gestionController->handleAddEvent();
@@ -29,13 +29,13 @@ foreach ($events as $event) {
     <title>ADIIL - Gestion</title>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
     <main>
         <h2>Évènements</h2>
         <form id="event-add" action='' method='post'>
             <input type='submit' id="addEventButton" value='Ajouter un évènement'>
         </form>
-        <?php include '../Views/Event/eventView.php' ?>
+        <?php include 'Views/Event/eventView.php' ?>
 
         <?php
         $grades = $gestionController->getGrades();
@@ -48,7 +48,7 @@ foreach ($events as $event) {
                     <input type='submit' id='addGradeButton' value='Ajouter'>
                 </form>
             </article>
-        <?php include '../Views/Shop/gradesView.php';
+        <?php include 'Views/Shop/gradesView.php';
             echo "</div></div>";
         }
         ?>
@@ -69,7 +69,7 @@ foreach ($events as $event) {
             <?php $products = $gestionController->getProductsByCategory($categorie);
             if ($products) {
                 foreach ($products as $row) {
-                    include '../Views/Shop/productsView.php';
+                    include 'Views/Shop/productsView.php';
                 }
             }
             echo "</div></div>";
@@ -83,7 +83,7 @@ foreach ($events as $event) {
         <div id="addEventModal" class="modal">
             <div class="modal-content">
                 <span class="close close-event">&times;</span>
-                <?php include '../Views/Gestion/addEventView.php'; ?>
+                <?php include 'Views/Gestion/addEventView.php'; ?>
             </div>
         </div>
 
@@ -91,7 +91,7 @@ foreach ($events as $event) {
         <div id="editEventModal" class="modal">
             <div class="modal-content">
                 <span class="close close-category">&times;</span>
-                <?php include '../Views/Gestion/editEventView.php'; ?>
+                <?php include 'Views/Gestion/editEventView.php'; ?>
             </div>
         </div>
 
@@ -99,28 +99,28 @@ foreach ($events as $event) {
         <div id="addProductModal" class="modal">
             <div class="modal-content">
                 <span class="close close-product">&times;</span>
-                <?php include '../Views/Gestion/addProductView.php'; ?>
+                <?php include 'Views/Gestion/addProductView.php'; ?>
             </div>
         </div>
 
         <div id="addGradeModal" class="modal">
             <div class="modal-content">
                 <span class="close close-grade">&times;</span>
-                <?php include '../Views/Gestion/addGradeView.php'; ?>
+                <?php include 'Views/Gestion/addGradeView.php'; ?>
             </div>
         </div>
 
         <div id="editProductModal" class="modal">
             <div class="modal-content">
                 <span class="close close-product">&times;</span>
-                <?php include '../Views/Gestion/editProductView.php'; ?>
+                <?php include 'Views/Gestion/editProductView.php'; ?>
             </div>
         </div>
 
         <div id="editGradeModal" class="modal">
             <div class="modal-content">
                 <span class="close close-grade">&times;</span>
-                <?php include '../Views/Gestion/editGradeView.php'; ?>
+                <?php include 'Views/Gestion/editGradeView.php'; ?>
             </div>
         </div>
     </main>

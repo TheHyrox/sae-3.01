@@ -1,5 +1,5 @@
 <?php
-require '../Controllers/panierController.php';
+require 'Controllers/panierController.php';
 $panierController = new panierController();
 
 // Handle adding an item to the cart
@@ -44,7 +44,7 @@ $cart = $panierController->getCart();
     <title>ADIIL - Panier</title>
 </head>
 <body>
-<?php include '../Views/header.php'; ?>
+<?php include 'Views/header.php'; ?>
 <main>
     <article id="panier">
         <h2>Panier</h2>
@@ -122,7 +122,7 @@ $cart = $panierController->getCart();
         </form>
     </article>
 </main>
-<?php include '../Views/footer.php'; ?>
+<?php include 'Views/footer.php'; ?>
 <script src="../Script/script.js"></script>
 </body>
 </html>

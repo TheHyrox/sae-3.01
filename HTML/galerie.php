@@ -11,7 +11,7 @@
     <title>ADIIL - Galerie</title>
   </head>
   <body>
-  <?php include '../Views/header.php'; ?>
+  <?php include 'Views/header.php'; ?>
     <main>
       <div class="photo">
           <img src="../Pictures/bde.jpg" alt="photo galerie">
@@ -28,7 +28,7 @@
           <img src="../Pictures/bde.jpg" alt="photo galerie">
       </div>
     </main>
-    <?php include '../Views/footer.php'; ?>
+    <?php include 'Views/footer.php'; ?>
     <script src="../Script/script.js"></script>
   </body>
 </html>

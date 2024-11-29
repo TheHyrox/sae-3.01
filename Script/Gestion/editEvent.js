@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         document.getElementById('eventIdEdit').value = event.Id_Event;
                         document.getElementById('eventNameEdit').value = event.Nom_Event;
                         document.getElementById('eventDescriptionEdit').value = event.Desc_Event;
-                        document.getElementById('eventDateEdit').value = eventDate;                        document.getElementById('eventLocationEdit').value = event.Lieu_Event;
+                        document.getElementById('eventDateEdit').value = eventDate;
+                        document.getElementById('eventLocationEdit').value = event.Lieu_Event;
                         document.getElementById('eventCategoryEdit').value = event.Cat_Event;
                         document.getElementById('eventPlaceEdit').value = event.Nb_Place_Event;
                         document.getElementById('eventPriceEdit').value = event.Prix_Event;
