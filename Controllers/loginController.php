@@ -30,7 +30,7 @@ class loginController
                         $_SESSION['isAdmin'] = true;
                     }
                     $this->errorMessage = 'Connection réussie';
-                    header('Location: ../HTML/index.php');
+                    header('Location: /');
                     exit(); // Ensure no further code is executed
                 } else {
                     $this->errorMessage = 'E-mail ou mot de passe incorrect';
