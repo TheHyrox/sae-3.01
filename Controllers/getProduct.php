@@ -1,5 +1,5 @@
 <?php
-require_once 'Controllers/gestionController.php';
+require_once 'gestionController.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

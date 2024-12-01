@@ -21,7 +21,7 @@ foreach ($grades as $row) {
                                value='Modifier'>
                     </form>";
         } else {
-            echo "<form action='checkout.php' method='post'>
+            echo "<form action='checkout' method='post'>
                         <input type='hidden' name='name' value='" . htmlspecialchars($row['Nom_Grade']) . "'>
                         <input type='hidden' name='price' value='" . htmlspecialchars($row['Prix_Grade']) . "'>
                         <input type='hidden' name='quantity' value='1'>
