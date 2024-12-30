@@ -1,7 +1,12 @@
 <?php
-$request = $_SERVER['REQUEST_URI'];
+$base_url = ($_SERVER['HTTP_HOST'] == 'localhost') ? '' : '/~inf2pj06';
 
+$request = $_SERVER['REQUEST_URI'];
 $request = strtok($request, '?');
+
+if (str_starts_with($request, $base_url)) {
+    $request = substr($request, strlen($base_url));
+}
 
 $routes = [
     '/' => 'HTML/index.php',
@@ -30,6 +35,6 @@ if (array_key_exists($request, $routes)) {
     include $routes[$request];
 } else {
     http_response_code(404);
-    header('Location: /404');
+    header('Location: ' . $base_url . '/404');
 }
 ?>
