@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton"
@@ -37,7 +37,7 @@
                     <div>
                         <div class="member-event">
                             <form action="" method="post">
-                                <button type="submit" value="SupprimerEventID"><img src="../Icons/bin.png" alt=""></button>
+                                <button type="submit" value="SupprimerEventID"><img src="Icons/bin.png" alt=""></button>
                             </form>
                             <div>
                                 <p>Event name</p>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="member-event">
                             <form action="" method="post">
-                                <button type="submit" value="SupprimerEventID"><img src="../Icons/bin.png" alt=""></button>
+                                <button type="submit" value="SupprimerEventID"><img src="Icons/bin.png" alt=""></button>
                             </form>
                             <div>
                                 <p>Event name</p>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <form action="" method="post" class="back">
-                    <button type="submit" value="retour"><img src="../Icons/back.png" alt=""></button>
+                    <button type="submit" value="retour"><img src="Icons/back.png" alt=""></button>
                 </form>
             </div>
             <form action="" method="post">

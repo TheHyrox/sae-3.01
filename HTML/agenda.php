@@ -20,7 +20,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.4.0/ical.min.js'></script>
     <script src="../Script/agenda.js"></script>
 
-    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
 
 </head>

@@ -9,7 +9,7 @@ $months = [
             <ul>
                 <?php foreach ($months as $num => $name): ?>
                     <li class="month">
-                        <button class="monthBtn"><?= $name ?> <img src="../../Icons/arrow-down.png" alt=""></button>
+                        <button class="monthBtn"><?= $name ?> <img src="Icons/arrow-down.png" alt=""></button>
                         <?php if (isset($eventsByMonth[$num])): ?>
                             <ul class="eventList">
                                 <?php foreach ($eventsByMonth[$num] as $event): ?>

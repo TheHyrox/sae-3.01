@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../CSS/styles.css" />
+<link rel="stylesheet" href="CSS/styles.css" />
 <footer>
     <div>
         <h2>Mentions légales</h2>
@@ -42,22 +42,22 @@
         <div id="contact">
             <div>
                 <button class="icon">
-                    <img src="../Icons/discord.png" alt="" />
+                    <img src="Icons/discord.png" alt="" />
                 </button>
                 <button class="icon">
-                    <img src="../Icons/facebook.png" alt="" />
+                    <img src="Icons/facebook.png" alt="" />
                 </button>
                 <button class="icon">
-                    <img src="../Icons/instagram.png" alt="" />
+                    <img src="Icons/instagram.png" alt="" />
                 </button>
-                <button class="icon"><img src="../Icons/faq.png" alt="" /></button>
+                <button class="icon"><img src="Icons/faq.png" alt="" /></button>
             </div>
             <div>
-                <img src="../Icons/tel.png" alt="" />
+                <img src="Icons/tel.png" alt="" />
                 <p>07 67 10 39 95</p>
             </div>
             <div>
-                <img src="../Icons/mail.png" alt="" />
+                <img src="Icons/mail.png" alt="" />
                 <p>adiil@univ-lemans.fr</p>
             </div>
             <form action="" method="post">

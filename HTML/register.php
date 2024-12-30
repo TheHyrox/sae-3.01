@@ -9,7 +9,7 @@ $controller->registerRequest();
 <head>
     <meta charset="UTF-8">
     <title>Connexion - ADIIL</title>
-    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton" />
 </head>
 <body>

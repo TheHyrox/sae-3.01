@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/../Models/productModel.php';
 require_once __DIR__ . '/../Models/eventModel.php';
-require_once __DIR__ . '/../Utils/DBConfig/Database.php';
-require_once __DIR__ . '/../Utils/DBConfig/Config.php';
+require_once __DIR__ . 'Utils/DBConfig/Database.php';
+require_once __DIR__ . 'Utils/DBConfig/Config.php';
 
 
 class gestionController

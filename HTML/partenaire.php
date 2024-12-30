@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Changer le CSS car en version utilisateur -->
-    <link rel="stylesheet" href="../CSS/styles.css"> 
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
     <title>ADIIL - Partenaires</title>
 </head>
@@ -23,11 +23,11 @@
           <p>Description du partenaire a quoi il sert ect...</p>
         </div>
         <a href="mailto:prenom.nom.etu@univ-lemans.fr">
-          <img src="../Icons/mail.png" alt="Email"> contact.entreprise@laposte.net
+          <img src="Icons/mail.png" alt="Email"> contact.entreprise@laposte.net
         </a>
       </div>
       <form action="" method="post">
-        <button type="submit"><img src="../Icons/bin.png" alt=""></button>
+        <button type="submit"><img src="Icons/bin.png" alt=""></button>
       </form>
     </article>
   </main>

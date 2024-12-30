@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton"
@@ -30,7 +30,7 @@
         <!-- get bde group and change data -->
         <article>
           <h2>Les membres du BDE</h2>
-          <img src="../Pictures/bde.jpg" alt="" />
+          <img src="Pictures/bde.jpg" alt="" />
           <p>
             Voici la nouvelle équipe de l’ADILL !!! Promis ils ne mordent pas ^^
           </p>
@@ -44,7 +44,7 @@
         <div class="ranked">
           <h2>Classement des meilleurs étudiants</h2>
           <div>
-            <img src="../Pictures/defaultProfilePicture.png" alt="" />
+            <img src="Pictures/defaultProfilePicture.png" alt="" />
             <div>
               <h3>Hyrox</h3>
               <progress id="file" max="100" value="70"></progress>
@@ -52,7 +52,7 @@
             </div>
           </div>
           <div>
-            <img src="../Pictures/defaultProfilePicture.png" alt="" />
+            <img src="Pictures/defaultProfilePicture.png" alt="" />
             <div>
               <h3>Koaden</h3>
               <progress id="file" max="100" value="50"></progress>
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div>
-            <img src="../Pictures/defaultProfilePicture.png" alt="" />
+            <img src="Pictures/defaultProfilePicture.png" alt="" />
             <div>
               <h3>Brokuto</h3>
               <progress id="file" max="100" value="30"></progress>
@@ -73,19 +73,19 @@
         <h2>Souvenir de soirée</h2>
         <div id="carousel">
           <button class="slide active">
-            <img src="../Pictures/bde.jpg" alt="" />
+            <img src="Pictures/bde.jpg" alt="" />
           </button>
           <button class="slide next">
-            <img src="../Pictures/enzo.jpg" alt="" />
+            <img src="Pictures/enzo.jpg" alt="" />
           </button>
           <button class="slide">
-            <img src="../Pictures/tom.jpg" alt="" />
+            <img src="Pictures/tom.jpg" alt="" />
           </button>
           <button class="slide">
-            <img src="../Pictures/mathis.jpg" alt="" />
+            <img src="Pictures/mathis.jpg" alt="" />
           </button>
           <button class="slide pre">
-            <img src="../Pictures/gemino.jpg" alt="" />
+            <img src="Pictures/gemino.jpg" alt="" />
           </button>
         </div>
         <form action="galerie" method="post">
@@ -94,6 +94,6 @@
       </article>
     </main>
     <?php include 'Views/footer.php'; ?>
-    <script src="../Script/script.js"></script>
+    <script src="Script/script.js"></script>
   </body>
 </html>

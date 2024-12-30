@@ -39,11 +39,11 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
         <?php else: ?>
             <a href="login" data-default-link="login" data-admin-link="adminLogin">Se connecter</a>
         <?php endif; ?>
-        <img src="../Pictures/defaultProfilePicture.png" alt="">
+        <img src="Pictures/defaultProfilePicture.png" alt="">
     </div>
 </header>
 
-<script src="../Utils/header.js"></script>
+<script src="Utils/header.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const adminSwitch = document.getElementById('adminSwitch');

@@ -24,7 +24,7 @@ foreach ($events as $event) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
     <title>ADIIL - Gestion</title>
 </head>
@@ -43,7 +43,7 @@ foreach ($events as $event) {
             echo "<div><h2>Les grades</h2><div class='grades'>";?>
             <article class="add">
                 <h2>Nouveau grade</h2>
-                <div class='imgBackground'><img src='../Icons/plus.png' alt=''></div>
+                <div class='imgBackground'><img src='Icons/plus.png' alt=''></div>
                 <form action='' method='post'>
                     <input type='submit' id='addGradeButton' value='Ajouter'>
                 </form>
@@ -60,7 +60,7 @@ foreach ($events as $event) {
             echo "<div><h2>" . ucfirst($categorie) . "</h2><div class='produits'>";?>
             <article class="add">
                 <h2>Nouveau produit</h2>
-                <div class='imgBackground'><img src='../Icons/plus.png' alt='' style="margin: 5px"></div>
+                <div class='imgBackground'><img src='Icons/plus.png' alt='' style="margin: 5px"></div>
                 <form action='' method='post'>
                     <input type='hidden' name='Cat_Produit' value='<?php echo $categorie; ?>'>
                     <input type='submit' class='addProductButton' value='Ajouter'>

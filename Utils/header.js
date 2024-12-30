@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => console.error(error));
 
-            fetch('../Utils/saveAdminViewState.php', {
+            fetch('Utils/saveAdminViewState.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             updateColors(isChecked);
 
-            fetch('../Utils/saveColorState.php', {
+            fetch('Utils/saveColorState.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

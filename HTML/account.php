@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/account.css">
+    <link rel="stylesheet" href="CSS/account.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
     <title>ADIIL - Compte</title>
 </head>
@@ -18,7 +18,7 @@
     </ul>
 </nav>
 <button class="burger-menu">
-    <img src="../Icons/arrow-right.png" alt="">
+    <img src="Icons/arrow-right.png" alt="">
 </button>
 <main>
     <div>
@@ -27,27 +27,27 @@
             <div class="row">
                 <p>Nom : </p>
                 <h3>---</h3>
-                <button class="icon"><img src="../Icons/edit.png" alt=""></button>
+                <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Prénom : </p>
                 <h3>---</h3>
-                <button class="icon"><img src="../Icons/edit.png" alt=""></button>
+                <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Adresse mail : </p>
                 <h3>---</h3>
-                <button class="icon"><img src="../Icons/edit.png" alt=""></button>
+                <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Mot de passe : </p>
                 <h3>******</h3>
-                <button class="icon"><img src="../Icons/edit.png" alt=""></button>
+                <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Groupe TP : </p>
                 <h3>---</h3>
-                <button class="icon"><img src="../Icons/edit.png" alt=""></button>
+                <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Role : </p>
