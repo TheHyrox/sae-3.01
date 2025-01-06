@@ -2473,15 +2473,15 @@ form#event-add input,form#news-add input,form#partenaire-add input{
 }
 
 .photo {
-    display: flex; /* Aligne les éléments enfants côte à côte */
-    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
-    gap: 10px; /* Ajoute un espace entre les éléments */
-    justify-content: flex-start; /* Aligne les éléments à gauche */
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    justify-content: flex-start; 
     width: 100%;
 }
-img {
-    width: 150px; /* Largeur fixe des images */
-    height: auto; /* Conserve les proportions */
+.partenaire img {
+    width: 150px; 
+    height: auto; 
     border-radius: 10px;
 }
 
