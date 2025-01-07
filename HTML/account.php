@@ -38,32 +38,41 @@ $userEvents = $accountController->getUserEvents($_SESSION['Id_User']);
         <div>
             <div class="row">
                 <p>Nom : </p>
-                <h3>---</h3>
-                <button class="icon"><img src="Icons/edit.png" alt=""></button>
+                <?php if(isset($_POST['setNom'])): ?>
+                    <form method="post">
+                        <input type="text" name="setNom" id="setNom" placeholder="Nom">
+                        <input type="submit" value="sauvegarder">
+                    </form>
+                <?php else: ?>
+                    <?php echo '<h3>'.$user['Nom_User'].'</h3>' ?>
+                    <form method="post">
+                        <button class="icon" type="submit" value="setNom"><img src="Icons/edit.png" alt=""></button>
+                    </form>
+                <?php endif ?>
             </div>
             <div class="row">
                 <p>Prénom : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Prenom_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Adresse mail : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Mail_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Mot de passe : </p>
-                <h3>******</h3>
+                <h3>**********</h3>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Groupe TP : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Grp_TP_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Role : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Titre_User'].'</h3>' ?>
             </div>
         </div>
         <div class="events">
