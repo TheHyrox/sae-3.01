@@ -8,6 +8,12 @@ require '../Controllers/accountController.php';
 $accountController = new accountController();
 $userEvents = $accountController->getUserEvents($_SESSION['Id_User']);
 
+if (isset($_POST['sauvegarder'])){
+    if (isset($_POST['setNom'])){
+        $accountController->setNom($_POST['setNom']);
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,7 +38,7 @@ $userEvents = $accountController->getUserEvents($_SESSION['Id_User']);
     <img src="Icons/arrow-right.png" alt="">
 </button>
 <main>
-    <?php var_dump($_SESSION) ?>
+    <?php $user = $accountController->getUserByEmail($_SESSION['email']) ?>
     <div>
         <h2 id="info-perso">Mes informations personnelles</h2>
         <div>
