@@ -17,7 +17,7 @@ $itemCount = array_sum(array_column($cart, 'quantity'));
     </button>
     <h1>ADIIL</h1>
     <ul class="nav-links">
-        <li><a href="index">accueil</a></li>
+        <li><a href="accueil">accueil</a></li>
         <li><a href="event">évènements</a></li>
         <li><a href="shop">boutique</a></li>
         <li><a href="agenda">agenda</a></li>

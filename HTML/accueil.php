@@ -11,7 +11,7 @@
     <title>ADIIL - Accueil</title>
   </head>
   <body>
-  <?php include 'Views/header.php'; ?>
+  <?php include '../Views/header.php'; ?>
     <main>
       <!-- show only if there is a special event and take the next one -->
       <div id="annonce">

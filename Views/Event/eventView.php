@@ -31,4 +31,4 @@ $months = [
             include 'eventCardView.php';
         ?>
     </div>
-<script src="../../Script/script.js"></script>
+<script src="Script/script.js"></script>

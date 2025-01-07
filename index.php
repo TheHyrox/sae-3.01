@@ -9,8 +9,8 @@ if (str_starts_with($request, $base_url)) {
 }
 
 $routes = [
-    '/' => 'HTML/index.php',
-    '/index' => 'HTML/index.php',
+    '/' => 'HTML/accueil.php',
+    '/index' => 'HTML/accueil.php',
     '/event' => 'HTML/event.php',
     '/shop' => 'HTML/shop.php',
     '/agenda' => 'HTML/agenda.php',

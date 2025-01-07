@@ -1,5 +1,8 @@
 <?php
-require 'Controllers/eventController.php';
+
+use Controllers\eventController;
+
+require '../Controllers/eventController.php';
 $controller = new eventController();
 $events = $controller->getEvents();
 
@@ -21,11 +24,11 @@ foreach ($events as $event) {
     <title>ADIIL - Évènements</title>
 </head>
 <body>
-<?php include 'Views/header.php'; ?>
+<?php include '../Views/header.php'; ?>
 <main>
     <h2>Évènements</h2>
-    <?php include 'Views/Event/eventView.php'; ?>
+    <?php include '../Views/Event/eventView.php'; ?>
 </main>
-<?php include 'Views/footer.php'; ?>
+<?php include '../Views/footer.php'; ?>
 </body>
 </html>

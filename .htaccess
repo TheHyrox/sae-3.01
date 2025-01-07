@@ -5,6 +5,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^$ HTML/accueil.php [L]
 RewriteRule ^index$ HTML/accueil.php [L]
+RewriteRule ^accueil$ HTML/accueil.php [L]
 RewriteRule ^event$ HTML/event.php [L]
 RewriteRule ^shop$ HTML/shop.php [L]
 RewriteRule ^agenda$ HTML/agenda.php [L]
