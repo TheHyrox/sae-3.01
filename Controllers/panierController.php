@@ -31,7 +31,12 @@ class panierController
     {
         $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
         if (isset($cart[$index])) {
-            $cart[$index]['quantity'] = $quantity;
+            if ($quantity > 0){
+                $cart[$index]['quantity'] = $quantity;
+            }
+            else{
+                removeFromCart($index);
+            }
             setcookie('cart', json_encode($cart), time() + (86400 * 30), "/", "", false, true);
         }
     }
