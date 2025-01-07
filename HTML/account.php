@@ -8,10 +8,9 @@ require '../Controllers/accountController.php';
 $accountController = new accountController();
 $userEvents = $accountController->getUserEvents($_SESSION['Id_User']);
 
-if (isset($_POST['sauvegarder'])){
-    if (isset($_POST['setNom'])){
-        $accountController->setNom($_POST['setNom']);
-    }
+if (isset($_POST['saveNom'])){
+    var_dump($_POST['saveNom']);
+    $accountController->setNom($_POST['saveNom']);
 }
 
 ?>
@@ -46,13 +45,14 @@ if (isset($_POST['sauvegarder'])){
                 <p>Nom : </p>
                 <?php if(isset($_POST['setNom'])): ?>
                     <form method="post">
-                        <input type="text" name="setNom" id="setNom" placeholder="Nom">
+                        <input type="text" name="saveNom" id="setNom" placeholder="Nom">
                         <input type="submit" value="sauvegarder">
                     </form>
                 <?php else: ?>
                     <?php echo '<h3>'.$user['Nom_User'].'</h3>' ?>
                     <form method="post">
-                        <button class="icon" type="submit" value="setNom"><img src="Icons/edit.png" alt=""></button>
+                        <input type="hidden" name="setNom">
+                        <button class="icon" type="submit"><img src="Icons/edit.png" alt=""></button>
                     </form>
                 <?php endif ?>
             </div>

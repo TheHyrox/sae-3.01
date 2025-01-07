@@ -1,7 +1,7 @@
 <?php
 require_once '/home/inf2pj06/public_html/Models/userModel.php';
-require '/home/inf2pj06/public_html/Utils/DBConfig/Database.php';
-require '/home/inf2pj06/public_html/Utils/DBConfig/Config.php';
+require_once '/home/inf2pj06/public_html/Utils/DBConfig/Database.php';
+require_once '/home/inf2pj06/public_html/Utils/DBConfig/Config.php';
 
 class UserController {
     private UserModel $model;
@@ -18,7 +18,7 @@ class UserController {
         return $this->model->getUserByEmail($email);
     }
 
-    public function setNom($nom){
+    public function setNom(string $nom){
         return $this->model->setNom($nom);
     }
     public function setPrenom($prenom){

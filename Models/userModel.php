@@ -2,6 +2,8 @@
 
 require_once '../Utils/DBConfig/Database.php';
 
+use DBConfig\Database;
+
 class UserModel {
     private PDO $db;
 
@@ -61,29 +63,40 @@ class UserModel {
         return $stmt->fetchColumn();
     }
 
-    public function setNom($id,$nom): void {
+    public function setNom(int $id, string $nom): void {
         $req = $this->db->prepare('UPDATE UTILISATEUR SET Nom_User = :nom WHERE Id_User = :id');
-        $req->execute(array('id' => $id, 'nom' => $nom));
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $req->execute();
     }
 
     public function setPrenom($id,$prenom): void {
         $req = $this->db->prepare('UPDATE UTILISATEUR SET Prenom_User = :prenom WHERE Id_User = :id');
-        $req->execute(array('id' => $id, 'prenom' => $prenom));
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+        $req->execute();
     }
 
     public function setMail($id,$mail): void {
         $req = $this->db->prepare('UPDATE UTILISATEUR SET Mail_User = :mail WHERE Id_User = :id');
-        $req->execute(array('id' => $id, 'mail' => $mail));
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':mail', $mail, PDO::PARAM_STR);
+        $req->execute();
     }
 
     public function setTP($id,$tp): void {
         $req = $this->db->prepare('UPDATE UTILISATEUR SET Grp_TP_User = :tp WHERE Id_User = :id');
-        $req->execute(array('id' => $id, 'tp' => $tp));
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':tp', $tp, PDO::PARAM_STR);
+        $req->execute();
     }
 
-    public function setMdp($id,$mdp): void {
+    public function setMdp(int $id, string $mdp): void {
         $req = $this->db->prepare('UPDATE UTILISATEUR SET Mdp_User = :mdp WHERE Id_User = :id');
-        $req->execute(array('id' => $id, 'mdp' => password_hash($mdp, PASSWORD_DEFAULT)));
+        $hashedMdp = password_hash($mdp, PASSWORD_DEFAULT);
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':mdp', $hashedMdp, PDO::PARAM_STR);
+        $req->execute();
     }
 }
 ?>

@@ -2,8 +2,10 @@
 
 require '../Models/accountModel.php';
 require_once '/home/inf2pj06/public_html/Models/userModel.php';
-require '/home/inf2pj06/public_html/Utils/DBConfig/Database.php';
-require '/home/inf2pj06/public_html/Utils/DBConfig/Config.php';
+require_once '/home/inf2pj06/public_html/Utils/DBConfig/Database.php';
+require_once '/home/inf2pj06/public_html/Utils/DBConfig/Config.php';
+
+use DBConfig\Database;
 
 class accountController
 {
