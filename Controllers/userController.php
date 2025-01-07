@@ -1,7 +1,7 @@
 <?php
-require_once 'Models/userModel.php';
-require 'Utils/DBConfig/Database.php';
-require 'Utils/DBConfig/Config.php';
+require_once '/home/inf2pj06/public_html/Models/userModel.php';
+require '/home/inf2pj06/public_html/Utils/DBConfig/Database.php';
+require '/home/inf2pj06/public_html/Utils/DBConfig/Config.php';
 
 class UserController {
     private UserModel $model;
@@ -12,6 +12,10 @@ class UserController {
 
     public function getUser($id){
         return $this->model->getUser($id);
+    }
+
+    public function getUserByEmail($email){
+        return $this->model->getUserByEmail($email);
     }
 }
 ?>

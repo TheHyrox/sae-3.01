@@ -16,7 +16,7 @@ class UserModel {
     }
 
     public function getUserByEmail($email) {
-        $req = $this->db->prepare('SELECT * FROM UTILISATEUR WHERE Email = :email');
+        $req = $this->db->prepare('SELECT * FROM UTILISATEUR WHERE Mail_User = :email');
         $req->execute(array('email' => $email));
         return $req->fetch();
     }

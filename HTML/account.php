@@ -1,3 +1,11 @@
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+require '../Controllers/userController.php';
+
+$controller = new userController();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,38 +29,38 @@
     <img src="Icons/arrow-right.png" alt="">
 </button>
 <main>
-    <?php var_dump($_SESSION) ?>
+    <?php $user = $controller->getUserByEmail('test@test.com')?>
     <div>
         <h2 id="info-perso">Mes informations personnelles</h2>
         <div>
             <div class="row">
                 <p>Nom : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Nom_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Prénom : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Prenom_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Adresse mail : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Mail_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Mot de passe : </p>
-                <h3>******</h3>
+                <h3>**********</h3>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Groupe TP : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Grp_TP_User'].'</h3>' ?>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Role : </p>
-                <h3>---</h3>
+                <?php echo '<h3>'.$user['Titre_User'].'</h3>' ?>
             </div>
         </div>
         <div class="events">
