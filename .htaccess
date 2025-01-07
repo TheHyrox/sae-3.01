@@ -23,5 +23,6 @@ RewriteRule ^newsletterAdmin$ HTML/newsletterAdmin.php [L]
 RewriteRule ^partenaire$ HTML/partenaire.php [L]
 RewriteRule ^membreBDE$ HTML/membreBDE.php [L]
 RewriteRule ^galerie$ HTML/galerie.php [L]
+RewriteRule ^register$ HTML/register.php [L]
 
 ErrorDocument 404 /HTML/404.html
