@@ -21,6 +21,7 @@
     <img src="Icons/arrow-right.png" alt="">
 </button>
 <main>
+    <?php var_dump($_SESSION) ?>
     <div>
         <h2 id="info-perso">Mes informations personnelles</h2>
         <div>
