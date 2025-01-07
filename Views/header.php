@@ -19,9 +19,9 @@ $linearAdmin = $_SESSION['linearAdmin'] ?? 'linear-gradient(90deg, rgba(217, 125
     <div id="linksContainer">
         <?php
         if ($isAdminView) {
-            include '../Views/headerLinksAdminView.php';
+            include __DIR__ . '/headerLinksAdminView.php';
         } else {
-            include '../Views/headerLinksView.php';
+            include __DIR__ . '/headerLinksView.php';
         }
         ?>
     </div>
