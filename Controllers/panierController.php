@@ -9,7 +9,7 @@ class panierController
     {
         $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
         foreach ($cart as $index => $cartItem) { 
-            if ($cartItem['id'] === $item['id']) { 
+            if ($cartItem['name'] === $item['name']) { 
                 $this->updateQuantity($index, $cartItem['quantity']+1);
                 return; 
             }
@@ -39,12 +39,14 @@ class panierController
     {
         $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
         if (isset($cart[$index])) {
-            if ($quantity > 0){
-                $cart[$index]['quantity'] = $quantity;
-            }
-            else{
-                $this->removeFromCart($index);
-                return;
+            if($cart[$index]['modifiable'] === true){
+                if ($quantity > 0){
+                    $cart[$index]['quantity'] = $quantity;
+                }
+                else{
+                    $this->removeFromCart($index);
+                    return;
+                }
             }
             setcookie('cart', json_encode($cart), time() + (86400 * 30), "/", "", false, true);
         }

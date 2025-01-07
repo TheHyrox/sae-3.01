@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
     $item = [
         'name' => $_POST['name'],
         'price' => $_POST['price'],
-        'quantity' => $_POST['quantity']
+        'quantity' => $_POST['quantity'],
+        'modifiable' => filter_var($_POST['modifiable'], FILTER_VALIDATE_BOOLEAN)
     ];
     $panierController->addToCart($item);
     header("Location: " . $_SERVER['REQUEST_URI']);
@@ -60,17 +61,21 @@ $cart = $panierController->getCart();
                     <td><?= htmlspecialchars($item['name']) ?></td>
                     <td><?= htmlspecialchars($item['price']) ?>€</td>
                     <td>
-                        <form method="post" style="display: inline;">
-                            <input type="hidden" name="index" value="<?= $index ?>">
-                            <input type="hidden" name="quantity" value="<?= $item['quantity'] - 1 ?>">
-                            <button type="submit" name="update_quantity">-</button>
-                        </form>
+                        <?php if($item['modifiable'] == true): ?>
+                            <form method="post" style="display: inline;">
+                                <input type="hidden" name="index" value="<?= $index ?>">
+                                <input type="hidden" name="quantity" value="<?= $item['quantity'] - 1 ?>">
+                                <button type="submit" name="update_quantity">-</button>
+                            </form>
+                        <?php endif ?>
                         <?= htmlspecialchars($item['quantity']) ?>
-                        <form method="post" style="display: inline;">
-                            <input type="hidden" name="index" value="<?= $index ?>">
-                            <input type="hidden" name="quantity" value="<?= $item['quantity'] + 1 ?>">
-                            <button type="submit" name="update_quantity">+</button>
-                        </form>
+                        <?php if($item['modifiable'] == true): ?>
+                            <form method="post" style="display: inline;">
+                                <input type="hidden" name="index" value="<?= $index ?>">
+                                <input type="hidden" name="quantity" value="<?= $item['quantity'] + 1 ?>">
+                                <button type="submit" name="update_quantity">+</button>
+                            </form>
+                        <?php endif ?>
                     </td>
                     <td>
                         <form action="" method="post">

@@ -24,6 +24,7 @@ if ($isAdminView) {
         <input type='hidden' name='name' value='" . htmlspecialchars($row['Nom_Produit']) . "'>
         <input type='hidden' name='price' value='" . htmlspecialchars($row['Prix_Produit']) . "'>
         <input type='hidden' name='quantity' value='1'>
+        <input type='hidden' name='modifiable' value='true'>
         <input type='submit' name='add_to_cart' value='Acheter'>
     </form>";
 }
