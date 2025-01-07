@@ -8,9 +8,16 @@ class panierController
     public function addToCart($item): void
     {
         $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
+        foreach ($cart as $index => $cartItem) { 
+            if ($cartItem['id'] === $item['id']) { 
+                $this->updateQuantity($index, $cartItem['quantity']+1);
+                return; 
+            }
+        }
         $cart[] = $item;
-        setcookie('cart', json_encode($cart), time() + (86400 * 30), "/", "", false, true); // 30 days expiration, httponly
+        setcookie('cart', json_encode($cart), time() + (86400 * 30), "/", "", false, true);
     }
+    
 
     public function getCart()
     {
@@ -24,6 +31,7 @@ class panierController
             unset($cart[$index]);
             $cart = array_values($cart); // Reindex the array
             setcookie('cart', json_encode($cart), time() + (86400 * 30), "/", "", false, true);
+            
         }
     }
 
@@ -35,7 +43,8 @@ class panierController
                 $cart[$index]['quantity'] = $quantity;
             }
             else{
-                removeFromCart($index);
+                $this->removeFromCart($index);
+                return;
             }
             setcookie('cart', json_encode($cart), time() + (86400 * 30), "/", "", false, true);
         }
