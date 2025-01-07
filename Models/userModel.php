@@ -1,6 +1,6 @@
 <?php
 
-use DBConfig\Database;
+require_once '../Utils/DBConfig/Database.php';
 
 class UserModel {
     private PDO $db;
@@ -19,6 +19,12 @@ class UserModel {
         $req = $this->db->prepare('SELECT * FROM UTILISATEUR WHERE Mail_User = :email');
         $req->execute(array('email' => $email));
         return $req->fetch();
+    }
+
+    public function getUserIdByEmail($email) {
+        $req = $this->db->prepare('SELECT Id_User FROM UTILISATEUR WHERE Mail_User = :email');
+        $req->execute(array('email' => $email));
+        return $req->fetchColumn();
     }
 
     public function addUser($email, $motdepasse, $grp_tp_user): void {

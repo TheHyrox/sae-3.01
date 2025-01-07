@@ -1,6 +1,6 @@
 <?php
-require_once 'Utils/DBConfig/Config.php';
-require_once 'Utils/DBConfig/Database.php';
+require_once '../Utils/DBConfig/Config.php';
+require_once '../Utils/DBConfig/Database.php';
 
 use DBConfig\Database;
 

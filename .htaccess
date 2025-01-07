@@ -26,4 +26,4 @@ RewriteRule ^galerie$ HTML/galerie.php [L]
 RewriteRule ^register$ HTML/register.php [L]
 RewriteRule ^contact$ HTML/feelback.php [L]
 
-ErrorDocument 404 /HTML/404.html
+ErrorDocument 404 HTML/404.html

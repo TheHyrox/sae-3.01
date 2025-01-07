@@ -26,6 +26,7 @@ class loginController
                 if ($this->model->emailExists($email) && $this->model->passwordIsValid($email, $password)) {
                     $_SESSION['email'] = $email;
                     $_SESSION['groupeTP'] = $this->model->getGrpTPUser($email);
+                    $_SESSION['Id_User'] = $this->model->getUserIdByEmail($email);
                     if($this->model->isAdmin($email)) {
                         $_SESSION['isAdmin'] = true;
                     }

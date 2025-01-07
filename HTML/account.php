@@ -1,10 +1,13 @@
 <?php
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
-require '../Controllers/userController.php';
 
-$controller = new userController();
+require '../Controllers/accountController.php';
+
+$accountController = new accountController();
+$userEvents = $accountController->getUserEvents($_SESSION['Id_User']);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,76 +32,54 @@ $controller = new userController();
     <img src="Icons/arrow-right.png" alt="">
 </button>
 <main>
-    <?php $user = $controller->getUserByEmail('test@test.com')?>
+    <?php var_dump($_SESSION) ?>
     <div>
         <h2 id="info-perso">Mes informations personnelles</h2>
         <div>
             <div class="row">
                 <p>Nom : </p>
-                <?php if(isset($_POST['setNom'])): ?>
-                    <form method="post">
-                        <input type="text" name="setNom" id="setNom" placeholder="Nom">
-                        <input type="submit" value="sauvegarder">
-                    </form>
-                <?php else: ?>
-                    <?php echo '<h3>'.$user['Nom_User'].'</h3>' ?>
-                    <form method="post">
-                        <button class="icon" type="submit" value="setNom"><img src="Icons/edit.png" alt=""></button>
-                    </form>
-                <?php endif ?>
+                <h3>---</h3>
+                <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Prénom : </p>
-                <?php echo '<h3>'.$user['Prenom_User'].'</h3>' ?>
+                <h3>---</h3>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Adresse mail : </p>
-                <?php echo '<h3>'.$user['Mail_User'].'</h3>' ?>
+                <h3>---</h3>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Mot de passe : </p>
-                <h3>**********</h3>
+                <h3>******</h3>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Groupe TP : </p>
-                <?php echo '<h3>'.$user['Grp_TP_User'].'</h3>' ?>
+                <h3>---</h3>
                 <button class="icon"><img src="Icons/edit.png" alt=""></button>
             </div>
             <div class="row">
                 <p>Role : </p>
-                <?php echo '<h3>'.$user['Titre_User'].'</h3>' ?>
+                <h3>---</h3>
             </div>
         </div>
         <div class="events">
             <h2 id="inscr">Mes inscriptions</h2>
             <div class="row">
-                <ul>
-                    <li>
+                <?php foreach ($userEvents as $event): ?>
+                    <article>
+                        <h2><?= htmlspecialchars($event['Nom_Event']) ?></h2>
+                        <img src="<?= htmlspecialchars($event['URL_Img_Event']) ?>" alt="">
+                        <p><?= htmlspecialchars($event['Desc_Event']) ?></p>
                         <form action="" method="post">
-                            <input type="hidden" name="id" value="1">
-                            <input type="submit" name="event"value="Event name">
+                            <input type="hidden" name="id" value="<?= $event['Id_Event'] ?>">
+                            <input type="submit" name="unsubscribe" value="Se désinscrire">
                         </form>
-                        <p>01/09/2024</p>
-                    </li>
-                    <li>
-                        <form action="" method="post">
-                            <input type="hidden" name="id" value="1">
-                            <input type="submit" name="event"value="Event name">
-                        </form>
-                        <p>01/09/2024</p>
-                    </li>
-                </ul>
-                <article>
-                    <h2>event</h2>
-                    <img src="../Pictures/soiree-jeux.webp" alt="">
-                    <p>descr</p>
-                    <form action="" method="post">
-                        <input type="submit" name="unsubscribe" value="Se déinscrire">
-                    </form>
-                </article>
+                    </article>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

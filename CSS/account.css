@@ -180,6 +180,10 @@ input{
         align-self: center;
         color: var(--white);
     }
+
+    .events .row{
+        flex-direction: column;
+    }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1099px) {
