@@ -60,13 +60,13 @@ $cart = $panierController->getCart();
                     <td><?= htmlspecialchars($item['name']) ?></td>
                     <td><?= htmlspecialchars($item['price']) ?>€</td>
                     <td>
-                        <form action="" method="post" style="display: inline;">
+                        <form method="post" style="display: inline;">
                             <input type="hidden" name="index" value="<?= $index ?>">
                             <input type="hidden" name="quantity" value="<?= $item['quantity'] - 1 ?>">
                             <button type="submit" name="update_quantity">-</button>
                         </form>
                         <?= htmlspecialchars($item['quantity']) ?>
-                        <form action="" method="post" style="display: inline;">
+                        <form method="post" style="display: inline;">
                             <input type="hidden" name="index" value="<?= $index ?>">
                             <input type="hidden" name="quantity" value="<?= $item['quantity'] + 1 ?>">
                             <button type="submit" name="update_quantity">+</button>
