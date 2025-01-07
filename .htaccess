@@ -24,5 +24,6 @@ RewriteRule ^partenaire$ HTML/partenaire.php [L]
 RewriteRule ^membreBDE$ HTML/membreBDE.php [L]
 RewriteRule ^galerie$ HTML/galerie.php [L]
 RewriteRule ^register$ HTML/register.php [L]
+RewriteRule ^contact$ HTML/feelback.php [L]
 
 ErrorDocument 404 /HTML/404.html
