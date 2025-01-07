@@ -60,7 +60,7 @@
                 <img src="Icons/mail.png" alt="" />
                 <p>adiil@univ-lemans.fr</p>
             </div>
-            <form action="" method="post">
+            <form action="contact" method="post">
                 <input type="submit" value="Faire un feelback" />
             </form>
         </div>

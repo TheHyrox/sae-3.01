@@ -15,7 +15,7 @@ html, body{
     margin: 0;
     background-color: var(--secondary);
 }
-h1, h2, h3, p, a, li, span{
+h1, h2, h3, p, a, li, span, label{
     margin: 0;
     font-family: Josefin Sans;
 }
@@ -2700,5 +2700,22 @@ article.member-info button[type="submit"] img{
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: auto; /* Adjust width as needed */
+}
+
+/* contact */
+.contact{
+    color: var(--white);
+}
+.contact button{
+    background: var(--linearClassic);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    height: 100%;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 20px;   
 }
 

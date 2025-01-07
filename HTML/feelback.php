@@ -1,53 +1,17 @@
-<?php
-require 'Controllers/panierController.php';
-$panierController = new panierController();
-
-// Handle adding an item to the cart
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
-    $item = [
-        'name' => $_POST['name'],
-        'price' => $_POST['price'],
-        'quantity' => $_POST['quantity'],
-        'modifiable' => filter_var($_POST['modifiable'], FILTER_VALIDATE_BOOLEAN)
-    ];
-    $panierController->addToCart($item);
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit();
-}
-
-// Handle updating the quantity
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_quantity'])) {
-    $index = $_POST['index'];
-    $quantity = $_POST['quantity'];
-    $panierController->updateQuantity($index, $quantity);
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit();
-}
-
-// Handle removing an item from the cart
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
-    $index = $_POST['index'];
-    $panierController->removeFromCart($index);
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit();
-}
-
-$cart = $panierController->getCart();
-?>
-
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans|Anton">
     <title>ADIIL - Panier</title>
 </head>
 <body>
 <?php include 'Views/header.php'; ?>
 <main>
-    <article>
+    <article class="contact">
         <h1>Nous contacter</h1>
         <form id="emailForm">
             <label for="topic">Objet :</label><br>

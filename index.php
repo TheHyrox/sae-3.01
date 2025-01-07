@@ -28,6 +28,7 @@ $routes = [
     '/partenaire' => 'HTML/partenaire.php',
     '/membreBDE' => 'HTML/membreBDE.php',
     '/galerie' => 'HTML/galerie.php',
+    '/contact' => 'HTML/feelback.php',
     '/404' => 'HTML/404.html'
 ];
 
