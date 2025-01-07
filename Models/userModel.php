@@ -54,5 +54,30 @@ class UserModel {
         $stmt->execute();
         return $stmt->fetchColumn();
     }
+
+    public function setNom($id,$nom): void {
+        $req = $this->db->prepare('UPDATE UTILISATEUR SET Nom_User = :nom WHERE Id_User = :id');
+        $req->execute(array('id' => $id, 'nom' => $nom));
+    }
+
+    public function setPrenom($id,$prenom): void {
+        $req = $this->db->prepare('UPDATE UTILISATEUR SET Prenom_User = :prenom WHERE Id_User = :id');
+        $req->execute(array('id' => $id, 'prenom' => $prenom));
+    }
+
+    public function setMail($id,$mail): void {
+        $req = $this->db->prepare('UPDATE UTILISATEUR SET Mail_User = :mail WHERE Id_User = :id');
+        $req->execute(array('id' => $id, 'mail' => $mail));
+    }
+
+    public function setTP($id,$tp): void {
+        $req = $this->db->prepare('UPDATE UTILISATEUR SET Grp_TP_User = :tp WHERE Id_User = :id');
+        $req->execute(array('id' => $id, 'tp' => $tp));
+    }
+
+    public function setMdp($id,$mdp): void {
+        $req = $this->db->prepare('UPDATE UTILISATEUR SET Mdp_User = :mdp WHERE Id_User = :id');
+        $req->execute(array('id' => $id, 'mdp' => password_hash($mdp, PASSWORD_DEFAULT)));
+    }
 }
 ?>

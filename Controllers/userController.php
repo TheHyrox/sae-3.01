@@ -17,5 +17,21 @@ class UserController {
     public function getUserByEmail($email){
         return $this->model->getUserByEmail($email);
     }
+
+    public function setNom($nom){
+        return $this->model->setNom($nom);
+    }
+    public function setPrenom($prenom){
+        return $this->model->setPrenom($prenom);
+    }
+    public function setMail($mail){
+        return $this->model->setMail($mail);
+    }
+    public function setTP($tp){
+        return $this->model->setTP($tp);
+    }
+    public function setMdp($mdp){
+        return $this->model->setMdp($mdp);
+    }
 }
 ?>
