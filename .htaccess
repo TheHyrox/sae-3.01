@@ -1,0 +1,26 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^$ HTML/accueil.php [L]
+RewriteRule ^index$ HTML/accueil.php [L]
+RewriteRule ^event$ HTML/event.php [L]
+RewriteRule ^shop$ HTML/shop.php [L]
+RewriteRule ^agenda$ HTML/agenda.php [L]
+RewriteRule ^newsletter$ HTML/newsletter.php [L]
+RewriteRule ^checkout$ HTML/checkout.php [L]
+RewriteRule ^account$ HTML/account.php [L]
+RewriteRule ^login$ HTML/login.php [L]
+RewriteRule ^adminAccount$ HTML/adminAccount.php [L]
+RewriteRule ^adminLogin$ HTML/adminLogin.php [L]
+RewriteRule ^activity$ HTML/activity.php [L]
+RewriteRule ^membersList$ HTML/membersList.php [L]
+RewriteRule ^file$ HTML/file.php [L]
+RewriteRule ^gestion$ HTML/gestion.php [L]
+RewriteRule ^newsletterAdmin$ HTML/newsletterAdmin.php [L]
+RewriteRule ^partenaire$ HTML/partenaire.php [L]
+RewriteRule ^membreBDE$ HTML/membreBDE.php [L]
+RewriteRule ^galerie$ HTML/galerie.php [L]
+
+ErrorDocument 404 /HTML/404.html
