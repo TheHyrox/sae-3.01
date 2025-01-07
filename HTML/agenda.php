@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include 'Utils/DBConfig/Database.php';
+include '../Utils/DBConfig/Database.php';
 
 $groupTP = $_SESSION['groupeTP'] ?? null;
 ?>
@@ -18,14 +18,14 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
 
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.4.0/ical.min.js'></script>
-    <script src="../Script/agenda.js"></script>
+    <script src="Script/agenda.js"></script>
 
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton">
 
 </head>
 <body>
-    <?php include 'Views/header.php'; ?>
+    <?php include '../Views/header.php'; ?>
     <main>
         <h1 id="agenda-titre">Agenda</h1>
 
@@ -60,7 +60,7 @@ $groupTP = $_SESSION['groupeTP'] ?? null;
 
 
     </main>
-    <?php include 'Views/footer.php'; ?>
+    <?php include '../Views/footer.php'; ?>
     
 </body>
 </html>

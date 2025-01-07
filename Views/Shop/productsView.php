@@ -3,7 +3,7 @@ $isAdminView = isset($_SESSION['isAdminView']) && $_SESSION['isAdminView'] === t
 
 echo "<article>
     <h2>" . htmlspecialchars($row['Nom_Produit']) . "</h2>
-    <div class='imgBackground'><img src='../../Pictures/Uploads/" . htmlspecialchars($row['URL_Img_Produit']) . "' alt=''></div>
+    <div class='imgBackground'><img src='Pictures/Uploads/" . htmlspecialchars($row['URL_Img_Produit']) . "' alt=''></div>
     <p>" . htmlspecialchars($row['Desc_Produit']) . "</p>
     <div class='row'>";
 

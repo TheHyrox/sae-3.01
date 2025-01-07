@@ -2,8 +2,8 @@
 if(!isset($_SESSION)) {
     session_start();
 }
-require 'Controllers/productController.php';
-require 'Models/userModel.php';
+require '../Controllers/productController.php';
+require '../Models/userModel.php';
 
 $controller = new productController();
 $userModel = new UserModel();
@@ -19,13 +19,13 @@ $userModel = new UserModel();
     <title>ADIIL - Boutique</title>
 </head>
 <body>
-<?php include 'Views/header.php'; ?>
+<?php include '../Views/header.php'; ?>
 <main>
     <?php
     $grades = $controller->getGrades();
     if ($grades) {
         echo "<div><h2>Les grades</h2><div class='grades'>";
-        include 'Views/Shop/gradesView.php';
+        include '../Views/Shop/gradesView.php';
         echo "</div></div>";
     }
 
@@ -35,14 +35,14 @@ $userModel = new UserModel();
         $products = $controller->getProductsByCategory($categorie);
         if ($products) {
             foreach ($products as $row) {
-                include 'Views/Shop/productsView.php';
+                include '../Views/Shop/productsView.php';
             }
         }
         echo "</div></div>";
     }
     ?>
 </main>
-<?php include 'Views/footer.php'; ?>
-<script src="../Script/script.js"></script>
+<?php include '../Views/footer.php'; ?>
+<script src="Script/script.js"></script>
 </body>
 </html>

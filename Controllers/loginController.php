@@ -1,7 +1,7 @@
 <?php
-require 'Models/userModel.php';
-require 'Utils/DBConfig/Database.php';
-require 'Utils/DBConfig/Config.php';
+require '../Models/userModel.php';
+require '../Utils/DBConfig/Database.php';
+require '../Utils/DBConfig/Config.php';
 if(!isset($_SESSION)){
     session_start();
 }
@@ -30,7 +30,7 @@ class loginController
                         $_SESSION['isAdmin'] = true;
                     }
                     $this->errorMessage = 'Connection réussie';
-                    header('Location: /');
+                    header('Location: accueil');
                     exit(); // Ensure no further code is executed
                 } else {
                     $this->errorMessage = 'E-mail ou mot de passe incorrect';

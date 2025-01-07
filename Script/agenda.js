@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadEvents(group) {
-        const urlIcal = `../Script/proxy.php?url=${encodeURIComponent(getDownloadLink(group))}`;
+        const urlIcal = `Script/proxy.php?url=${encodeURIComponent(getDownloadLink(group))}`;
         fetch(urlIcal)
             .then(response => response.text())
             .then(data => {

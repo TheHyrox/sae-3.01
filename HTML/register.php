@@ -1,5 +1,5 @@
 <?php
-require 'Controllers/registerController.php';
+require '../Controllers/registerController.php';
 $controller = new registerController();
 $controller->registerRequest();
 ?>
@@ -13,11 +13,11 @@ $controller->registerRequest();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Sans|Anton" />
 </head>
 <body>
-<?php include 'Views/header.php'; ?>
+<?php include '../Views/header.php'; ?>
 <main>
     <div class="login-register">
         <div>
-            <form class="form-login" action="./register.php" method="POST" name="registerUser">
+            <form class="form-login" action="register" method="POST" name="registerUser">
                 <h2>Connexion</h2>
                 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $controller->errorMessage): ?>
                     <p class="error-message"><?php echo $controller->errorMessage; ?></p>
@@ -40,7 +40,7 @@ $controller->registerRequest();
                 </select>
                 <input type="submit" name="registerUser" value="S'inscrire">
             </form>
-            <form action="login.php" class="form-other">
+            <form action="login" class="form-other">
                 <input type="submit" value="Se connecter">
             </form>
         </div>

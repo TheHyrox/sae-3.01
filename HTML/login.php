@@ -1,7 +1,5 @@
 <?php
 
-use Controllers\loginController;
-
 require '../Controllers/loginController.php';
 $controller = new loginController();
 $controller->loginRequest();
@@ -34,7 +32,7 @@ if(isset($_SESSION['email'])){
                 <input type="password" id="password" name="password" required>
                 <input type="submit" name="loginUser" value="Se connecter">
             </form>
-            <form action="./register.php" class="form-other">
+            <form action="register" class="form-other">
                 <input type="submit" value="S'inscrire">
             </form>
         </div>

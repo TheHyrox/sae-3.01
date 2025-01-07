@@ -11,7 +11,8 @@
     <title>ADIIL - Accueil</title>
   </head>
   <body>
-  <?php include '../Views/header.php'; ?>
+  <?php
+  include __DIR__ . '/../Views/header.php'; ?>
     <main>
       <!-- show only if there is a special event and take the next one -->
       <div id="annonce">
@@ -93,7 +94,7 @@
         </form>
       </article>
     </main>
-    <?php include 'Views/footer.php'; ?>
+    <?php include '../Views/footer.php'; ?>
     <script src="Script/script.js"></script>
   </body>
 </html>

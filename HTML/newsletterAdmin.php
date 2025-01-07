@@ -1,5 +1,5 @@
 <?php
-require 'Controllers/newsletterController.php';
+require '../Controllers/newsletterController.php';
 
 $controller = new newsletterController();
 $newsletters = $controller->getNewsletters();
@@ -15,7 +15,7 @@ $newsletters = $controller->getNewsletters();
 </head>
 <body>
 
-<?php include 'Views/header.php'; ?>
+<?php include '../Views/header.php'; ?>
 
 <main>
     <form id="news-add" action='' method='post'>    
@@ -58,7 +58,7 @@ $newsletters = $controller->getNewsletters();
 
 </main>
 
-<?php include 'Views/footer.php'; ?>
-<script src="../Script/Gestion/addNews.js"></script>
+<?php include '../Views/footer.php'; ?>
+<script src="Script/Gestion/addNews.js"></script>
 </body>
 </html>
